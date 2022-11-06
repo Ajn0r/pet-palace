@@ -1,0 +1,8 @@
+.Button {
+    background-color: #F58A07;
+    border: none;
+}
+.Button:hover {
+    background-color: #F24405;
+    transition: color ease-in-out 0.2s;;
+}

@@ -13,9 +13,9 @@ const NavBar = () => {
         <NavLink to="/">
         <Navbar.Brand 
           href="#home">
-          <img src={logo} alt="logo" height="75"/>
+          <img src={logo} alt="logo" height="70"/>
           </Navbar.Brand></NavLink>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="text-left ml-auto">
             <NavLink

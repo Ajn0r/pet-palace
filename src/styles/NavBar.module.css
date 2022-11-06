@@ -1,7 +1,16 @@
 .NavBar {
-    color: #031059 !important;
+    background-color: #F8F8F8;
+    border: 1px solid #E4E4E4;
+}
+.NavLink {
+    padding: 0.4rem;
     font-weight: 600;
 }
+
+.Active, .Active i  {
+    color: #F24405;
+}
+
 /*
 .orangebtn {
     background-color: #2C3D73;

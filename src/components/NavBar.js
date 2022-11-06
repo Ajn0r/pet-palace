@@ -17,8 +17,8 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="text-left ml-auto">
             <Nav.Link><i className='fas fa-home'></i>Home</Nav.Link>
-            <Nav.Link className={styles.oval}><i className='fas fa-sign-in-alt'></i>Sign in</Nav.Link>
-            <Nav.Link className={styles.oval}><i className='fas fa-user-plus'></i>Sign up</Nav.Link>
+            <Nav.Link><i className='fas fa-sign-in-alt'></i>Sign in</Nav.Link>
+            <Nav.Link><i className='fas fa-user-plus'></i>Sign up</Nav.Link>
           </Nav>
         </Navbar.Collapse>
     </Container>

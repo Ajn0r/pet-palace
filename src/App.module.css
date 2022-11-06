@@ -1,4 +1,24 @@
 .App {
     min-height: 100vh;
-    background-color: #f8f8f8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+i {
+    color: #2C3D73;
+    margin-right: 0.3rem;
+    font-size: 2rem;
+    vertical-align: middle;
+}
+
+i:hover {
+    cursor: pointer;
+    color: #F24405;
+    transition: color ease-in-out 0.2s;
+}
+
+a {
+    color: #2C3D73;
 }

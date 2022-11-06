@@ -1,5 +1,22 @@
-.oval {
-    background-color: #e4c94e;
+.NavBar {
+    color: #031059 !important;
+    font-weight: 600;
+}
+/*
+.orangebtn {
+    background-color: #2C3D73;
     border-radius: 20px;
     margin: 2px;
+    align-items: center;
+    color: #F2F2F2 !important;
 }
+.orangebtn > i {
+    color: #F2F2F2 !important;
+    font-size: 1.5rem ;
+    margin-right: 0.4rem;
+}
+.orangebtn:hover {
+    background-color: #F24405;
+    transition: ease-in-out 0.2s;
+}
+*/

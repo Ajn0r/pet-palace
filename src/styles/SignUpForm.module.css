@@ -1,4 +1,14 @@
 .Row {
     height: calc(100vh - 7rem);
-    color: #F24405;
   }
+
+.Container {
+  color: #2C3D73;
+  background-color: #F8F8F8;
+  border: 1px solid #E4E4E4;
+  border-radius: 5px;
+  padding: 2rem;
+}
+.Link span {
+  color: #F24405;
+}

@@ -13,9 +13,10 @@ const SignUpForm = () => {
     <Row className={styles.Row}>
       <Col sm={12} md={6}
         className={'my-auto p-3'}>
-        <Container>
+        <Container
+          className={`shadow ${styles.Container}`}>
           <h1 className='text-center'>Sign Up</h1>
-          <hr className='w-50'/>
+          <hr className={appStyles.hr}/>
           <Form>
             <Form.Group
               className="mb-3 mt-3"
@@ -47,14 +48,14 @@ const SignUpForm = () => {
             </Form.Group>
             <Button
               type="submit"
-              className={btnStyles.Button}>
+              className={`${btnStyles.Button}`}>
               Sign up
             </Button>
           </Form>
         </Container>
         <Container
           className='mt-3'>
-          <Link
+          <Link className={styles.Link}
             to="/signin">
               Already have an account? <span>Sign in</span>
           </Link>

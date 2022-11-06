@@ -1,8 +1,20 @@
 .Button {
-    background-color: #F58A07;
-    border: none;
+    background-color: #F24405;
+    border-color: transparent;
 }
 .Button:hover {
-    background-color: #F24405;
+    background-color: #F58A07;
+    border-color: transparent;
     transition: color ease-in-out 0.2s;;
 }
+.Button:hover:active {
+    background-color: #F58A07 !important;
+  }
+  
+  .Button:active {
+    background-color: #F24405 !important;
+  }
+  
+  .Button:focus {
+    background-color: #F24405;
+  }

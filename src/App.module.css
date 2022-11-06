@@ -11,6 +11,11 @@
     box-sizing: border-box;
 }
 
+hr {
+    border: 2px solid #F24405;
+    width: 3rem;
+}
+
 i {
     color: #2C3D73;
     margin-right: 0.3rem;

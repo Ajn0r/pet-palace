@@ -93,7 +93,7 @@ const SideBar = () => {
   );
 
   return (
-    <div className='SideBar'>
+    <div className='SideBar' >
       {currentUser ? loggedInUserSidebar : null}
     </div>
   )

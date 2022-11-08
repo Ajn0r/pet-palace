@@ -2,12 +2,15 @@
     background-color: #F8F8F8;
     border: 1px solid #E4E4E4;
 }
-.Logo > img {
+
+.BigLogo, .SmLogo {
     max-height: 70px;
     max-width: 100%;
 }
 
 .NavLink {
+    display: flex;
+    align-items: center;
     padding: 0.4rem;
     font-weight: 600;
 }

@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
 import axios from 'axios';
 import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
+import Avatar from './Avatar';
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -32,7 +33,16 @@ const NavBar = () => {
         >
         <i className='fas fa-sign-out-alt'></i>Sign out
       </NavLink>
-      {currentUser?.username}
+      <NavLink
+        className={styles.NavLink}
+        to={`/profiles/${currentUser?.profile_id}`}>
+          <Avatar
+            src={currentUser?.profile_image}
+            text={currentUser?.username}
+            height={40}
+        />
+
+      </NavLink>
     </>
   );
   const loggedOutIcons = (
@@ -79,7 +89,7 @@ const NavBar = () => {
         </NavDropdown.Item>
       </NavDropdown>
     </>
-  )
+  );
 
   return (
     <Navbar
@@ -119,9 +129,9 @@ const NavBar = () => {
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
-    </Container>
-</Navbar>
-  )
-}
+      </Container>
+    </Navbar>
+  );
+};
 
 export default NavBar;

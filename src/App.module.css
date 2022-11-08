@@ -42,8 +42,8 @@ a:hover, a:hover i {
 .FillerImage {
     width: 100%;
     object-fit: contain;
-
 }
+
 @media only screen and (max-width: 526px) and (min-width: 370px) {
     .Main {
         padding-top: 150px;

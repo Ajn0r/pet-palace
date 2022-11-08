@@ -76,16 +76,21 @@ const NavBar = () => {
         className={`${styles.NewBtn} ml-auto`}
       >
         <NavDropdown.Item
-          to="/posts"
           className={
             `${styles.NavLink} ${styles.DropDownItem}`}>
+          <NavLink
+            to="/posts/create">
               New post
+          </NavLink>
         </NavDropdown.Item>
+
         <NavDropdown.Item
-          to="/"
           className={
             `${styles.NavLink} ${styles.DropDownItem}`}>
+          <NavLink
+            to="/ads/create">
               New ad
+          </NavLink>
         </NavDropdown.Item>
       </NavDropdown>
     </>
@@ -101,7 +106,6 @@ const NavBar = () => {
         <NavLink to="/"
           className={styles.LogoLink}>
           <Navbar.Brand 
-            href="#home"
             className={styles.Logo}>
             <img src={logo} alt="logo"
               className={`${styles.BigLogo} d-none`} />

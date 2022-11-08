@@ -1,6 +1,9 @@
 .Button {
     background-color: #F24405;
     border-color: transparent;
+    border-radius: 20px;
+    margin: 2px;
+    color: #F8F8F8 !important;
 }
 .Button:hover {
     background-color: #F58A07;

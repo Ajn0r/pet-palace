@@ -1,0 +1,7 @@
+.Container {
+    min-height: 30rem;
+    background-color: #F8F8F8;
+}
+.UploadImg >  {
+    object-fit: cover;
+}

@@ -38,11 +38,20 @@ a:hover, a:hover i {
     color: #F24405;
     transition: color ease-in-out 0.2s;
 }
+.Image {
+    max-height: 60vh;
+    max-width: 100%;
+    object-fit: contain;
+}
 
 .FillerImage {
     width: 100%;
     object-fit: contain;
 }
+figure {
+    text-align: center;
+    display: inline-block;
+  }
 
 @media only screen and (max-width: 526px) and (min-width: 370px) {
     .Main {

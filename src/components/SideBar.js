@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 import { useCurrentUser } from '../contexts/CurrentUserContext';
 import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
-import styles from '../styles/SideBar.module.css'
+import '../styles/Sidebar.css'
 
 const SideBar = () => {
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
@@ -63,37 +63,37 @@ const SideBar = () => {
   ];
 
   const loggedInUserSidebar = (
-      <div 
-        className={styles.Sidebar}
-        ref={ref}
-        style={{width: expanded ? '10rem' : '3rem'}}
-      >
-        <div
-        className={styles.Top}
+    <div 
+      className={`${expanded ? 'Open' : 'Closed'}`}
+      ref={ref}
+    >
+      <div
+        className="Top"
         onClick={() => setExpanded(!expanded)}>
-          <i style={{display: !expanded ? 'block' : 'none'}}
-          className="fas fa-angle-double-right"></i>
-          <i style={{display: expanded ? 'block' : 'none'}}
-          className="fas fa-times"></i>
-        </div>
-        {
-          menuItem.map((item, index)=>(
-            <NavLink
-              exact
-              to={item.path}
-              key={index}
-              className="link"
-              activeClassName={styles.Active}>
-              <div className={styles.icon}>{item.icon}</div>
-              <div style={{display: expanded ? "block" : "none"}} className={styles.LinkText}>{item.name}</div>
-            </NavLink>
-          ))
-        }
+          {expanded ? (
+            <i className="fas fa-times"></i>
+          ) : (
+            <i className="fas fa-angle-double-right"></i>
+          )};
       </div>
+      {
+        menuItem.map((item, index)=>(
+          <NavLink
+            exact
+            to={item.path}
+            key={index}
+            className={`Link ${expanded ? 'Open' : 'Closed'}`}
+            activeClassName="Active">
+            <div className="Icon">{item.icon}</div>
+            <div className="LinkText">{item.name}</div>
+          </NavLink>
+        ))
+      };
+    </div>
   );
 
   return (
-    <div>
+    <div className='SideBar'>
       {currentUser ? loggedInUserSidebar : null}
     </div>
   )

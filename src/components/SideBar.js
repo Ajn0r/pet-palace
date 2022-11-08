@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 import { useCurrentUser } from '../contexts/CurrentUserContext';
 import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
-import '../styles/Sidebar.css'
+import '../styles/SideBar.css'
 
 const SideBar = () => {
   const { expanded, setExpanded, ref } = useClickOutsideToggle();

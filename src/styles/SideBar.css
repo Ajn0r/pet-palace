@@ -1,0 +1,61 @@
+.SideBar {
+    height: 100vh;
+    background-color: #2C3D73;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    padding-top: 7rem;
+}
+
+.Open {
+    width: 10rem;
+}
+
+.Open > .Link {
+    justify-content: flex-start;
+    padding-left: 0.8rem;
+}
+
+.Closed > .LinkText {
+    display: none;
+}
+
+.Closed {
+    width: 4rem;
+}
+
+.Top {
+    display: flex;
+    justify-content: center;
+}
+
+.Link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 15px;
+}
+
+.LinkText {
+    font-weight: 500;
+}
+
+.Link:hover .LinkText{
+    color: #F24405 !important;
+    transition: color ease-in-out 0.2s;
+    text-decoration: none;
+}
+.Icon i, .LinkText, .Top i {
+    color: #F2F2F2;
+}
+
+.Active i, .Active > *  {
+    color: #F58A07;
+}
+
+@media only screen and (max-width: 508px) and (min-width: 370px) {
+    .SideBar {
+        padding-top: 160px;
+    }
+}

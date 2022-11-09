@@ -35,7 +35,7 @@ const SideBar = () => {
       icon: <i className="fas fa-paw"></i>
     },
     {
-      path: '/likes',
+      path: '/liked',
       name: 'Likes',
       icon: <i className="far fa-heart"></i>
     },
@@ -74,7 +74,7 @@ const SideBar = () => {
             <i className="fas fa-times"></i>
           ) : (
             <i className="fas fa-angle-double-right"></i>
-          )};
+          )}
       </div>
       {
         menuItem.map((item, index)=>(
@@ -88,7 +88,7 @@ const SideBar = () => {
             <div className="LinkText">{item.name}</div>
           </NavLink>
         ))
-      };
+      }
     </div>
   );
 

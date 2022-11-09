@@ -1,23 +1,24 @@
 .Button {
     background-color: #F24405;
-    border-color: transparent;
+    border-color: #F24405;
     border-radius: 20px;
     margin: 2px;
     color: #F8F8F8 !important;
 }
 .Button:hover {
     background-color: #F58A07;
-    border-color: transparent;
+    border-color: #F58A07;
     transition: color ease-in-out 0.2s;;
 }
-.Button:hover:active {
-    background-color: #F58A07 !important;
-  }
   
   .Button:active {
     background-color: #F24405 !important;
+    border-color: #F24405 !important;
+    box-shadow: 0 0 0 0.2rem rgba(242, 68, 5, 0.5);
   }
-  
+
   .Button:focus {
     background-color: #F24405;
+    border-color: #F24405 !important;
+    box-shadow: 0 0 0 0.2rem rgba(242, 68, 5, 0.5);
   }

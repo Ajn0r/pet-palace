@@ -10,6 +10,8 @@ import Tooltip from 'react-bootstrap/Tooltip';
 
 import { Link } from 'react-router-dom';
 
+import { axiosRes } from '../../api/axiosDefaults';
+
 
 const Post = (props) => {
 
@@ -26,11 +28,42 @@ const Post = (props) => {
     comments_count,
     likes_count,
     like_id,
-    postPage
+    postPage,
+    setPost,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+
+  const handleLike = async () => {
+    try {
+      const { data } = await axiosRes.post("/likes/", { post: id });
+      setPost((prevPost) => ({
+        ...prevPost,
+        results: prevPost.results.map((post) => {
+          return post.id === id
+            ? { ...post, likes_count: post.likes_count + 1, like_id: data.id }
+            : post;
+        }),
+      }));
+    } catch (err) {
+    }
+  };
+
+  const handleUnlike = async () => {
+    try {
+      await axiosRes.delete(`/likes/${like_id}`);
+      setPost((prevPost) => ({
+        ...prevPost,
+        results: prevPost.results.map((post) => {
+          return post.id === id
+            ? { ...post, likes_count: post.likes_count - 1, like_id: null }
+            : post;
+        }),
+      }));
+    } catch (err) {
+    }
+  };
 
   return (
     <Card className={`shadow ${styles.Post} `}>
@@ -61,24 +94,24 @@ const Post = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           ) : like_id ? (
-            <span onClick={() => {}}>
-              <i className={`fas fa-heart ${styles.Heart}`} />
+            <span onClick={handleUnlike}>
+              <i className={`fas fa-heart mr-2 ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={() => {}}>
-              <i className={`far fa-heart ${styles.HeartOutline}`} />
+            <span onClick={handleLike}>
+              <i className="far fa-heart mr-2" />
             </span>
           ) : (
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>Log in to like posts</Tooltip>}
             >
-              <i className="far fa-heart" />
+              <i className="far fa-heart mr-2" />
             </OverlayTrigger>
           )}
           {likes_count}
           <Link to={`/posts/${id}`}>
-            <i className="far fa-comments" />
+            <i className="far fa-comments ml-4 mr-2" />
           </Link>
           {comments_count}
         </div>

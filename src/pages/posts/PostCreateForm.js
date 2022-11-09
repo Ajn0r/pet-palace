@@ -1,22 +1,40 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
-import { Form, Button, Row, Col, Container, Image } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Image from "react-bootstrap/Image";
+import Alert from "react-bootstrap/Alert";
+
+import Asset from '../../components/Asset';
 
 import UploadImg from "../../assets/uploadimage.png";
+
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import Asset from '../../components/Asset';
+
+import { axiosReq } from "../../api/axiosDefaults";
+import { useHistory } from "react-router";
+
 
 function PostCreateForm() {
+
   const [ errors, setErrors ] = useState({});
+
   const [ postData, setPostData ] = useState({
     title: '',
     content: '',
     category: '',
     image: '', 
   });
+
   const { title, content, category, image } = postData;
+ 
+  const imageInput = useRef(null);
+  const history = useHistory();
 
   const handleChange = (event) => {
     setPostData({
@@ -35,6 +53,26 @@ function PostCreateForm() {
     }
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+    formData.append('title', title);
+    formData.append('content', content);
+    formData.append('category', category);
+    formData.append('image', imageInput.current.files[0]);
+
+    try {
+      const { data } = await axiosReq.post('posts/', formData);
+      history.push(`/posts/${data.id}`);
+    }
+    catch (err) {
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
+    }
+  };
+
   const textFields = (
     <div className="text-center align-items-center">
       <Form.Group className="mb-3">
@@ -45,6 +83,11 @@ function PostCreateForm() {
           value={title}
           onChange={handleChange}/>
       </Form.Group>
+      {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
       <Form.Group className="mb-3">
         <Form.Label>Content</Form.Label>
@@ -55,21 +98,32 @@ function PostCreateForm() {
           value={content}
           onChange={handleChange}/>
       </Form.Group>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
-      <Form.Group >
+
+      <Form.Group className="mb-3">
         <Form.Label>Category</Form.Label>
         <Form.Control
           as="select"
           name="category"
           value={category}
           onChange={handleChange}>
-          <option>Default value, change later</option>
+          <option value="pets">Pets</option>
         </Form.Control>
       </Form.Group>
+      {errors?.category?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
       <Button
         className={`${btnStyles.Button}`}
-        onClick={() => {}}
+        onClick={() => history.goBack()}
       >
         Cancel
       </Button>
@@ -80,7 +134,9 @@ function PostCreateForm() {
   );
 
   return (
-    <Form className="ml-2">
+    <Form
+      onSubmit={handleSubmit}
+      className="ml-2">
       <Row>
         <Col className="py-2 pt-2 p-md-2" md={7} lg={8}>
           <Container
@@ -116,11 +172,16 @@ function PostCreateForm() {
                 accept="image/*"
                 className="d-none"
                 onChange={handleChangeImg}
+                ref={imageInput}
                 />
-
             </Form.Group>
-            <div className="d-md-none">{textFields}</div>
+            {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
 
+            <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
         <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">

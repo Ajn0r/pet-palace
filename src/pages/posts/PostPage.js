@@ -20,7 +20,6 @@ function PostPage() {
             axiosReq.get(`/posts/${id}`),
           ]);
           setPost({ results: [post] });
-          console.log(post)
 
         } catch(err) {
           console.log(err);
@@ -39,7 +38,7 @@ function PostPage() {
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        Profiles to follow here
+        Profiles to follow
       </Col>
     </Row>
   );

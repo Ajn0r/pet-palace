@@ -32,7 +32,7 @@ function PostPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Display something here</p>
-        <Post {...post.results[0]} setPost={setPost} postPage/>
+        <Post {...post.results[0]} setPosts={setPost} postPage/>
         <Container className={appStyles.Content}>
           Comments go here
         </Container>

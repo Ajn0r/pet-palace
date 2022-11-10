@@ -29,7 +29,7 @@ const Post = (props) => {
     likes_count,
     like_id,
     postPage,
-    setPost,
+    setPosts,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -38,9 +38,9 @@ const Post = (props) => {
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { post: id });
-      setPost((prevPost) => ({
-        ...prevPost,
-        results: prevPost.results.map((post) => {
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
           return post.id === id
             ? { ...post, likes_count: post.likes_count + 1, like_id: data.id }
             : post;
@@ -53,9 +53,9 @@ const Post = (props) => {
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}`);
-      setPost((prevPost) => ({
-        ...prevPost,
-        results: prevPost.results.map((post) => {
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
           return post.id === id
             ? { ...post, likes_count: post.likes_count - 1, like_id: null }
             : post;

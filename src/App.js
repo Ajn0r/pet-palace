@@ -34,13 +34,13 @@ function App() {
           <Route exact path="/posts" render={() => (
             <PostsPage
               message="Nothing to see here, try searching for something else or follow a cool cat!"
-              filter={`?owner__followed__owner__profile=${profile_id}&`}/>
+              filter={`owner__followed__owner__profile=${profile_id}&`}/>
             )}
           />
-          <Route exact path="/liked" render={() => (
+          <Route exact path="/liked/" render={() => (
             <PostsPage
               message="Nothing to see here, try searching for something else or like a post!"
-              filter={`?likes__owner__profile=${profile_id}`}/>
+              filter={`likes__owner__profile=${profile_id}`}/>
             )}
           />
           <Route render={() => <p>Page not found</p>} />

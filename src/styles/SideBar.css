@@ -8,6 +8,7 @@
     position: sticky;
     position: -webkit-sticky;
     top: 0;
+    margin-right: 1rem !important;
 }
 
 .Open {

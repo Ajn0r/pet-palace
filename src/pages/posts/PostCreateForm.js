@@ -18,7 +18,7 @@ import btnStyles from "../../styles/Button.module.css";
 
 import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router";
-
+import choices from '../../options/CategoryOption';
 
 function PostCreateForm() {
 
@@ -104,15 +104,20 @@ function PostCreateForm() {
         </Alert>
       ))}
 
-
       <Form.Group className="mb-3">
         <Form.Label>Category</Form.Label>
         <Form.Control
           as="select"
           name="category"
           value={category}
-          onChange={handleChange}>
-          <option value="pets">Pets</option>
+          onChange={handleChange}
+          >
+            {choices.map((choices) => {
+              return (
+                <option value={choices.value} key={choices.value}>{choices.display_name}</option>
+              )
+            })}
+          
         </Form.Control>
       </Form.Group>
       {errors?.category?.map((message, idx) => (

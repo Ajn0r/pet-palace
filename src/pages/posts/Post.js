@@ -8,9 +8,10 @@ import Media from 'react-bootstrap/Media';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { axiosRes } from '../../api/axiosDefaults';
+import { DropDownManage } from '../../components/DropDownManage';
 
 
 const Post = (props) => {
@@ -34,6 +35,20 @@ const Post = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const history = useHistory();
+
+  const handleEdit = () => {
+    history.push(`/posts/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/posts/${id}`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const handleLike = async () => {
     try {
@@ -67,7 +82,7 @@ const Post = (props) => {
 
   return (
     <Card className={`shadow ${styles.Post} `}>
-      <Card.Header>
+      <Card.Header className='p-1 p-sm-4'>
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} />
@@ -75,7 +90,10 @@ const Post = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && postPage && "..."}
+            {is_owner && postPage && (
+              <DropDownManage
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}/>)}
           </div>
         </Media>
       </Card.Header>

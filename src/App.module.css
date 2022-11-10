@@ -1,14 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Roboto&display=swap');
 .App {
     min-height: 100vh;
     background-color: #F2F2F2;
+    font-family: 'Roboto', sans-serif;
+}
+.App h1, h2, h3, h4, h5, h6 {
+    font-family: Caveat, sans-serif;
 }
 
 .Main {
     padding-top: 7rem;
+    padding-bottom: 2rem;
 }
 
 * {
     box-sizing: border-box;
+}
+
+.Text {
+    font-weight: 500;
+    font-size: 3.5rem;
+    color: #2C3D73;
 }
 
 hr {
@@ -19,7 +31,7 @@ hr {
 i {
     color: #2C3D73;
     margin-right: 0.3rem;
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     vertical-align: middle;
 }
 
@@ -48,11 +60,15 @@ a:hover, a:hover i {
     width: 100%;
     object-fit: contain;
 }
+
 figure {
     text-align: center;
     display: inline-block;
-  }
+}
 
+.UploadImg >  {
+    object-fit: cover;
+}
 @media only screen and (max-width: 526px) and (min-width: 370px) {
     .Main {
         padding-top: 150px;

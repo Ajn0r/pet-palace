@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -12,24 +12,34 @@ import Asset from '../../components/Asset';
 
 import UploadImg from "../../assets/uploadimage.png";
 
-import styles from "../../styles/PostCreateEditForm.module.css";
-import appStyles from "../../App.module.css";
+import styles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router";
-import choices from '../../options/CategoryOption';
 
 function PostCreateForm() {
 
   const [ errors, setErrors ] = useState({});
-
+  const [ categories, setCategories ] = useState([]);
   const [ postData, setPostData ] = useState({
     title: '',
     content: '',
     category: '',
     image: '', 
   });
+
+  /* Hook to get category option values from API using axios.options*/
+  useEffect(() => {
+    try {
+      axiosReq.options('/posts/').then((response) => {
+        setCategories(response.data.actions.POST.category.choices)
+        console.log(response)
+      });
+    } catch (err) {
+
+    }
+  }, []);
 
   const { title, content, category, image } = postData;
  
@@ -74,7 +84,9 @@ function PostCreateForm() {
   };
 
   const textFields = (
-    <div className="text-center align-items-center">
+    <div className="text-center align-items-center p-2 pr-lg-4 pt-lg-5">
+      <h1 className={`pt-2 ${styles.Text}`}>New post</h1>
+      <hr></hr>
       <Form.Group className="mb-3">
         <Form.Label>Title</Form.Label>
         <Form.Control 
@@ -112,9 +124,9 @@ function PostCreateForm() {
           value={category}
           onChange={handleChange}
           >
-            {choices.map((choices) => {
+            {categories.map(choice => {
               return (
-                <option value={choices.value} key={choices.value}>{choices.display_name}</option>
+                <option value={choice.value} key={choice.value}>{choice.display_name}</option>
               )
             })}
           
@@ -141,7 +153,7 @@ function PostCreateForm() {
   return (
     <Form
       onSubmit={handleSubmit}
-      className="ml-2">
+      className="ml-5 ml-md-3 mt-3 card shadow">
       <Row>
         <Col className="py-2 pt-2 p-md-2" md={7} lg={8}>
           <Container
@@ -151,7 +163,7 @@ function PostCreateForm() {
               {image ? (
                 <>
                   <figure>
-                    <Image className={appStyles.Image} src={image} rounded/>
+                    <Image className={styles.Image} src={image} rounded/>
                   </figure>
                   <div>
                     <Form.Label
@@ -190,7 +202,7 @@ function PostCreateForm() {
           </Container>
         </Col>
         <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>{textFields}</Container>
+          <Container className={styles.Content}>{textFields}</Container>
         </Col>
       </Row>
     </Form>

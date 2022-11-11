@@ -1,0 +1,15 @@
+.Username {
+    color: #2C3D73;
+    font-weight: 600;
+}
+
+.Timestamp {
+    font-size: 0.9rem;
+}
+
+.Hr {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #cccdce;
+    margin-top: 0;
+}

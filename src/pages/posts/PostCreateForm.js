@@ -93,7 +93,9 @@ function PostCreateForm() {
           type="text"
           name="title"
           value={title}
-          onChange={handleChange}/>
+          onChange={handleChange}
+          className="shadow"
+        />
       </Form.Group>
       {errors?.title?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
@@ -108,7 +110,9 @@ function PostCreateForm() {
           rows={4}
           name="content"
           value={content}
-          onChange={handleChange}/>
+          onChange={handleChange}
+          className="shadow"
+        />
       </Form.Group>
       {errors?.content?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
@@ -123,13 +127,13 @@ function PostCreateForm() {
           name="category"
           value={category}
           onChange={handleChange}
-          >
-            {categories.map(choice => {
-              return (
-                <option value={choice.value} key={choice.value}>{choice.display_name}</option>
-              )
-            })}
-          
+          className="shadow"
+        >
+          {categories.map(choice => {
+            return (
+              <option value={choice.value} key={choice.value}>{choice.display_name}</option>
+            )
+          })}
         </Form.Control>
       </Form.Group>
       {errors?.category?.map((message, idx) => (

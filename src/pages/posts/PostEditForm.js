@@ -142,7 +142,7 @@ function PostEditForm() {
           onChange={handleChange}
           className="shadow"
         >
-          {categories.map(choice => {
+          {categories?.map(choice => {
             return (
               <option value={choice.value} key={choice.value}>{choice.display_name}</option>
             )

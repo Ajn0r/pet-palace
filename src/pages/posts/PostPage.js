@@ -4,13 +4,15 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 
 import Post from "./Post";
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Comment from "../comments/Comment";
+
+import styles from '../../App.module.css'
 
 function PostPage() {
   const { id } = useParams();
@@ -55,12 +57,24 @@ function PostPage() {
           ) : null}
           {comments.results.length ? (
             comments.results.map(comment => (
-              <Comment key={comment.id} {...comment} />
+              <Comment
+                key={comment.id}
+                {...comment}
+                setPost={setPost}
+                setComments={setComments}/>
             ))
           ) : currentUser ? (
-            <span>No comments, please leave one</span>
+            <span
+              className={styles.SpanText}>
+                No comments yet, this is your opportunity to be the first to leave a comment, huuurry!
+            </span>
           ) : (
-            <span>No comments, log in or sign up to be the first to comment</span>
+            <span
+              className={styles.SpanText}>
+                No comments yet, <Link
+                  to={'/signin'} className={styles.OrangeText}>sign in</Link> or <Link
+                  to={'/signup'} className={styles.OrangeText}>sign up</Link> to be the first to comment!
+            </span>
           )}
         </Container>
       </Col>

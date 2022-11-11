@@ -4,6 +4,7 @@
     border-radius: 20px;
     margin: 2px;
     color: #F8F8F8 !important;
+    min-width: 6rem;
 }
 .Button:hover {
     background-color: #F58A07;

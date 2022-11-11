@@ -6,6 +6,7 @@
 }
 .App h1, h2, h3, h4, h5, h6 {
     font-family: Caveat, sans-serif;
+    color: #2C3D73;
 }
 
 .Main {
@@ -17,10 +18,10 @@
     box-sizing: border-box;
 }
 
+
 .Text {
     font-weight: 500;
     font-size: 3.5rem;
-    color: #2C3D73;
 }
 
 hr {

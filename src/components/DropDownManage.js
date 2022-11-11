@@ -20,18 +20,18 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
         <Dropdown.Toggle as={ThreeDots} />
   
         <Dropdown.Menu
-          className="text-center mx-auto"
+          className="text-center mx-auto justify-content-between d-flex"
           popperConfig={{ strategy: "fixed" }}
         >
           <Dropdown.Item
-            className={`d-inline p-1 p-md-2 `}
+            className={`d-inline`}
             onClick={handleEdit}
             aria-label="edit"
           >
             <i className="fas fa-edit" />
           </Dropdown.Item>
           <Dropdown.Item
-            className={`d-inline p-1 p-md-2 `}
+            className={`d-inline `}
             onClick={handleDelete}
             aria-label="delete"
           >

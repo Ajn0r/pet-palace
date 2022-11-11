@@ -1,6 +1,6 @@
 .Button {
     background-color: #F24405;
-    border-color: #F24405;
+    border: none;
     border-radius: 20px;
     margin: 2px;
     color: #F8F8F8 !important;

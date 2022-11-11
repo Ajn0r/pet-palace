@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Roboto&display=swap');
+
+/*------------- Main App default styles*/
+
 .App {
     min-height: 100vh;
     background-color: #F2F2F2;
     font-family: 'Roboto', sans-serif;
-}
-.App h1, h2, h3, h4, h5, h6 {
-    font-family: Caveat, sans-serif;
-    color: #2C3D73;
 }
 
 .Main {
@@ -18,11 +17,33 @@
     box-sizing: border-box;
 }
 
+/*------------- Text styles -------------*/
+
+.App h1, h2, h3, h4, h5, h6 {
+    font-family: Caveat, sans-serif;
+    color: #2C3D73;
+}
 
 .Text {
     font-weight: 500;
     font-size: 3.5rem;
 }
+
+.SpanText {
+    font-family: Caveat, sans-serif;
+    color: #2C3D73;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.OrangeText {
+    color: #F24405;
+}
+.OrangeText:hover{
+    color: #F58A07;;
+}
+
+/*------------- hr, a and i styles -------------*/
 
 hr {
     border: 2px solid #F24405;
@@ -51,6 +72,9 @@ a:hover, a:hover i {
     color: #F24405;
     transition: color ease-in-out 0.2s;
 }
+
+/*------------- Image and figure styles -------------*/
+
 .Image {
     max-height: 60vh;
     max-width: 100%;
@@ -70,6 +94,9 @@ figure {
 .UploadImg >  {
     object-fit: cover;
 }
+
+/*------------- Media styles -------------*/
+
 @media only screen and (max-width: 526px) and (min-width: 370px) {
     .Main {
         padding-top: 150px;

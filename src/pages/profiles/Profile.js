@@ -8,11 +8,13 @@ import btnStyles from '../../styles/Button.module.css';
 
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import Avatar from '../../components/Avatar';
+import { useSetProfileData } from '../../contexts/ProfileDataContext';
 
 
 const Profile = (props) => {
   const { profile, mobile, imageSize=55 } = props;
   const { id, following_id, image, owner } = profile;
+  const { handleFollow, handleUnfollow } = useSetProfileData();
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   
@@ -31,11 +33,11 @@ const Profile = (props) => {
       following_id ? (
         <Button
           className={btnStyles.Button}
-          onClick={() => {}}>unfollow</Button>
+          onClick={() => handleUnfollow(profile)}>unfollow</Button>
       ) : (
         <Button
           className={btnStyles.Button}
-          onClick={() => {}}>follow</Button>
+          onClick={() => handleFollow(profile)}>follow</Button>
       )
     )}
       </div>

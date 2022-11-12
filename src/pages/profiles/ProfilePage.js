@@ -9,16 +9,20 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 
 import Asset from '../../components/Asset';
+import noResult from '../../assets/noresults.png'
 
 import styles from '../../styles/Profile.module.css';
 import appStyles from '../../App.module.css';
 import btnStyles from '../../styles/Button.module.css';
 
 import PopularProfiles from './PopularProfiles';
+import Post from '../posts/Post'
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { Link, useParams } from 'react-router-dom';
 import { useProfileData, useSetProfileData } from '../../contexts/ProfileDataContext';
 import { axiosReq } from '../../api/axiosDefaults';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { fetchMoreData } from '../../utils/utils';
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -28,21 +32,24 @@ function ProfilePage() {
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
+  const [profilePosts, setProfilePosts] = useState({ results: [] });
 
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [ {data: pageProfile} ] = await Promise.all([
-          axiosReq.get(`/profiles/${id}`)
-        ])
+        const [ {data: pageProfile}, {data: profilePosts} ] = await Promise.all([
+          axiosReq.get(`/profiles/${id}`),
+          axiosReq.get(`/posts/?owner__profile=${id}`)
+        ]);
         setProfileData(prevState => ({
           ...prevState,
           pageProfile: { results: [pageProfile]}
-        }))
+        }));
+        setProfilePosts(profilePosts);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     }
     fetchData();
@@ -125,9 +132,11 @@ function ProfilePage() {
             )
           )}
           {currentUser && !is_owner ? (
-            <Link to={'/message/new'}>
-              <i className={`fas fa-paper-plane ml-2`}></i>
-            </Link>
+            <OverlayTrigger placement='right' overlay={<Tooltip >Send Message</Tooltip>}>
+              <Link to={'/message/new'}>
+                <i className={`fas fa-paper-plane ml-2`}></i>
+              </Link>
+            </OverlayTrigger>
           ): (
             null
           )}
@@ -143,8 +152,23 @@ function ProfilePage() {
 
   const mainProfilePosts = (
     <>
+      <h4 className={`mx-auto mt-4 ${appStyles.SmallerText}`} >{profile?.owner}'s posts</h4>
       <hr className='mx-auto'/>
-      <p className="text-center">Profile owner's posts</p>
+      {profilePosts.results.length ? (
+        <InfiniteScroll 
+          children={profilePosts.results.map((post) => (
+            <Post key={post.id} {...post} setPosts={setProfilePosts} />
+          ))}
+          dataLength={profilePosts.results.length}
+          loader={<Asset spinner />}
+          hasMore={!!profilePosts.next}
+          next={() => fetchMoreData(profilePosts, setProfilePosts)}
+            />
+      ) : (
+        <Asset
+          src={noResult}
+          message={`${profile?.owner} hasn't made any posts yet`}/>
+      )}
       <hr className='mx-auto' />
     </>
   );

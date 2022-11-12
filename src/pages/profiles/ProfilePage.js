@@ -23,6 +23,7 @@ import { useProfileData, useSetProfileData } from '../../contexts/ProfileDataCon
 import { axiosReq } from '../../api/axiosDefaults';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/utils';
+import { ProfileEditDropdown } from '../../components/DropDownManage';
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -36,7 +37,6 @@ function ProfilePage() {
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
   const [profilePosts, setProfilePosts] = useState({ results: [] });
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,10 +60,11 @@ function ProfilePage() {
 
   const mainProfile = (
     <>
+      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
           <Image
-            className={styles.ProfileImage}
+            className={`${styles.ProfileImage} shadow`}
             src={profile?.image}
             roundedCircle
           />
@@ -73,7 +74,7 @@ function ProfilePage() {
           <h3 className={`m-2 ml-2 ${appStyles.Text}`}>{profile?.owner}
           {/* if user is of type petowner 
             display a paw with link to pets page */}
-          {profile?.type === 0 ? (
+          {profile?.type === 1 ? (
             <Link
               to='/pets/'>
               <i className='fas fa-paw ml-3'></i>
@@ -143,7 +144,11 @@ function ProfilePage() {
         </Col>
 
         { profile?.description && (
-          <Col className="p-3">Profile description</Col>
+          <Col className="p-3">
+            <h4>About me:</h4>
+            {profile?.description}
+            <hr />
+          </Col>
         )}
       </Row>
     </>
@@ -153,7 +158,7 @@ function ProfilePage() {
     <>
       <h4 className={`mx-auto mt-4 ${appStyles.SmallerText}`} >{profile?.owner}'s posts</h4>
       <hr className='mx-auto'/>
-      {profilePosts.results.length ? (
+      {profilePosts?.results.length ? (
         <InfiniteScroll 
           children={profilePosts.results.map((post) => (
             <Post key={post.id} {...post} setPosts={setProfilePosts} />
@@ -163,12 +168,24 @@ function ProfilePage() {
           hasMore={!!profilePosts.next}
           next={() => fetchMoreData(profilePosts, setProfilePosts)}
             />
+            
       ) : (
-        <Asset
+        is_owner ? (
+          <div className='mx-auto text-center'>
+            <p>You havn't made any posts yet {profile?.owner}, add one now!</p>
+            <Link
+              to='/posts/create'
+              className={`btn ${btnStyles.Button}`}
+            >
+              New post
+            </Link>
+          </div>
+        ) : (
+          <Asset
           src={noResult}
           message={`${profile?.owner} hasn't made any posts yet`}/>
+        )
       )}
-      <hr className='mx-auto' />
     </>
   );
 
@@ -193,7 +210,6 @@ function ProfilePage() {
         <p className='card p-5'>If Ratings - 3 latest then button to more</p>
         <p className='card p-5'>If pets - max 3 then button to more</p>
         <PopularProfiles />
-        
       </Col>
     </Row>
   );

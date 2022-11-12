@@ -12,14 +12,20 @@
     transition: color ease-in-out 0.2s;;
 }
   
-  .Button:active {
-    background-color: #F24405 !important;
-    border-color: #F24405 !important;
-    box-shadow: 0 0 0 0.2rem rgba(242, 68, 5, 0.5);
-  }
+.Button:active {
+  background-color: #F24405 !important;
+  border-color: #F24405 !important;
+  box-shadow: 0 0 0 0.2rem rgba(242, 68, 5, 0.5);
+}
 
-  .Button:focus {
-    background-color: #F24405;
-    border-color: #F24405 !important;
-    box-shadow: 0 0 0 0.2rem rgba(242, 68, 5, 0.5);
-  }
+.Button:focus {
+  background-color: #F24405;
+  border-color: #F24405 !important;
+  box-shadow: 0 0 0 0.2rem rgba(242, 68, 5, 0.5);
+}
+
+.EditButton {
+  position: absolute;
+  right: 0;
+  z-index: 99;
+}

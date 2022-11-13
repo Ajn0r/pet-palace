@@ -16,6 +16,7 @@ import ProfileEditForm from './pages/profiles/ProfileEditForm';
 import UserPasswordForm from './pages/profiles/UserPasswordForm';
 import UsernameForm from './pages/profiles/UsernameForm';
 import StartPage from './pages/start/StartPage';
+import AdCreateForm from './pages/ads/AdCreateForm';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -28,7 +29,7 @@ function App() {
       <Container className={styles.Main}>
         <Switch>
           <Route exact path="/" render={() => <StartPage />} />
-          <Route exact path="/welcome" render={() => <StartPage />} />
+          <Route exact path="/ads/create" render={() => <AdCreateForm />} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />

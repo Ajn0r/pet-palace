@@ -15,6 +15,7 @@ import ProfilePage from './pages/profiles/ProfilePage';
 import ProfileEditForm from './pages/profiles/ProfileEditForm';
 import UserPasswordForm from './pages/profiles/UserPasswordForm';
 import UsernameForm from './pages/profiles/UsernameForm';
+import StartPage from './pages/start/StartPage';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -25,36 +26,42 @@ function App() {
       <NavBar />
       <SideBar />
       <Container className={styles.Main}>
-        <Switch>
-          <Route exact path="/" render={() => (
-            <PostsPage
-              message="Nothing to see here, try searching for something else!"
+        {currentUser ? (
+          <Switch>
+            <Route exact path="/" render={() => <StartPage />} />
+            <Route exact path="/welcome" render={() => <StartPage />} />
+            <Route exact path="/signin" render={() => <SignInForm />} />
+            <Route exact path="/signup" render={() => <SignUpForm />} />
+            <Route exact path="/posts/create" render={() => <PostCreateForm />} />
+            <Route exact path="/posts/:id" render={() => <PostPage />} />
+            <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
+            <Route exact path="/posts" render={() => (
+              <PostsPage
+                message="Nothing to see here, try searching for something else or follow a cool cat!"
+                filter={`owner__followed__owner__profile=${profile_id}&`}/>
+              )}
             />
-            )}
-          />
-          <Route exact path="/signin" render={() => <SignInForm />} />
-          <Route exact path="/signup" render={() => <SignUpForm />} />
-          <Route exact path="/posts/create" render={() => <PostCreateForm />} />
-          <Route exact path="/posts/:id" render={() => <PostPage />} />
-          <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
-          <Route exact path="/posts" render={() => (
-            <PostsPage
-              message="Nothing to see here, try searching for something else or follow a cool cat!"
-              filter={`owner__followed__owner__profile=${profile_id}&`}/>
-            )}
-          />
-          <Route exact path="/liked/" render={() => (
-            <PostsPage
-              message="Nothing to see here, try searching for something else or like a post!"
-              filter={`likes__owner__profile=${profile_id}`}/>
-            )}
-          />
-          <Route exact path="/profiles/:id" render={() => <ProfilePage /> } />
-          <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
-          <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />}/>
-          <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />}/>
-          <Route render={() => <p>Page not found</p>} />
-        </Switch>
+            <Route exact path="/liked/" render={() => (
+              <PostsPage
+                message="Nothing to see here, try searching for something else or like a post!"
+                filter={`likes__owner__profile=${profile_id}`}/>
+                
+              )}
+            />
+            <Route exact path="/profiles/:id" render={() => <ProfilePage /> } />
+            <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
+            <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />}/>
+            <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />}/>
+            <Route render={() => <p>Page not found</p>} />
+          </Switch>
+          ) : (
+            <Switch>
+              <Route exact path="/" render={() => <StartPage />} />
+              <Route exact path="/signin" render={() => <SignInForm />} />
+              <Route exact path="/signup" render={() => <SignUpForm />} />
+              <Route render={() => <SignInForm />} /> 
+            </Switch>
+          )}
       </Container>
     </div>
   );

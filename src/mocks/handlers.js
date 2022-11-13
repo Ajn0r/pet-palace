@@ -1,3 +1,5 @@
+import { rest } from "msw";
+
 const baseURL = "https://pet-palace-api.herokuapp.com/"
 
 export const handlers = [

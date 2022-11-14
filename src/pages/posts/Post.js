@@ -29,6 +29,7 @@ const Post = (props) => {
     comments_count,
     likes_count,
     like_id,
+    get_category_display,
     postPage,
     setPosts,
   } = props;
@@ -134,7 +135,7 @@ const Post = (props) => {
           {comments_count}
         </div>
       </Card.Body>
-      <Card.Footer className="text-muted">{category}</Card.Footer>
+      <Card.Footer className="text-muted">{get_category_display}</Card.Footer>
     </Card>
   );
 }

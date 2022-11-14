@@ -19,10 +19,10 @@ function AdCreateForm () {
   useRedirect('loggedOut');
   const [ errors, setErrors ] = useState({});
   const [ options, setOptions ] = useState({
-    pets: [],
-  });
+    results: [] });
+
   const [ adData, setAdData ] = useState({
-    pets: [],
+    pets: '',
     type: '',
     title: '',
     description: '',
@@ -38,11 +38,8 @@ function AdCreateForm () {
   useEffect(() => {
     const fetchOptions = async () => {
       try {
-        await axiosReq.options('/ads').then((response) => {
-          setOptions(
-            {pets: response.data.actions.POST.pets.choices},
-          );
-        }) 
+        const { data } = await axiosReq.get('/ads/petchoices');
+        setOptions(data);
       } catch (err) {
         console.log(err)
       }
@@ -157,7 +154,6 @@ function AdCreateForm () {
         />
       </div>
   )
-  console.log(adData)
 
   return (
     <div className='p-5 card shadow'>
@@ -227,7 +223,7 @@ function AdCreateForm () {
             ))}
           </Form.Group>
         </Form.Row>
-        <div className='float-lg-left mr-3'>
+        <div className='float-lg-left mr-3 shadow'>
             {imageInputField}
           </div>
         <Form.Row>
@@ -290,13 +286,14 @@ function AdCreateForm () {
               onChange={handleChangePets}
               multiple={true}
             >
-              {options?.pets?.map((pets, index ) => {
+              {options?.results?.map((pets) => {
                 return (
-              <option value={[pets.value]} key={index}>
-                {pets.display_name}
+              <option value={pets.id} key={pets.id}>
+                {pets.name}
               </option>
               )}
               )}
+              
             </Form.Control>
               {errors?.pets?.map((message, idx) => (
               <Alert variant="warning" key={idx}>

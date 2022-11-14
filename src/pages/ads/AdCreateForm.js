@@ -4,23 +4,26 @@ import { useHistory } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
+import Image from 'react-bootstrap/Image';
+import Alert from 'react-bootstrap/Alert';
 
+import UploadImg from '../../assets/uploadimage.png';
+import styles from '../../App.module.css';
+import btnStyles from '../../styles/Button.module.css';
+
+import Asset from '../../components/Asset';
 import { axiosReq } from '../../api/axiosDefaults';
 import { useRedirect } from '../../hooks/useRedirect';
 
 function AdCreateForm () {
-  // useRedirect('loggedOut');
-  
+  useRedirect('loggedOut');
   const [ errors, setErrors ] = useState({});
   const [ options, setOptions ] = useState({
     pets: [],
-    status: [],
-    type: [],
   });
   const [ adData, setAdData ] = useState({
-    pets: '',
-    type: options.type,
+    pets: [],
+    type: '',
     title: '',
     description: '',
     image: '',
@@ -28,7 +31,7 @@ function AdCreateForm () {
     date_to: '',
     compensation: '',
     location: '',
-    status: options.status,
+    status: '',
   });
 
   // Fetching all form choices from the API
@@ -38,8 +41,6 @@ function AdCreateForm () {
         await axiosReq.options('/ads').then((response) => {
           setOptions(
             {pets: response.data.actions.POST.pets.choices},
-            {status: response.data.actions.POST.status.choices},
-            {type: response.data.actions.POST.type.choices},
           );
         }) 
       } catch (err) {
@@ -62,9 +63,6 @@ function AdCreateForm () {
     status,
   } = adData;
 
-  const petOptions = Array.from(options.pets);
-  console.log(petOptions);
-
   const imageInput = useRef(null);
   const history = useHistory();
 
@@ -72,6 +70,13 @@ function AdCreateForm () {
     setAdData({
       ...adData,
       [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleChangePets = (event) => {
+    setAdData({
+      ...adData,
+      pets: Array.from(event.target.selectedOptions, (pets) => pets.value)
     });
   };
 
@@ -87,18 +92,24 @@ function AdCreateForm () {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData();
+    const formData = new FormData();  
 
-    formData.append('pets', pets);
     formData.append('type', type);
     formData.append('title', title);
     formData.append('description', description);
-    formData.append('image', imageInput.current.files[0]);
     formData.append('date_from', date_from);
     formData.append('date_to', date_to);
     formData.append('compensation', compensation);
     formData.append('location', location);
     formData.append('status', status);
+
+    // Append all objects in the array of pets
+    pets.forEach((pet) => formData.append('pets', pet))
+
+    //Only append if there is an image, no default image set in API... yet..
+    if (image.length) {
+      formData.append('image', imageInput.current.files[0])
+    }
     
     try {
       const { data } = await axiosReq.post('ads/', formData);
@@ -111,66 +122,210 @@ function AdCreateForm () {
     }
   };
 
+  const imageInputField = (
+    <div>
+      {image ? (
+        <>
+          <figure>
+            <Image className={styles.Image} src={image} rounded/>
+          </figure>
+          <div>
+            <Form.Label
+              className={` ${btnStyles.Button}  btn`}
+              htmlFor="image-upload"
+              >
+                Change the image
+            </Form.Label>
+          </div>
+        </>
+      ) : (
+        <Form.Label
+          className={`d-flex justify-content-center `}
+          htmlFor="image-upload"
+        >
+          <Asset
+            src={UploadImg}
+            message={"Click to upload an image"}
+          />
+        </Form.Label>)}
+        <Form.File
+          id='image-upload'
+          accept='image/*'
+          className='d-none'
+          onChange={handleChangeImg}
+          ref={imageInput}
+        />
+      </div>
+  )
+  console.log(adData)
+
   return (
-    <Form>
-      <Form.Row>
-        <Form.Group as={Col}>
-          <Form.Label>Title</Form.Label>
-          <Form.Control type="text" placeholder="Enter title" />
-        </Form.Group>
+    <div className='p-5 card shadow'>
+      <h1 className={`pt-2 text-center ${styles.Text}`}>New ad<hr /></h1>
+      
+      <Form onSubmit={handleSubmit}>
+        <Form.Row>
+          <Form.Group as={Col} md='12'>
+            <Form.Label>Title</Form.Label>
+            <Form.Control
+              type='text'
+              name='title'
+              value={title}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.title?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+      
+          <Form.Group as={Col} md='6'>
+            <Form.Label>Location</Form.Label>
+            <Form.Control
+              type='text'
+              name='location'
+              value={location}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.location?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+
+          <Form.Group as={Col} md='3'>
+            <Form.Label>Start date</Form.Label>
+            <Form.Control
+              type='date' 
+              name='date_from'
+              value={date_from}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.date_from?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+          
+          <Form.Group as={Col} md='3'>
+            <Form.Label>End date</Form.Label>
+            <Form.Control
+              type='date' 
+              name='date_to'
+              value={date_to}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.date_to?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+        </Form.Row>
+        <div className='float-lg-left'>
+            {imageInputField}
+          </div>
+        <Form.Row>
+          <Form.Group as={Col} md='12'>
+            <Form.Label>Description</Form.Label>
+            <Form.Control
+              as='textarea'
+              rows={5}
+              name='description'
+              value={description}
+              onChange={handleChange}  
+            />
+          </Form.Group>
+          {errors?.description?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+
+          <Form.Group as={Col} lg='6'>
+            <Form.Label>Compensation</Form.Label>
+            <Form.Control
+              type='text'
+              name='compensation'
+              value={compensation}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.compensation?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+
+          <Form.Group as={Col} lg='6'>
+            <Form.Label>Type of ad</Form.Label>
+            <Form.Control               
+              as="select"
+              name='type'
+              value={type}
+              onChange={handleChange}
+            >
+              <option value={0}>I need a Petsitting</option>
+              <option value={1}>I want to Petsit</option>
+              <option value={2}>Unspecified</option>
+            </Form.Control>
+          </Form.Group>
+          {errors?.type?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+      
+          <Form.Group as={Col} md='12'>
+            <Form.Label>Pets</Form.Label>
+            <Form.Control
+              as="select"
+              name='pets'
+              value={pets}
+              onChange={handleChangePets}
+              multiple={true}
+            >
+              {options?.pets?.map((pets, index ) => {
+                return (
+              <option value={[pets.value]} key={index}>
+                {pets.display_name}
+              </option>
+              )}
+              )}
+            </Form.Control>
+          </Form.Group>
+          {errors?.pets?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+ 
+          <Form.Group as={Col} md='12'>
+          <Form.Control               
+              as="select"
+              name='status'
+              value={status}
+              onChange={handleChange}>
+                <option value={0}>Draft</option>
+                <option value={1}>Active</option>
+              </Form.Control>
+          </Form.Group>
+          {errors?.status?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+        </Form.Row>
     
-        <Form.Group as={Col}>
-          <Form.Label>Location</Form.Label>
-          <Form.Control type="adress" placeholder="Location" />
-        </Form.Group>
-      </Form.Row>
-    
-      <Form.Group>
-        <Form.Label>Address</Form.Label>
-        <Form.Control placeholder="1234 Main St" />
-      </Form.Group>
-    
-      <Form.Group>
-        <Form.Label>Address 2</Form.Label>
-        <Form.Control placeholder="Apartment, studio, or floor" />
-      </Form.Group>
-    
-      <Form.Row>
-        <Form.Group as={Col}>
-          <Form.Label>City</Form.Label>
-          <Form.Control />
-        </Form.Group>
-    
-        <Form.Group as={Col}>
-          <Form.Label>Pets</Form.Label>
-          <Form.Control
-            as="select"
-            name='pets'
-            value={pets}
-            onChange={handleChange}
-          >
-            {options?.pets.map((petChoice, index ) => {
-              return (
-             <option value={petChoice.value} key={index}>{petChoice.display_name}</option>
-            )}
-            )}
-          </Form.Control>
-        </Form.Group>
-    
-        <Form.Group as={Col}>
-          <Form.Label>Zip</Form.Label>
-          <Form.Control />
-        </Form.Group>
-      </Form.Row>
-    
-      <Form.Group>
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-    
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
+        <Button className={` ${btnStyles.Button}`} type='submit'>
+          Submit
+        </Button>
+
+      </Form>
+    </div>
   )
 }
 

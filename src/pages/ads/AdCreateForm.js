@@ -140,7 +140,7 @@ function AdCreateForm () {
         </>
       ) : (
         <Form.Label
-          className={`d-flex justify-content-center `}
+          className={`d-flex justify-content-center`}
           htmlFor="image-upload"
         >
           <Asset
@@ -163,7 +163,9 @@ function AdCreateForm () {
     <div className='p-5 card shadow'>
       <h1 className={`pt-2 text-center ${styles.Text}`}>New ad<hr /></h1>
       
-      <Form onSubmit={handleSubmit}>
+      <Form
+        onSubmit={handleSubmit}
+        className=''>
         <Form.Row>
           <Form.Group as={Col} md='12'>
             <Form.Label>Title</Form.Label>
@@ -173,12 +175,12 @@ function AdCreateForm () {
               value={title}
               onChange={handleChange}
             />
+            {errors?.title?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
           </Form.Group>
-          {errors?.title?.map((message, idx) => (
-            <Alert variant="warning" key={idx}>
-              {message}
-            </Alert>
-          ))}
       
           <Form.Group as={Col} md='6'>
             <Form.Label>Location</Form.Label>
@@ -188,12 +190,12 @@ function AdCreateForm () {
               value={location}
               onChange={handleChange}
             />
+            {errors?.location?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
           </Form.Group>
-          {errors?.location?.map((message, idx) => (
-            <Alert variant="warning" key={idx}>
-              {message}
-            </Alert>
-          ))}
 
           <Form.Group as={Col} md='3'>
             <Form.Label>Start date</Form.Label>
@@ -203,12 +205,12 @@ function AdCreateForm () {
               value={date_from}
               onChange={handleChange}
             />
+            {errors?.date_from?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
           </Form.Group>
-          {errors?.date_from?.map((message, idx) => (
-            <Alert variant="warning" key={idx}>
-              {message}
-            </Alert>
-          ))}
           
           <Form.Group as={Col} md='3'>
             <Form.Label>End date</Form.Label>
@@ -218,14 +220,14 @@ function AdCreateForm () {
               value={date_to}
               onChange={handleChange}
             />
+            {errors?.date_to?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
           </Form.Group>
-          {errors?.date_to?.map((message, idx) => (
-            <Alert variant="warning" key={idx}>
-              {message}
-            </Alert>
-          ))}
         </Form.Row>
-        <div className='float-lg-left'>
+        <div className='float-lg-left mr-3'>
             {imageInputField}
           </div>
         <Form.Row>
@@ -238,12 +240,12 @@ function AdCreateForm () {
               value={description}
               onChange={handleChange}  
             />
+            {errors?.description?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
           </Form.Group>
-          {errors?.description?.map((message, idx) => (
-            <Alert variant="warning" key={idx}>
-              {message}
-            </Alert>
-          ))}
 
           <Form.Group as={Col} lg='6'>
             <Form.Label>Compensation</Form.Label>
@@ -253,12 +255,12 @@ function AdCreateForm () {
               value={compensation}
               onChange={handleChange}
             />
+            {errors?.compensation?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
           </Form.Group>
-          {errors?.compensation?.map((message, idx) => (
-            <Alert variant="warning" key={idx}>
-              {message}
-            </Alert>
-          ))}
 
           <Form.Group as={Col} lg='6'>
             <Form.Label>Type of ad</Form.Label>
@@ -272,12 +274,12 @@ function AdCreateForm () {
               <option value={1}>I want to Petsit</option>
               <option value={2}>Unspecified</option>
             </Form.Control>
+            {errors?.type?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
           </Form.Group>
-          {errors?.type?.map((message, idx) => (
-            <Alert variant="warning" key={idx}>
-              {message}
-            </Alert>
-          ))}
       
           <Form.Group as={Col} md='12'>
             <Form.Label>Pets</Form.Label>
@@ -296,12 +298,13 @@ function AdCreateForm () {
               )}
               )}
             </Form.Control>
+              {errors?.pets?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
           </Form.Group>
-          {errors?.pets?.map((message, idx) => (
-            <Alert variant="warning" key={idx}>
-              {message}
-            </Alert>
-          ))}
+
  
           <Form.Group as={Col} md='12'>
           <Form.Control               
@@ -311,19 +314,19 @@ function AdCreateForm () {
               onChange={handleChange}>
                 <option value={0}>Draft</option>
                 <option value={1}>Active</option>
-              </Form.Control>
+            </Form.Control>
+            {errors?.status?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
           </Form.Group>
-          {errors?.status?.map((message, idx) => (
-            <Alert variant="warning" key={idx}>
-              {message}
-            </Alert>
-          ))}
         </Form.Row>
-    
-        <Button className={` ${btnStyles.Button}`} type='submit'>
-          Submit
-        </Button>
-
+        <Form.Row>
+          <Button className={`mx-auto mr-lg-3 f ${btnStyles.Button}`} type='submit'>
+            Submit
+          </Button>
+        </Form.Row>
       </Form>
     </div>
   )

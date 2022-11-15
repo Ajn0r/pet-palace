@@ -223,7 +223,7 @@ function AdCreateForm () {
             ))}
           </Form.Group>
         </Form.Row>
-        <div className='float-lg-left mr-3 shadow'>
+        <div className='float-lg-left mr-3'>
             {imageInputField}
           </div>
         <Form.Row>
@@ -293,7 +293,6 @@ function AdCreateForm () {
               </option>
               )}
               )}
-              
             </Form.Control>
               {errors?.pets?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
@@ -301,7 +300,6 @@ function AdCreateForm () {
               </Alert>
             ))}
           </Form.Group>
-
  
           <Form.Group as={Col} md='12'>
           <Form.Control               

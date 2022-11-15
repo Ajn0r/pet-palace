@@ -18,6 +18,7 @@ import UsernameForm from './pages/profiles/UsernameForm';
 import StartPage from './pages/start/StartPage';
 import AdCreateForm from './pages/ads/AdCreateForm';
 import AdPage from './pages/ads/AdPage';
+import AdEditForm from './pages/ads/AdEditForm';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -32,6 +33,7 @@ function App() {
           <Route exact path="/" render={() => <StartPage />} />
           <Route exact path="/ads/create" render={() => <AdCreateForm />} />
           <Route exact path="/ads/:id" render={() => <AdPage /> }/>
+          <Route exact path="/ads/:id/edit" render={() => <AdEditForm />} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />

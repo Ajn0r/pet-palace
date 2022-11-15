@@ -90,7 +90,6 @@ function AdCreateForm () {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();  
-
     formData.append('type', type);
     formData.append('title', title);
     formData.append('description', description);
@@ -101,7 +100,8 @@ function AdCreateForm () {
     formData.append('status', status);
 
     // Append all objects in the array of pets
-    pets.forEach((pet) => formData.append('pets', pet))
+    if (pets?.length) {
+      pets.forEach((pet) => formData.append('pets', pet))}
 
     //Only append if there is an image, no default image set in API... yet..
     if (image.length) {
@@ -196,7 +196,7 @@ function AdCreateForm () {
           <Form.Group as={Col} md='3'>
             <Form.Label>Start date</Form.Label>
             <Form.Control
-              type='date' 
+              type='date'
               name='date_from'
               value={date_from}
               onChange={handleChange}
@@ -223,7 +223,7 @@ function AdCreateForm () {
             ))}
           </Form.Group>
         </Form.Row>
-        <div className='float-lg-left mr-3'>
+        <div className={`float-lg-left mr-3 ${styles.AdImg} ${styles.AdImageWidth}`}>
             {imageInputField}
           </div>
         <Form.Row>
@@ -243,7 +243,7 @@ function AdCreateForm () {
             ))}
           </Form.Group>
 
-          <Form.Group as={Col} lg='6'>
+          <Form.Group as={Col} xl='6'>
             <Form.Label>Compensation</Form.Label>
             <Form.Control
               type='text'
@@ -258,7 +258,7 @@ function AdCreateForm () {
             ))}
           </Form.Group>
 
-          <Form.Group as={Col} lg='6'>
+          <Form.Group as={Col} xl='6'>
             <Form.Label>Type of ad</Form.Label>
             <Form.Control               
               as="select"
@@ -266,9 +266,9 @@ function AdCreateForm () {
               value={type}
               onChange={handleChange}
             >
-              <option value={0}>I need a Petsitting</option>
-              <option value={1}>I want to Petsit</option>
-              <option value={2}>Unspecified</option>
+              <option value={0} key={0}>I need a Petsitting</option>
+              <option value={1} key={1}>I want to Petsit</option>
+              <option value={2} key={2}>Unspecified</option>
             </Form.Control>
             {errors?.type?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
@@ -307,8 +307,8 @@ function AdCreateForm () {
               name='status'
               value={status}
               onChange={handleChange}>
-                <option value={0}>Draft</option>
-                <option value={1}>Active</option>
+                <option value={0} key={0}>Draft</option>
+                <option value={1} key={1}>Active</option>
             </Form.Control>
             {errors?.status?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
@@ -318,7 +318,7 @@ function AdCreateForm () {
           </Form.Group>
         </Form.Row>
         <Form.Row>
-          <Button className={`mx-auto mr-lg-3 f ${btnStyles.Button}`} type='submit'>
+          <Button className={`mx-auto mr-lg-3 ${btnStyles.Button}`} type='submit'>
             Submit
           </Button>
         </Form.Row>

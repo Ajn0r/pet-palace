@@ -7,7 +7,13 @@
     border-radius: 0;
     object-fit: cover;
 }
+.AdImageWidth {
+    max-width: 30rem;
+}
 .NoResults {
     max-height: 60vh;
     max-width: 100%;
+}
+.EditBtn {
+    gap: 0.6rem;
 }

@@ -1,0 +1,13 @@
+.Ad {
+    max-width: 50rem;
+}
+
+.AdImg {
+    max-height: 60vh;
+    border-radius: 0;
+    object-fit: cover;
+}
+.NoResults {
+    max-height: 60vh;
+    max-width: 100%;
+}

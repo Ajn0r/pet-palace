@@ -60,7 +60,6 @@ const Ad = (props) => {
   return (
     <>
     {/* Only display the ads that are active or that belongs the the logged in user*/}
-
       {status === 1 || is_owner ? (
         <Card className={`${styles.Ad}`}>
           <Card.Header className='p-1 p-sm-4'>
@@ -102,7 +101,7 @@ const Ad = (props) => {
             
             {pets?.map((item) => {
               return (
-                <span className={`{styles.Pets}`}>{item.name}</span>
+                <span className={`${styles.Pets} m-2`}>{item.name}</span>
               )}
             )}
 
@@ -110,7 +109,6 @@ const Ad = (props) => {
           </Card.Footer>
         </Card>
       ) : (
-        <>
         <div className='mx-auto text-center'>
           <div >
             <Image src={noresults} className={` ${styles.NoResults}`}></Image>
@@ -124,11 +122,9 @@ const Ad = (props) => {
             </Button>
           </div>
           </div>
-        </>
       )}
-      
     </>
-  )
+  );
 }
 
 

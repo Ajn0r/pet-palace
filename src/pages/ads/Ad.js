@@ -61,7 +61,7 @@ const Ad = (props) => {
     <>
     {/* Only display the ads that are active or that belongs the the logged in user*/}
       {status === 1 || is_owner ? (
-        <Card className={`${styles.Ad}`}>
+        <Card className={`${styles.Ad} mt-4 mb-5 shadow`}>
           <Card.Header className='p-1 p-sm-4'>
             <Media className="align-items-center justify-content-between">
               <Link to={`/profiles/${profile_id}`}>
@@ -76,11 +76,13 @@ const Ad = (props) => {
               </div>
             </Media>
           </Card.Header>
-          {image ? (
-            <Card.Img variant="top" className={`${styles.AdImg}`} src={image} alt={title} />
-          ) : (
-            <Card.Img variant="top" className={`${styles.AdImg}`} src={defaultImage} alt={title} />
-          )}
+          <Link to={`/ads/${id}`}>
+            {image ? (
+              <Card.Img variant="top" className={`${styles.AdImg}`} src={image} alt={title} />
+            ) : (
+              <Card.Img variant="top" className={`${styles.AdImg}`} src={defaultImage} alt={title} />
+            )}
+          </Link>
           <Card.Body className='text-center'>
             <Card.Title className={appStyles.Text}>{title} <hr /></Card.Title>
             <Card.Text>
@@ -94,14 +96,13 @@ const Ad = (props) => {
           </ListGroup>
           <Card.Body>
             <Card.Link ><i className="fas fa-paper-plane"></i><span className={`${appStyles.SpanText}`}>Send message</span></Card.Link>
-            <Card.Link >Another Link</Card.Link>
           </Card.Body>
           <Card.Footer className="text-muted text-center">
             <span className='float-left'>{get_type_display}</span>
             
             {pets?.map((item) => {
               return (
-                <span className={`${styles.Pets} m-2`}>{item.name}</span>
+                <span className={`${styles.Pets} m-2`} key={item.id}>{item.name}</span>
               )}
             )}
 
@@ -109,19 +110,7 @@ const Ad = (props) => {
           </Card.Footer>
         </Card>
       ) : (
-        <div className='mx-auto text-center'>
-          <div >
-            <Image src={noresults} className={` ${styles.NoResults}`}></Image>
-          </div>
-          <div className='mt-4'>
-            <Button
-              className={` ${btnStyles.Button}`}
-              onClick={() => history.goBack()}
-            >
-              Go back
-            </Button>
-          </div>
-          </div>
+        null
       )}
     </>
   );

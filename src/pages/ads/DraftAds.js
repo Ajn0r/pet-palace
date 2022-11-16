@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
 import Row from "react-bootstrap/Row";
@@ -47,10 +47,9 @@ const DraftAds = ({mobile}) => {
             </div>
           ) : (
             draftData?.results.map((ad) => (
-                <Row className="pl-3 mb-1">
+                <Row className="pl-3 mb-1" key={ad.id}>
                   <Link
                     to={`/ads/${ad.id}`}
-                    key={ad.id}
                     >
                       <span>Title: {ad.title}</span>
                     </Link>

@@ -23,7 +23,7 @@ function AdEditForm () {
     results: [] });
 
   const [ adData, setAdData ] = useState({
-    pets: '',
+    pets: [],
     type: '',
     title: '',
     description: '',
@@ -74,6 +74,7 @@ function AdEditForm () {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/ads/${id}`)
+        console.log('fetched data');
         const {
           title,
           description,
@@ -86,10 +87,12 @@ function AdEditForm () {
           status,
           type,
           is_owner, } = data;
-
+          console.log(pets)
         is_owner ? setAdData(
-          {title, description, image, pets, date_from,
-          date_to, compensation, location, status, type }
+          {title, description, image, date_from,
+          date_to, compensation, location, status, type, pets: pets.map((pet) => {
+            return pet.id
+          })},
         ) : history.push('/');
       } catch (err) {
           console.log(err);
@@ -98,6 +101,7 @@ function AdEditForm () {
     handleMount();
   }, [history, id]);
 
+ console.log('data loaded?')
   const handleChange = (event) => {
     setAdData({
       ...adData,
@@ -193,6 +197,7 @@ function AdEditForm () {
 
   return (
     <div className='p-5 card shadow'>
+      {console.log('Form loaded')}
       <h1 className={`pt-2 text-center ${appStyles.Text}`}>Edit ad<hr /></h1>
       <Form
         onSubmit={handleSubmit}

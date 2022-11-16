@@ -22,7 +22,7 @@ function AdCreateForm () {
     results: [] });
 
   const [ adData, setAdData ] = useState({
-    pets: '',
+    pets: [],
     type: '',
     title: '',
     description: '',

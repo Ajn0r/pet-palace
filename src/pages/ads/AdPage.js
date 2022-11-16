@@ -4,15 +4,12 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col';
 import { useParams } from 'react-router-dom';
 import { axiosReq } from '../../api/axiosDefaults';
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import Ad from './Ad';
-import Avatar from '../../components/Avatar';
 
 function AdPage() {
   const { id } = useParams();
   const [ad, setAd] = useState({ results: [] });
-  const currentUser = useCurrentUser();
-  
+
   useEffect(() => {
     const handleMount = async () => {
       try {

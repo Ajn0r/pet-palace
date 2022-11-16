@@ -14,6 +14,7 @@ import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import DraftAds from "./DraftAds";
 
 function PostsPage({ message, filter = '' }) {
   const [ ads, setAds  ] = useState({results: []});
@@ -44,6 +45,7 @@ function PostsPage({ message, filter = '' }) {
   return (
     <Row className="h-100 pl-sm-3">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
+        <DraftAds mobile />
         <i className={`fas fa-search ${styles.SearchIcon}`}/>
         <Form className={styles.SearchBar}
           onSubmit={(event) => event.preventDefault()}>
@@ -81,6 +83,7 @@ function PostsPage({ message, filter = '' }) {
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles/>
+        <DraftAds />
       </Col>
     </Row>
   );

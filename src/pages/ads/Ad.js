@@ -43,6 +43,8 @@ const Ad = (props) => {
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
 
+  const date = new Date().toISOString();
+  const passed_to_date = (date_to <= date);
 
   const handleEdit = () => {
     history.push(`/ads/${id}/edit`);
@@ -60,7 +62,7 @@ const Ad = (props) => {
   return (
     <>
     {/* Only display the ads that are active or that belongs the the logged in user*/}
-      {status === 1 || is_owner ? (
+      {(!passed_to_date|| is_owner) && (status === 1 || is_owner) ? (
         <Card className={`${styles.Ad} mt-4 mb-5 shadow`}>
           <Card.Header className='p-1 p-sm-4'>
             <Media className="align-items-center justify-content-between">

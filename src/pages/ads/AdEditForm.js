@@ -65,6 +65,11 @@ function AdEditForm () {
   const history = useHistory();
   const { id } = useParams();
 
+  // Variables to controll if the user can update the dates
+  const date = new Date().toISOString();
+  const passed_from = (date_from <= date);
+  const passed_to = (date_to <= date);
+
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -189,7 +194,6 @@ function AdEditForm () {
   return (
     <div className='p-5 card shadow'>
       <h1 className={`pt-2 text-center ${appStyles.Text}`}>Edit ad<hr /></h1>
-      
       <Form
         onSubmit={handleSubmit}
         className=''>
@@ -226,11 +230,13 @@ function AdEditForm () {
 
           <Form.Group as={Col} md='3'>
             <Form.Label>Start date</Form.Label>
+            
             <Form.Control
               type='date' 
               name='date_from'
               value={date_from}
               onChange={handleChange}
+              disabled={passed_from}
             />
             {errors?.date_from?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
@@ -246,6 +252,7 @@ function AdEditForm () {
               name='date_to'
               value={date_to}
               onChange={handleChange}
+              disabled={passed_to}
             />
             {errors?.date_to?.map((message, idx) => (
               <Alert variant="warning" key={idx}>

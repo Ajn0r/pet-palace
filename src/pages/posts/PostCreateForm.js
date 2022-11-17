@@ -131,6 +131,7 @@ function PostCreateForm() {
           onChange={handleChange}
           className="shadow"
         >
+          <option>Choose...</option>
           {categories?.map(choice => {
             return (
               <option value={choice.value} key={choice.value}>{choice.display_name}</option>

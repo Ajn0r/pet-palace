@@ -272,6 +272,7 @@ function AdCreateForm () {
               value={type}
               onChange={handleChange}
             >
+              <option>Choose...</option>
               <option value={0} key={0}>I need a Petsitting</option>
               <option value={1} key={1}>I want to Petsit</option>
               <option value={2} key={2}>Unspecified</option>
@@ -313,6 +314,7 @@ function AdCreateForm () {
               name='status'
               value={status}
               onChange={handleChange}>
+                <option>Choose...</option>
                 <option value={0} key={0}>Draft</option>
                 <option value={1} key={1}>Active</option>
             </Form.Control>

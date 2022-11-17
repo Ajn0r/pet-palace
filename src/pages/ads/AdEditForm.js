@@ -35,6 +35,7 @@ function AdEditForm () {
     status: '',
   });
 
+
   // Fetching all form choices from the API
   useEffect(() => {
     const fetchOptions = async () => {
@@ -65,10 +66,8 @@ function AdEditForm () {
   const history = useHistory();
   const { id } = useParams();
 
-  // Variables to controll if the user can update the dates
-  const date = new Date().toISOString();
-  const passed_from = (date_from <= date);
-  const passed_to = (date_to <= date);
+  // getting todays date to set as min value for start date - date_from
+  const today = new Date().toISOString().split("T")[0]
 
   useEffect(() => {
     const handleMount = async () => {
@@ -239,9 +238,9 @@ function AdEditForm () {
             <Form.Control
               type='date' 
               name='date_from'
+              min={today}
               value={date_from}
               onChange={handleChange}
-              disabled={passed_from}
             />
             {errors?.date_from?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
@@ -257,7 +256,7 @@ function AdEditForm () {
               name='date_to'
               value={date_to}
               onChange={handleChange}
-              disabled={passed_to}
+              min={date_from}
             />
             {errors?.date_to?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
@@ -360,7 +359,7 @@ function AdEditForm () {
             ))}
           </Form.Group>
         </Form.Row>
-        <Form.Row className={`float-right ${styles.EditBtn}`}>
+        <Form.Row className={`float-right ${styles.FormBtn}`}>
           <Button
             className={`mx-auto  mr-2 ${btnStyles.Button}`}
             onClick={() => history.goBack()}

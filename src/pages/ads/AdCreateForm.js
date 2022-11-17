@@ -8,7 +8,8 @@ import Image from 'react-bootstrap/Image';
 import Alert from 'react-bootstrap/Alert';
 
 import UploadImg from '../../assets/uploadimage.png';
-import styles from '../../App.module.css';
+import styles from '../../styles/Ad.module.css';
+import appStyles from '../../App.module.css';
 import btnStyles from '../../styles/Button.module.css';
 
 import Asset from '../../components/Asset';
@@ -62,6 +63,9 @@ function AdCreateForm () {
 
   const imageInput = useRef(null);
   const history = useHistory();
+
+  // getting todays date to set as min value for start date - date_from
+  const today = new Date().toISOString().split("T")[0]
 
   const handleChange = (event) => {
     setAdData({
@@ -124,7 +128,7 @@ function AdCreateForm () {
       {image ? (
         <>
           <figure>
-            <Image className={styles.Image} src={image} rounded/>
+            <Image className={appStyles.Image} src={image} rounded/>
           </figure>
           <div>
             <Form.Label
@@ -157,7 +161,7 @@ function AdCreateForm () {
 
   return (
     <div className='p-5 card shadow'>
-      <h1 className={`pt-2 text-center ${styles.Text}`}>New ad<hr /></h1>
+      <h1 className={`pt-2 text-center ${appStyles.Text}`}>New ad<hr /></h1>
       
       <Form
         onSubmit={handleSubmit}
@@ -200,6 +204,7 @@ function AdCreateForm () {
               name='date_from'
               value={date_from}
               onChange={handleChange}
+              min={today}
             />
             {errors?.date_from?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
@@ -215,6 +220,7 @@ function AdCreateForm () {
               name='date_to'
               value={date_to}
               onChange={handleChange}
+              min={date_from}
             />
             {errors?.date_to?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
@@ -317,10 +323,17 @@ function AdCreateForm () {
             ))}
           </Form.Group>
         </Form.Row>
-        <Form.Row>
-          <Button className={`mx-auto mr-lg-3 ${btnStyles.Button}`} type='submit'>
-            Submit
+        <Form.Row className={`float-right ${styles.FormBtn}`}>
+          <Button
+            className={`mx-auto  mr-2 ${btnStyles.Button}`}
+            onClick={() => history.goBack()}
+          >
+            Cancel
           </Button>
+          <Button className={`mx-auto ml-4 ${btnStyles.Button}`} type='submit'>
+            Submit            
+          </Button>
+
         </Form.Row>
       </Form>
     </div>

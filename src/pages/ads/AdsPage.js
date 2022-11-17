@@ -5,22 +5,24 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
-import noResult from '../../assets/noresults.png'
+import noResult from "../../assets/noresults.png"
 import styles from "../../styles/Search.module.css";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
-import Ad from './Ad';
+import Ad from "./Ad";
 import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import DraftAds from "./DraftAds";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-function PostsPage({ message, filter = '' }) {
+function PostsPage({ message, filter = "" }) {
   const [ ads, setAds  ] = useState({results: []});
   const [ hasLoaded, setHasLoaded ] = useState(false);
   const { pathname } = useLocation();
   const [ query, setQuery ] = useState("");
+  const currentUser = useCurrentUser();
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -83,7 +85,8 @@ function PostsPage({ message, filter = '' }) {
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles/>
-        <DraftAds />
+        {currentUser? (<DraftAds />) : (null)}
+        
       </Col>
     </Row>
   );

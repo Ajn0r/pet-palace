@@ -85,7 +85,7 @@ function PostsPage({ message, filter = "" }) {
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles/>
-        {currentUser? (<DraftAds />) : (null)}
+        {currentUser ? (<DraftAds />) : (null)}
         
       </Col>
     </Row>

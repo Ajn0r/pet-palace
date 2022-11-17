@@ -1,29 +1,26 @@
-import React from 'react';
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import React from "react";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-import Card from 'react-bootstrap/Card';
-import Media from 'react-bootstrap/Media';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Image from 'react-bootstrap/Image';
-import Button from 'react-bootstrap/Button';
+import Card from "react-bootstrap/Card";
+import Media from "react-bootstrap/Media";
+import ListGroup from "react-bootstrap/ListGroup";
 
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory } from "react-router-dom";
 
-import styles from '../../styles/Ad.module.css';
-import appStyles from '../../styles/Post.module.css';
-import btnStyles from '../../styles/Button.module.css';
-import defaultImage from '../../assets/adimg.jpeg';
-import noresults from '../../assets/noresults.png';
-import Asset from '../../components/Avatar';
+import styles from "../../styles/Ad.module.css";
+import appStyles from "../../styles/Post.module.css";
+
+import defaultImage from "../../assets/adimg.jpeg";
 import Avatar from "../../components/Avatar";
-import { axiosRes } from '../../api/axiosDefaults';
-import { DropDownManage } from '../../components/DropDownManage';
+import { axiosRes } from "../../api/axiosDefaults";
+import { DropDownManage } from "../../components/DropDownManage";
 
 const Ad = (props) => {
   const {
     id,
     owner,
     profile_id,
+    profile_image,
     title,
     date_from,
     date_to,
@@ -64,9 +61,11 @@ const Ad = (props) => {
     {/* Only display the ads that are active or that belongs the the logged in user*/}
       {(!passed_to_date|| is_owner) && (status === 1 || is_owner) ? (
         <Card className={`${styles.Ad} mt-4 mb-5 shadow`}>
-          <Card.Header className='p-1 p-sm-4'>
+          <Card.Header>
             <Media className="align-items-center justify-content-between">
+              
               <Link to={`/profiles/${profile_id}`}>
+                <Avatar src={profile_image} height={55} />
                 {owner}
               </Link>
               <div className="d-flex align-items-center">
@@ -85,7 +84,7 @@ const Ad = (props) => {
               <Card.Img variant="top" className={`${styles.AdImg}`} src={defaultImage} alt={title} />
             )}
           </Link>
-          <Card.Body className='text-center'>
+          <Card.Body className="text-center">
             <Card.Title className={appStyles.Text}>{title} <hr /></Card.Title>
             <Card.Text>
               {description}
@@ -100,7 +99,7 @@ const Ad = (props) => {
             <Card.Link ><i className="fas fa-paper-plane"></i><span className={`${appStyles.SpanText}`}>Send message</span></Card.Link>
           </Card.Body>
           <Card.Footer className="text-muted text-center">
-            <span className='float-left'>{get_type_display}</span>
+            <span className="float-left">{get_type_display}</span>
             
             {pets?.map((item) => {
               return (
@@ -108,7 +107,7 @@ const Ad = (props) => {
               )}
             )}
 
-            <span className='float-right'>{get_status_display}</span>
+            <span className="float-right">{get_status_display}</span>
           </Card.Footer>
         </Card>
       ) : (

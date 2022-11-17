@@ -17,3 +17,16 @@
 .FormBtn {
     gap: 0.6rem;
 }
+.DraftsMobile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 0.6rem;
+}
+.DraftTrash {
+    font-size: 1.2rem;
+}
+.Sticky {
+    position: sticky;
+    top: 8rem;
+}

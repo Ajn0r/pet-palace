@@ -1,17 +1,17 @@
-import React from 'react';
-import styles from '../../styles/Post.module.css';
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import React from "react";
+import styles from "../../styles/Post.module.css";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Avatar from "../../components/Avatar";
 
-import Card from 'react-bootstrap/Card';
-import Media from 'react-bootstrap/Media';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
+import Card from "react-bootstrap/Card";
+import Media from "react-bootstrap/Media";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory } from "react-router-dom";
 
-import { axiosRes } from '../../api/axiosDefaults';
-import { DropDownManage } from '../../components/DropDownManage';
+import { axiosRes } from "../../api/axiosDefaults";
+import { DropDownManage } from "../../components/DropDownManage";
 
 
 const Post = (props) => {
@@ -24,7 +24,6 @@ const Post = (props) => {
     title,
     content,
     image,
-    category,
     updated_at,
     comments_count,
     likes_count,

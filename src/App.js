@@ -20,6 +20,7 @@ import AdCreateForm from './pages/ads/AdCreateForm';
 import AdPage from './pages/ads/AdPage';
 import AdEditForm from './pages/ads/AdEditForm';
 import AdsPage from './pages/ads/AdsPage';
+import PetCreateForm from './pages/pets/PetCreateForm';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -38,6 +39,7 @@ function App() {
           <Route exact path="/ads" render={() => <AdsPage />}/>
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
+          <Route exact path="/pets/create" render={() => <PetCreateForm />} />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />

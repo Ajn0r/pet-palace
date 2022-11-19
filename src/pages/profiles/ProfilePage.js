@@ -24,6 +24,8 @@ import { axiosReq } from '../../api/axiosDefaults';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/utils';
 import { ProfileEditDropdown } from '../../components/DropDownManage';
+import PetsPage from '../pets/PetsPage';
+import Avatar from '../../components/Avatar';
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -37,19 +39,27 @@ function ProfilePage() {
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
   const [profilePosts, setProfilePosts] = useState({ results: [] });
+  const [profilePets, setProfilePets] = useState({ results: []});
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [ {data: pageProfile}, {data: profilePosts} ] = await Promise.all([
+        const [
+          {data: pageProfile},
+          {data: profilePosts},
+          {data: profilePets},
+        
+        ] = await Promise.all([
           axiosReq.get(`/profiles/${id}`),
-          axiosReq.get(`/posts/?owner__profile=${id}`)
+          axiosReq.get(`/posts/?owner__profile=${id}`),
+          axiosReq.get(`pets/?owner=${id}`)
         ]);
         setProfileData(prevState => ({
           ...prevState,
           pageProfile: { results: [pageProfile]}
         }));
         setProfilePosts(profilePosts);
+        setProfilePets(profilePets);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -72,13 +82,10 @@ function ProfilePage() {
 
         <Col lg={6}>
           <h3 className={`m-2 ml-2 ${appStyles.Text}`}>{profile?.owner}
-          {/* if user is of type petowner 
-            display a paw with link to pets page */}
+          {/* if user is of type 
+            petowner display a paw*/}
           {profile?.type === 1 ? (
-            <Link
-              to='/pets/'>
-              <i className='fas fa-paw ml-3'></i>
-            </Link>
+            <i className='fas fa-paw ml-3'></i>
           ) : (
             null
           )}
@@ -171,7 +178,7 @@ function ProfilePage() {
             
       ) : (
         is_owner ? (
-          <div className='mx-auto text-center'>
+          <div className='mx-auto text-center pb-4'>
             <p>You havn't made any posts yet {profile?.owner}, add one now!</p>
             <Link
               to='/posts/create'
@@ -183,10 +190,24 @@ function ProfilePage() {
         ) : (
           <Asset
           src={noResult}
-          message={`${profile?.owner} hasn't made any posts yet`}/>
+          message={`${profile?.owner} hasn't created any posts yet`}/>
         )
       )}
     </>
+  );
+
+  const profilePet = (
+    profilePets?.results.map((pet) => (
+      <Row className="pl-3 pb-2 mb-3 align-items-center" key={pet.id}>
+        <Link
+          to={`/pets/${pet.id}`}
+        >
+          <Avatar src={pet.image} />
+          <span className='pl-2'>{pet.name}</span>
+        </Link>
+      </Row>
+    ))
+
   );
 
   return (
@@ -205,10 +226,18 @@ function ProfilePage() {
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        {/* If Ratings / ads/  Pets go here */}
-        <p className='card p-5'>If ads - the latest then button to more</p>
-        <p className='card p-5'>If Ratings - 3 latest then button to more</p>
-        <p className='card p-5'>If pets - max 3 then button to more</p>
+        {hasLoaded  ? (
+          profilePets?.results.length ?  (
+            <div className='card mb-3 p-3'>
+              <p className={`${appStyles.SpanText}`}>{profile?.owner}'s pets</p>
+              {profilePet}
+            </div>
+          ) : (null)
+        ) : (
+          <div className='card mb-3 p-3'><Asset spinner /></div>
+        )}
+        <p className='card p-3'>If Ratings - 3 latest then button to more</p>
+        <p className='card p-3'>If petsittings - max 3 then button to more</p>
         <PopularProfiles />
       </Col>
     </Row>

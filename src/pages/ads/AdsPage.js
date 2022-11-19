@@ -25,7 +25,7 @@ function PostsPage({ message, filter = "" }) {
   const currentUser = useCurrentUser();
 
   useEffect(() => {
-    const fetchPosts = async () => {
+    const fetchAds = async () => {
       try {
         const { data } = await axiosReq.get(`/ads/?${filter}&search=${query}`);
         setAds(data);
@@ -37,7 +37,7 @@ function PostsPage({ message, filter = "" }) {
 
     setHasLoaded(false);
     const timer = setTimeout(() => {
-      fetchPosts();
+      fetchAds();
     }, 1000)
     return () => {
       clearTimeout(timer)

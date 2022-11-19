@@ -2,15 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { Col, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom'
 import { axiosReq } from '../../api/axiosDefaults';
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import PopularProfiles from '../profiles/PopularProfiles';
 import Pet from './Pet';
+
 
 function PetPage() {
   const { id } = useParams();
   const [ pet, setPet ] = useState({ results: [] });
-  const currentUser = useCurrentUser();
-  
+
   useEffect(() => {
     const handleMount = async () => {
       try {

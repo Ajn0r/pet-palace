@@ -23,6 +23,7 @@ import AdsPage from './pages/ads/AdsPage';
 import PetCreateForm from './pages/pets/PetCreateForm';
 import PetPage from './pages/pets/PetPage';
 import PetsPage from './pages/pets/PetsPage';
+import PetEditForm from './pages/pets/PetEditForm';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -43,6 +44,7 @@ function App() {
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/pets/create" render={() => <PetCreateForm />} />
           <Route exact path="/pets/:id" render={() => <PetPage />}/>
+          <Route exact path="/pets/:id/edit" render={() => <PetEditForm />} />
           <Route exact path="/mypets" render={() => (
             <PetsPage
               filter={`owner=${profile_id}`}

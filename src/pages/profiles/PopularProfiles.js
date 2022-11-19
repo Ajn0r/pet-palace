@@ -1,10 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import Container from 'react-bootstrap/Container';
+import Container from "react-bootstrap/Container";
 
-import Asset from '../../components/Asset';
-import { useProfileData } from '../../contexts/ProfileDataContext';
-import Profile from './Profile';
+import appStyles from "../../App.module.css"
+
+import Asset from "../../components/Asset";
+import { useProfileData } from "../../contexts/ProfileDataContext";
+import Profile from "./Profile";
 
 const PopularProfiles = ({mobile}) => {
 
@@ -14,7 +16,7 @@ const PopularProfiles = ({mobile}) => {
     <Container className={`card p-3 ${mobile && 'd-lg-none text-center mb-3'} `}>
       {popularProfiles.results.length ? (
         <>
-          <p>Most followed profiles</p>
+          <p className={`${appStyles.SpanText}`}>Most followed profiles</p>
           {mobile ? (
             <div className='d-flex justify-content-around'>
               {popularProfiles.results.slice(0, 4).map((profile) => (

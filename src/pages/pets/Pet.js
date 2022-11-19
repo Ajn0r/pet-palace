@@ -22,7 +22,6 @@ const Pet = (props) => {
     age,
     profile_id,
     petPage,
-    setPets,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -43,7 +42,7 @@ const Pet = (props) => {
   };
 
   return (
-    <Card className={`${styles.PetCard} text-center shadow`}>
+    <Card className={`${styles.PetCard} text-center shadow mb-5`}>
       <Card.Header className="align-items-center justify-content-between d-flex p-3">
         <Link to={`/profiles/${profile_id}`}>
           <span>Pet owner: </span>{owner}

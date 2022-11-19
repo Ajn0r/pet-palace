@@ -14,6 +14,7 @@ import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import UsersPets from "./UsersPets";
 
 function PetsPage({ message, filter = "" }) {
   const [pets, setPets] = useState({ results: [] })
@@ -44,6 +45,7 @@ function PetsPage({ message, filter = "" }) {
   return (
     <Row className="h-100">
       <Col lg={8} >
+        <UsersPets mobile />
         <i className={`fas fa-search ${styles.SearchIcon}`}/>
         <Form className={styles.SearchBar}
           onSubmit={(event) => event.preventDefault()}>
@@ -80,6 +82,7 @@ function PetsPage({ message, filter = "" }) {
         )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+        <UsersPets />
         <PopularProfiles/>
       </Col>
     </Row>

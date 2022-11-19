@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { axiosReq } from '../../api/axiosDefaults';
 import PopularProfiles from '../profiles/PopularProfiles';
 import Pet from './Pet';
+import UsersPets from './UsersPets';
 
 
 function PetPage() {
@@ -26,9 +27,11 @@ function PetPage() {
   return (
     <Row className="h-100" >
       <Col className="py-2 p-0 p-lg-2" lg={8}>
+        <UsersPets mobile />
         <Pet {...pet.results[0]} setPets={setPet} petPage />
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
+        <UsersPets />
         <PopularProfiles />
       </Col>
     </Row>

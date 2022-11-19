@@ -76,6 +76,7 @@ const DraftAds = ({mobile}) => {
   }
 
   return (
+    currentUser && draftData.results.length ? (
     <Container className={`card p-3 mt-4 ${mobile && 'd-lg-none text-center mb-3'} ${!mobile && styles.Sticky}`}>
       {draftData.results.length ? (
         <>
@@ -109,7 +110,7 @@ const DraftAds = ({mobile}) => {
       ) : (
         <Asset spinner />
       )}
-    </Container>
+    </Container>) : (null)
   )
 }
 

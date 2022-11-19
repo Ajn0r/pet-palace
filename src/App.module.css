@@ -27,6 +27,8 @@
 .Text {
     font-weight: 500;
     font-size: 3.5rem;
+    font-family: Caveat, sans-serif;
+    color: #2C3D73;
 }
 .SmallerText {
     font-weight: 500;
@@ -82,7 +84,7 @@ a:hover, a:hover i {
 .Image {
     max-height: 60vh;
     max-width: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .FillerImage {

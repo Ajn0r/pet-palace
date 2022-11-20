@@ -16,18 +16,19 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 const UsersPets = ({mobile}) => {
   const [ petData, setPetData ] = useState({ results: [] })
   const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || '';
   
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const { data } = await axiosReq.get(`/pets/?owner=${currentUser.pk}`)
+        const { data } = await axiosReq.get(`/pets/?owner=${profile_id}`)
         setPetData(data);
       } catch (err) {
         console.log(err)
       }
     }
     handleMount();
-  }, [currentUser])
+  }, [profile_id])
 
 
   return (

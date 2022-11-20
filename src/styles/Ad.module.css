@@ -7,25 +7,27 @@
     border-radius: 0;
     object-fit: cover;
 }
+
 .AdImageWidth {
     max-width: 30rem;
 }
+
 .NoResults {
     max-height: 60vh;
     max-width: 100%;
 }
-.FormBtn {
-    gap: 0.6rem;
-}
+
 .DraftsMobile {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 0.6rem;
 }
+
 .DraftTrash {
     font-size: 1.2rem;
 }
+
 .Sticky {
     position: sticky;
     top: 8rem;

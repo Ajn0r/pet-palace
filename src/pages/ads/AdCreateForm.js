@@ -325,7 +325,7 @@ function AdCreateForm () {
             ))}
           </Form.Group>
         </Form.Row>
-        <Form.Row className={`float-right ${styles.FormBtn}`}>
+        <Form.Row className={`float-right ${btnStyles.FormBtn}`}>
           <Button
             className={`mx-auto  mr-2 ${btnStyles.Button}`}
             onClick={() => history.goBack()}

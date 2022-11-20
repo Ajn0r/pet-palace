@@ -58,3 +58,7 @@ border-color: #F24405 !important;
 color: #F8F8F8;
 box-shadow: 0 0 0 0.2rem rgba(242, 68, 5, 0.5);
 }
+
+.FormBtn {
+  gap: 0.6rem;
+}

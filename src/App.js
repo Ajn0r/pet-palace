@@ -45,11 +45,6 @@ function App() {
           <Route exact path="/pets/create" render={() => <PetCreateForm />} />
           <Route exact path="/pets/:id" render={() => <PetPage />}/>
           <Route exact path="/pets/:id/edit" render={() => <PetEditForm />} />
-          <Route exact path="/mypets" render={() => (
-            <PetsPage
-              filter={`owner=${profile_id}`}
-            />
-          )}/>
           <Route exact path="/pets" render={() => <PetsPage />}/>
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/posts/:id" render={() => <PostPage />} />

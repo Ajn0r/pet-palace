@@ -5,9 +5,13 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
 
 import noResult from "../../assets/noresults.png";
 import styles from "../../styles/Search.module.css";
+import btnStyles from "../../styles/Button.module.css";
+import filterStyles from "../../styles/Filter.module.css";
+
 import { axiosReq } from "../../api/axiosDefaults";
 import Pet from "./Pet";
 import Asset from "../../components/Asset";
@@ -15,12 +19,19 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import UsersPets from "./UsersPets";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-function PetsPage({ message, filter = "" }) {
+
+function PetsPage() {
   const [pets, setPets] = useState({ results: [] })
   const [ hasLoaded, setHasLoaded ] = useState(false);
   const { pathname } = useLocation();
   const [ query, setQuery ] = useState("");
+  const [ options, setOptions ] = useState([]);
+  const [ filter, setFilter ] = useState("");
+
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || '';
 
   useEffect(() => {
     const fetchPets = async () => {
@@ -41,7 +52,16 @@ function PetsPage({ message, filter = "" }) {
     };
   }, [filter, query, pathname]);
 
-  console.log(pets)
+  useEffect(() => {
+    try {
+      axiosReq.options('/pets/').then((response) => {
+        setOptions(response.data.actions.POST.type.choices)
+      });
+    } catch (err) {
+
+    }
+  }, []);
+
   return (
     <Row className="h-100">
       <Col lg={8} >
@@ -56,6 +76,36 @@ function PetsPage({ message, filter = "" }) {
             onChange={(event) => setQuery(event.target.value)}
           />
         </Form>
+
+        <Form
+          onSubmit={(event) => event.preventDefault()}
+          >
+        <Form.Row
+            className={filterStyles.FilterFields}>
+          <Form.Control
+            as="select"
+            onChange={(event) => setFilter(`&type=${event.target.value}`)}
+            value={filter}
+            className={filterStyles.FilterBar}
+          >
+            <option>Filter pets by type</option>
+            {options?.map((pet, index) => {
+              return (
+                <option key={index} value={pet.value}>{pet.display_name}</option>
+              )
+            })
+            }
+          </Form.Control>
+          {currentUser && <Button
+            className={`mb-3 ${btnStyles.Button}`}
+            onClick={() => setFilter(`&owner=${profile_id}`)}
+            >My pets</Button>}
+          <Button
+            className={`mb-3 ${btnStyles.Button}`}
+            onClick={() => setFilter('')}>Reset filter</Button>
+          </Form.Row>
+        </Form>
+
         {hasLoaded ? (
           <>
           { pets.results.length ? (
@@ -71,7 +121,7 @@ function PetsPage({ message, filter = "" }) {
             />
           ) : (
             <Container>
-              <Asset message={message} src={noResult} />
+              <Asset message={'No pets found'} src={noResult} />
             </Container>
           )}
           </>

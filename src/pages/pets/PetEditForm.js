@@ -8,7 +8,6 @@ import Image from 'react-bootstrap/Image';
 import Alert from 'react-bootstrap/Alert';
 
 import UploadImg from '../../assets/uploadimage.png';
-import styles from '../../styles/Pet.module.css';
 import appStyles from '../../App.module.css';
 import btnStyles from '../../styles/Button.module.css';
 

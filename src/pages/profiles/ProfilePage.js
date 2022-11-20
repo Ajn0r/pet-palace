@@ -24,7 +24,6 @@ import { axiosReq } from '../../api/axiosDefaults';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/utils';
 import { ProfileEditDropdown } from '../../components/DropDownManage';
-import PetsPage from '../pets/PetsPage';
 import Avatar from '../../components/Avatar';
 
 function ProfilePage() {

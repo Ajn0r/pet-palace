@@ -1,0 +1,23 @@
+.FilterFields {
+    justify-content: flex-start;
+}
+
+.FilterBar{
+    width: 11rem;
+    margin-right: 0.5rem;
+}
+
+@media only screen and (max-width: 625px) {
+    .FilterFields {
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    .FilterBar {
+        width: 100%;
+    }
+    .FilterFields > Button {
+        width: 7rem;
+        margin: 0 auto;
+    }
+}

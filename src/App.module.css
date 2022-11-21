@@ -4,8 +4,11 @@
 
 .App {
     min-height: 100vh;
+    max-width: 100%;
     background-color: #F2F2F2;
     font-family: 'Roboto', sans-serif;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 .Main {

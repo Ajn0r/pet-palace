@@ -70,37 +70,48 @@ function PetSittingsPage() {
         <Form
           onSubmit={(event) => event.preventDefault()}
 					className="mb-3"
-          >
-        <Form.Row
-            className={filterStyles.FilterFields}>
-          <Form.Control
-            as="select"
-            onChange={(event) => setFilter(`&pets=${event.target.value}`)}
-            value={filter}
-            className={filterStyles.FilterBar}
-          >
-            <option>Filter by pet</option>
-            {pets?.results?.map((pet => {
-              return (
-                <option key={pet.id} value={pet.id}>{pet.name}</option>
-              )
-            })
-            )}
-          </Form.Control>
-          <Form.Control
-            as="select"
-            onChange={(event) => setFilter(`&type=${event.target.value}`)}
-            value={filter}
-            className={filterStyles.FilterBar}
-          >
-            <option>Filter ads by type</option>
-            <option value={0}>Pet-sitting</option>
-            <option value={1}>Pet-sitter</option>
-            <option value={2}>Unspecified</option>
-          </Form.Control>
-          <Button
-            className={btnStyles.Button}
-            onClick={() => setFilter('')}>Reset filter</Button>
+        >
+          <Form.Row
+              className={filterStyles.FilterFields}>
+            <Form.Control
+              as="select"
+              onChange={(event) => setFilter(`&pets=${event.target.value}`)}
+              value={filter}
+              className={filterStyles.FilterBar}
+            >
+              <option>Filter by pet</option>
+              {pets?.results?.map((pet => {
+                return (
+                  <option key={pet.id} value={pet.id}>{pet.name}</option>
+                )
+              })
+              )}
+            </Form.Control>
+            <Form.Control
+              as="select"
+              onChange={(event) => setFilter(`&status=${event.target.value}`)}
+              value={filter}
+              className={filterStyles.FilterBar}
+            >
+              <option>Filter by status</option>
+              <option value={0}>Planned</option>
+              <option value={1}>On-going</option>
+              <option value={2}>Finished</option>
+            </Form.Control>
+            <Form.Control
+              as="select"
+              onChange={(event) => setFilter(`${event.target.value}`)}
+              value={filter}
+              className={filterStyles.FilterBar}
+            >
+              <option>Filter by role</option>
+              <option value={`owner=${currentUser?.pk}`}>Where I am owner</option>
+              <option value={`petsitter=${currentUser?.pk}`}>Where I am petsitter</option>
+            </Form.Control>
+            <Button
+              className={btnStyles.Button}
+              onClick={() => setFilter('')}>Reset filter
+            </Button>
           </Form.Row>
         </Form>
         {hasLoaded ? (

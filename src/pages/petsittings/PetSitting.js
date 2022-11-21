@@ -50,7 +50,6 @@ const PetSitting = (props) => {
 
 	return (
 		<>
-		{is_owner || is_petsitter ? (
 			<div className={`container shadow p-4 mb-5 ml-4 ${styles.Petsitting}`}>
         {is_owner && petsittingPage && (
           <div className="float-right">
@@ -59,7 +58,7 @@ const PetSitting = (props) => {
 							handleDelete={handleDelete}
 						/>
 					</div>)}
-				<div  className={`row ${styles.ImgRow}`}>
+				<div  className={`row mb-5 ${styles.ImgRow}`}>
 					<div className={`col-md-4 text-center d-flex justify-content-center`}>
 						<Link 
 							to={`/profiles/${profile_id}`}
@@ -97,23 +96,18 @@ const PetSitting = (props) => {
 					</div>
 				</div>
 
-
-				<div className="text-center row pt-4">
-					<div className="col-12">
+				<div className={`row ${styles.ImgRow} text-center`}>
+					<div className="col-md-4 col-lg-5">
 						<h4>Description: </h4>
 						<p>{description}</p>
 						</div>
-				</div>
-				
-				<div className={`row ${styles.ImgRow}`}>
-					<div className={`col-md-8 text-center text-md-left`}>
+					<div className={`col-md-4 col-lg-5`}>
 						<h4>Details:</h4>
 						<p>Location: {location}</p>
-						<p>Compensation: {compensation}</p>
+						{is_owner || is_petsitter ? (<p>Compensation: {compensation}</p>) : (null)}
 						<p>Stauts: {get_status_display}</p>
 					</div>
-
-					<div className={`col-md-4 text-center d-flex justify-content-center flex-column float-right`}>
+					<div className={`col-md-4 col-lg-2 text-center d-flex justify-content-center flex-column float-right`}>
 						<Link
 							to={`/profiles/${petsitter}`}
 							className={`d-flex flex-column`}
@@ -127,11 +121,7 @@ const PetSitting = (props) => {
 						</Link>	
 					</div>
 				</div>
-
 			</div>
-		) : (
-			<Asset message={'No petsittings found'} />
-		)}
 		</>
 	)
 }

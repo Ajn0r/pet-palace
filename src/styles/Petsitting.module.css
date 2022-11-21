@@ -1,0 +1,16 @@
+.Petsitting {
+    margin-top: 1rem;
+    background-color: #FFF;
+    max-width: 100%;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+}
+
+.ImgRow {
+    align-items: center;
+}
+
+.Link:hover {
+    color: initial;
+    zoom: 125%;
+}

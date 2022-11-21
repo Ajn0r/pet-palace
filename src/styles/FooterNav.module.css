@@ -1,0 +1,15 @@
+.FooterNav {
+    display: flex;
+    flex-direction: row;
+    max-height: 4rem;
+    background-color: #2C3D73;
+    padding: 0.8rem;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media only screen and (min-width: 508px){
+    .FooterNav {
+        display: none;
+    }
+}

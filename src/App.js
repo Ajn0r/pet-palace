@@ -28,6 +28,7 @@ import PetSittingsCreateForm from './pages/petsittings/PetSittingsCreateForm';
 import PetSittingPage from './pages/petsittings/PetSittingPage';
 import PetSittingsPage from './pages/petsittings/PetSittingsPage';
 import PetSittingEditForm from './pages/petsittings/PetSittingEditForm';
+import FooterNav from './components/FooterNav';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -75,7 +76,8 @@ function App() {
           <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />}/>
           <Route render={() => <p>Page not found</p>} />
           </Switch>
-      </Container>
+        </Container>
+      <FooterNav />
     </div>
   );
 }

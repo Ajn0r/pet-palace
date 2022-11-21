@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col';
-import { useParams } from 'react-router-dom';
-import { axiosReq } from '../../api/axiosDefaults';
-import Ad from './Ad';
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { useParams } from "react-router-dom";
+import { axiosReq } from "../../api/axiosDefaults";
+import Ad from "./Ad";
 
 function AdPage() {
   const { id } = useParams();
@@ -18,20 +18,19 @@ function AdPage() {
         ]);
         setAd({ results: [ad] });
       } catch (err) {
-        console.log(err);
+
       }
     };
     handleMount();
   }, [id]);
-  console.log(ad)
-  
+
   return (
     <Row>
       <Col>
         <Ad {...ad.results[0]} adPage/>
       </Col>
     </Row>
-  )
-}
+  );
+};
 
-export default AdPage
+export default AdPage;

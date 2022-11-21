@@ -55,7 +55,7 @@ function PostsPage() {
 
   console.log(ads)
   return (
-    <Row className="h-100 pl-sm-3">
+    <Row className="h-100 p-3 pl-xs-3">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <DraftAds mobile />
         <i className={`fas fa-search ${searchStyles.SearchIcon}`}/>

@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react"
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react"
+import { Link, useHistory } from "react-router-dom";
 
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
@@ -12,15 +12,16 @@ import btnStyles from '../../styles/Button.module.css';
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
+import Asset from "../../components/Asset"
 
 function PetSittingsCreateForm() {
   useRedirect('loggedOut');
   const [ errors, setErrors ] = useState({});
   const [ pet, setPet ] = useState({ results: []})
   const [ petSitter, setPetSitter ] = useState([])
+  const [ hasLoaded, setHasLoaded ] = useState(false);
   
   const currentUser = useCurrentUser();
-  const profile_id = currentUser?.profile_id || '';
 
   const [ petSittingData, setPetSittingData ] = useState({
     petsitter: '',
@@ -38,18 +39,21 @@ function PetSittingsCreateForm() {
     const fetchData = async () => {
       try {
         const [ {data: pet}, {data: petSitter} ] = await Promise.all([
-          axiosReq.get(`/pets/?owner=${profile_id}`),
+          axiosReq.get(`/pets/?owner=${currentUser.pk}`),
           axiosReq.get(`/profiles`),
         ]);
         setPet(pet);
         setPetSitter(petSitter);
+        setHasLoaded(true);
         console.log('mounted')
       } catch (err) {
         console.log(err)
       }
     };
+    setHasLoaded(false);
     fetchData();
-  }, [profile_id])
+  }, [currentUser])
+
   console.log(pet)
   console.log(petSitter)
 
@@ -64,7 +68,6 @@ function PetSittingsCreateForm() {
     status,
   } = petSittingData;
 
-  const imageInput = useRef(null);
   const history = useHistory();
   
   // getting todays date to set as min value for start date - date_from
@@ -126,6 +129,7 @@ function PetSittingsCreateForm() {
               value={petsitter}
               onChange={handleChange}
             >
+              <option>Choose a petsitter...</option>
               {petSitter?.results?.map((petsitter) => {
                 return (
               <option value={petsitter.id} key={petsitter.id}>
@@ -223,21 +227,42 @@ function PetSittingsCreateForm() {
 
           <Form.Group as={Col} md='12'>
             <Form.Label>Pets</Form.Label>
-            <Form.Control
-              as="select"
-              name='pets'
-              value={pets}
-              onChange={handleChangePets}
-              multiple={true}
-            >
-              {pet?.results?.map((pets) => {
-                return (
-              <option value={pets.id} key={pets.id}>
-                {pets.name}
-              </option>
+            {hasLoaded ? (
+              <>
+               {pet?.results?.length ? (
+                <Form.Control
+                  as="select"
+                  name='pets'
+                  value={pets}
+                  onChange={handleChangePets}
+                  multiple={true}
+                >
+                    {pet?.results.map((pets) => {
+                      return (
+                        <option value={pets.id} key={pets.id}>
+                          {pets.name}
+                        </option>
+                      )}
+                    )}
+                  </Form.Control>
+               ) : (
+                <div className="d-flex text-center pt-4 pb-4 justify-content-center flex-column">
+                  <p
+                    className="mb-1">You dont have any pets to choose from</p>
+                  <Link
+                    to="/pets/create"
+                    className={`mx-auto ${appStyles.SpanText}`}
+                    >Create new pet</Link>
+                </div>
+               )
+               }
+                </>
+                
+              ) : (
+                  <Asset spinner />
               )}
-              )}
-            </Form.Control>
+              
+            
               {errors?.pet?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}

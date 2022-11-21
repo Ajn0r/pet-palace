@@ -26,6 +26,7 @@ import PetsPage from './pages/pets/PetsPage';
 import PetEditForm from './pages/pets/PetEditForm';
 import PetSittingsCreateForm from './pages/petsittings/PetSittingsCreateForm';
 import PetSittingPage from './pages/petsittings/PetSittingPage';
+import PetSittingsPage from './pages/petsittings/PetSittingsPage';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -50,6 +51,7 @@ function App() {
           <Route exact path="/pets" render={() => <PetsPage />}/>
           <Route exact path="/petsittings/create" render={() => <PetSittingsCreateForm />}/>
           <Route exact path="/petsittings/:id" render={() => <PetSittingPage /> } />
+          <Route exact path="/petsittings" render={() => <PetSittingsPage />} />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />

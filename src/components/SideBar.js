@@ -15,7 +15,7 @@ const SideBar = () => {
       icon: <i className="fas fa-home"></i>
     },
     {
-      path: '/messages',
+      path: '/petsittings',
       name: 'Messages',
       icon: <i className="fas fa-inbox"></i>
     },
@@ -38,21 +38,6 @@ const SideBar = () => {
       path: '/liked',
       name: 'Likes',
       icon: <i className="far fa-heart"></i>
-    },
-    {
-      path: '/followers',
-      name: 'Followers',
-      icon: <i className="fas fa-users"></i>
-    },
-    {
-      path: '/interests',
-      name: 'Interest',
-      icon: <i className="far fa-lightbulb"></i>
-    },
-    {
-      path: '/profile',
-      name: 'Profile',
-      icon: <i className="fas fa-user"></i>
     },
     {
       path: '/ratings',

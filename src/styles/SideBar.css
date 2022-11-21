@@ -58,8 +58,8 @@
     color: #F58A07;
 }
 
-@media only screen and (max-width: 508px) and (min-width: 370px) {
+@media only screen and (max-width: 508px){
     .SideBar {
-        padding-top: 160px;
+        display: none;
     }
 }

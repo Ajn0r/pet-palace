@@ -1,11 +1,11 @@
 .NavBar {
     background-color: #F8F8F8;
     border: 1px solid #E4E4E4;
+    max-width: 100%;
 }
 
 .BigLogo, .SmLogo {
     max-height: 70px;
-    max-width: 100%;
 }
 
 .NavLink {

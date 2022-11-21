@@ -41,14 +41,14 @@ const UsersPets = ({mobile}) => {
             <div className={`${styles.PetMobile}`}>
               {petData.results.slice(0, 3).map((pet) => (
                 <Link
-                to={`/ads/${pet.id}`}
+                to={`/pets/${pet.id}`}
                 key={pet.id}
                 >
                   <Avatar src={pet.image} />
                   <span>{pet.name}</span>
                 </Link>
               ))}
-              <Link to="/mypets">
+              <Link to="/pets">
                 <span className="text-center align-items-center">
                   <i className="fas fa-angle-right"></i>
                   All pets

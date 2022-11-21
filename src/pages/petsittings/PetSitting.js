@@ -3,7 +3,6 @@ import { Link, useHistory } from "react-router-dom";
 
 import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import Asset from "../../components/Asset";
 import Avatar from "../../components/Avatar";
 import { DropDownManage } from "../../components/DropDownManage";
 
@@ -50,7 +49,7 @@ const PetSitting = (props) => {
 
 	return (
 		<>
-			<div className={`container shadow p-4 mb-5 ml-4 ${styles.Petsitting}`}>
+			<div className={`container shadow p-4 mb-5 ml-sm-4 ${styles.Petsitting}`}>
         {is_owner && petsittingPage && (
           <div className="float-right">
 						<DropDownManage

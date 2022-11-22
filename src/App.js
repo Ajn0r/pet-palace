@@ -15,7 +15,6 @@ import ProfilePage from './pages/profiles/ProfilePage';
 import ProfileEditForm from './pages/profiles/ProfileEditForm';
 import UserPasswordForm from './pages/profiles/UserPasswordForm';
 import UsernameForm from './pages/profiles/UsernameForm';
-import StartPage from './pages/start/StartPage';
 import AdCreateForm from './pages/ads/AdCreateForm';
 import AdPage from './pages/ads/AdPage';
 import AdEditForm from './pages/ads/AdEditForm';
@@ -29,6 +28,7 @@ import PetSittingPage from './pages/petsittings/PetSittingPage';
 import PetSittingsPage from './pages/petsittings/PetSittingsPage';
 import PetSittingEditForm from './pages/petsittings/PetSittingEditForm';
 import FooterNav from './components/FooterNav';
+import ContactPage from './pages/contact/ContactPage';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -40,7 +40,7 @@ function App() {
       <SideBar />
       <Container className={styles.Main}>
         <Switch>
-          <Route exact path="/" render={() => <StartPage />} />
+          <Route exact path="/" render={() => <PostsPage />} />
           <Route exact path="/ads/create" render={() => <AdCreateForm />} />
           <Route exact path="/ads/:id" render={() => <AdPage /> }/>
           <Route exact path="/ads/:id/edit" render={() => <AdEditForm />} />
@@ -74,6 +74,7 @@ function App() {
           <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
           <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />}/>
           <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />}/>
+          <Route exact path="/contact" render={() => <ContactPage />} />
           <Route render={() => <p>Page not found</p>} />
           </Switch>
         </Container>

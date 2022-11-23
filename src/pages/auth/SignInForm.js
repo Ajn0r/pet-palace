@@ -87,7 +87,8 @@ function SignInForm() {
 
             <Button
               type="submit"
-              className={`${btnStyles.Button}`}>
+              className={`${btnStyles.Button}`}
+              disabled={!username || !password}>
               Sign in
             </Button>
             {errors.non_field_errors?.map((message, idx) => (

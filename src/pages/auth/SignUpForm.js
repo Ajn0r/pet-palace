@@ -96,7 +96,9 @@ const SignUpForm = () => {
 
             <Button
               type="submit"
-              className={`${btnStyles.Button}`}>
+              className={`${btnStyles.Button}`}
+              disabled={!username || !password1 || !password2}
+            >
               Sign up
             </Button>
             {errors.non_field_errors?.map((message, idx) => (

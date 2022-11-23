@@ -24,6 +24,15 @@
   box-shadow: 0 0 0 0.2rem rgba(242, 68, 5, 0.5);
 }
 
+.Button:disabled {
+  background-color: #F8F8F8;
+  border: 1px solid #F24405;
+  border-radius: 20px;
+  margin: 2px;
+  color: #F24405 !important;
+  min-width: 6rem;
+}
+
 .EditButton {
   position: absolute;
   right: 0;

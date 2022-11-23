@@ -49,7 +49,7 @@ function CommentEditForm(props) {
       </Form.Group>
       <div className="text-right mb-3">
         <button
-          className={btnStyles.Button}
+          className={btnStyles.CloseBtn}
           onClick={() => setShowEditForm(false)}
         >
           cancel

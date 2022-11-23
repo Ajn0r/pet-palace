@@ -73,7 +73,7 @@ const UsernameForm = () => {
               </Alert>
             ))}
             <Button
-              className={`${btnStyles.Button}`}
+              className={`${btnStyles.CloseBtn}`}
               onClick={() => history.goBack()}
             >
               cancel

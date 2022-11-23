@@ -15,7 +15,6 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory, useParams } from "react-router";
 
 function PostEditForm() {
-
   const [ errors, setErrors ] = useState({});
   const [ categories, setCategories ] = useState([]);
   
@@ -31,7 +30,6 @@ function PostEditForm() {
     try {
       axiosReq.options('/posts/').then((response) => {
         setCategories(response.data.actions.POST.category.choices)
-        console.log(response)
       });
     } catch (err) {
 
@@ -49,10 +47,8 @@ function PostEditForm() {
       try {
         const { data } = await axiosReq.get(`/posts/${id}`)
         const { title, content, image, category, is_owner } = data;
-
         is_owner ? setPostData({title, content, image, category}) : history.push('/');
       } catch (err) {
-          console.log(err);
       }
     };
     handleMount();

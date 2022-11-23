@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useCurrentUser } from '../contexts/CurrentUserContext';
 import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
-import '../styles/SideBar.css'
+import '../styles/SideBar.css';
 
 const SideBar = () => {
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
@@ -17,7 +17,7 @@ const SideBar = () => {
     {
       path: '/petsittings',
       name: 'Messages',
-      icon: <i className="fas fa-inbox"></i>
+      icon: <i className="fas fa-handshake"></i>
     },
     {
       path: '/posts',
@@ -79,7 +79,7 @@ const SideBar = () => {
       </div>
       ) : 
       (null)
-  )
+  );
 };
 
 export default SideBar;

@@ -14,11 +14,11 @@ const FooterNav = () => {
     },
     {
       path: '/petsittings',
-      icon: <i className="fas fa-inbox"></i>
+      icon: <i className="fas fa-handshake"></i>
     },
     {
-      path: '/posts',
-      icon: <i className="fab fa-microblog"></i>
+      path: '/pets',
+      icon: <i className="fas fa-paw"></i>
     },
     {
       path: '/ads',
@@ -37,7 +37,6 @@ const FooterNav = () => {
             key={index}
             activeClassName="Active">
             <div className="Icon">{item.icon}</div>
-  
           </NavLink>
         ))
       }
@@ -51,7 +50,7 @@ const FooterNav = () => {
       </div>
       ) : 
       (null)
-  )
+  );
 };
 
 export default FooterNav;

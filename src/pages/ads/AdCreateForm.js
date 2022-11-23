@@ -42,7 +42,6 @@ function AdCreateForm () {
         const { data } = await axiosReq.get('/ads/petchoices');
         setOptions(data);
       } catch (err) {
-        console.log(err)
       }
     }
     fetchOptions();
@@ -128,8 +127,12 @@ function AdCreateForm () {
       {image ? (
         <>
           <figure>
-            <Image className={appStyles.Image} src={image} rounded/>
+            <Image className={styles.AdImg} src={image} rounded/>
           </figure>
+          {errors?.image?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>))}
           <div>
             <Form.Label
               className={` ${btnStyles.Button}  btn`}
@@ -160,9 +163,8 @@ function AdCreateForm () {
   )
 
   return (
-    <div className='p-5 card shadow'>
+    <div className='p-3 p-md-5 card shadow'>
       <h1 className={`pt-2 text-center ${appStyles.Text}`}>New ad<hr /></h1>
-      
       <Form
         onSubmit={handleSubmit}
         className=''>
@@ -229,11 +231,14 @@ function AdCreateForm () {
             ))}
           </Form.Group>
         </Form.Row>
-        <div className={`float-lg-left mr-3 ${styles.AdImg} ${styles.AdImageWidth}`}>
+        <div className={`float-lg-left text-center mr-lg-3 mb-2 mb-lg-0`}>
             {imageInputField}
           </div>
         <Form.Row>
-          <Form.Group as={Col} md='12'>
+          <Form.Group
+            as={Col}
+            md='12'
+            className=''>
             <Form.Label>Description</Form.Label>
             <Form.Control
               as='textarea'

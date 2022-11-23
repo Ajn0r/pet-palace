@@ -3,13 +3,10 @@
 }
 
 .AdImg {
-    max-height: 60vh;
+    max-height: 30rem;
+    max-width: 100%;
     border-radius: 0;
     object-fit: cover;
-}
-
-.AdImageWidth {
-    max-width: 30rem;
 }
 
 .NoResults {

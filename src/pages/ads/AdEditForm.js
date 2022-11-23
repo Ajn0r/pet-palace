@@ -43,9 +43,8 @@ function AdEditForm () {
         const { data } = await axiosReq.get('/ads/petchoices');
         setOptions(data);
       } catch (err) {
-        console.log(err)
       }
-    }
+    };
     fetchOptions();
   }, []);
 
@@ -73,7 +72,6 @@ function AdEditForm () {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/ads/${id}`)
-        console.log('fetched data');
         const {
           title,
           description,
@@ -86,7 +84,6 @@ function AdEditForm () {
           status,
           type,
           is_owner, } = data;
-          console.log(pets)
         is_owner ? setAdData(
           {title, description, image, date_from,
           date_to, compensation, location, status, type, pets: pets.map((pet) => {
@@ -94,7 +91,6 @@ function AdEditForm () {
           })},
         ) : history.push('/');
       } catch (err) {
-          console.log(err);
       }
     };
     handleMount();
@@ -141,9 +137,8 @@ function AdEditForm () {
     if (pets?.length) {
       pets.forEach((pet) => formData.append('pets', pet))}
 
-
-    //Only append if there is an image, no default image set in API... yet..
-    if (image?.length) {
+    //Only append if there is an image, no default image set in API
+    if (imageInput?.current?.files[0]) {
       formData.append('image', imageInput.current.files[0])
     }
     
@@ -163,11 +158,15 @@ function AdEditForm () {
       {image ? (
         <>
           <figure>
-            <Image className={`${appStyles.Image}`} src={image} rounded/>
+            <Image className={`${styles.AdImg}`} src={image} rounded/>
           </figure>
+          {errors?.image?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>))}
           <div>
             <Form.Label
-              className={` ${btnStyles.Button}  btn`}
+              className={` ${btnStyles.Button} btn`}
               htmlFor="image-upload"
               >
                 Change the image
@@ -192,11 +191,10 @@ function AdEditForm () {
           ref={imageInput}
         />
       </div>
-  )
+  );
 
   return (
-    <div className='p-5 card shadow'>
-      {console.log('Form loaded')}
+    <div className='p-3 p-md-5 card shadow'>
       <h1 className={`pt-2 text-center ${appStyles.Text}`}>Edit ad<hr /></h1>
       <Form
         onSubmit={handleSubmit}
@@ -265,11 +263,16 @@ function AdEditForm () {
             ))}
           </Form.Group>
         </Form.Row>
-        <div className={`float-lg-left mr-3 ${styles.AdImg} ${styles.AdImageWidth}`}>
+
+        <div className={`float-lg-left text-center mr-lg-3 mb-2 mb-lg-0`}>
             {imageInputField}
-          </div>
+        </div>
+
         <Form.Row>
-          <Form.Group as={Col} md='12'>
+          <Form.Group
+            as={Col}
+            md='12'
+            className='mt-4 mt-lg-0'>
             <Form.Label>Description</Form.Label>
             <Form.Control
               as='textarea'

@@ -81,7 +81,7 @@ const Post = (props) => {
 
   return (
     <Card className={`shadow ${styles.Post} `}>
-      <Card.Header className='p-1 p-sm-4'>
+      <Card.Header className='p-3'>
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} />

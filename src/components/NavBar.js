@@ -91,6 +91,24 @@ const NavBar = () => {
               New ad
           </NavLink>
         </NavDropdown.Item>
+
+        <NavDropdown.Item
+          className={
+            `${styles.NavLink} ${styles.DropDownItem}`}>
+          <NavLink
+            to="/pets/create">
+              New pet
+          </NavLink>
+        </NavDropdown.Item>
+
+        <NavDropdown.Item
+          className={
+            `${styles.NavLink} ${styles.DropDownItem}`}>
+          <NavLink
+            to="/petsittings/create">
+              New petsitting
+          </NavLink>
+        </NavDropdown.Item>
       </NavDropdown>
     </>
   );

@@ -24,7 +24,6 @@ const UsersPets = ({mobile}) => {
         const { data } = await axiosReq.get(`/pets/?owner=${profile_id}`)
         setPetData(data);
       } catch (err) {
-        console.log(err)
       }
     }
     handleMount();

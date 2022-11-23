@@ -60,7 +60,6 @@ function PetEditForm () {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/pets/${id}`)
-        console.log('fetched data');
         const {
           name,
           type,
@@ -72,7 +71,6 @@ function PetEditForm () {
           {name, type, description, image, date_of_birth})
         : history.push('/');
       } catch (err) {
-          console.log(err);
       }
     };
     handleMount();
@@ -102,7 +100,6 @@ function PetEditForm () {
     formData.append('type', type);
     formData.append('description', description);
     formData.append('date_of_birth', date_of_birth);
-    console.log(formData)
 
     if (imageInput?.current?.files[0]) {
       formData.append('image', imageInput.current.files[0]);
@@ -113,7 +110,6 @@ function PetEditForm () {
       history.push(`/pets/${data.id}`);
     } 
     catch (err) {
-      console.log(err)
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

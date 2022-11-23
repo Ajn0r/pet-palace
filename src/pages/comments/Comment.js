@@ -40,7 +40,6 @@ const Comment = (props) => {
       }));
 
     } catch (err) {
-      console.log(err)
     }
   }
 

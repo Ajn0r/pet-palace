@@ -52,7 +52,6 @@ const Ad = (props) => {
       await axiosRes.delete(`/ads/${id}`);
       history.goBack();
     } catch (err) {
-      console.log(err);
     }
   };
 

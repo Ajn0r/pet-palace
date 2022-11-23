@@ -40,7 +40,6 @@ function PostsPage() {
         setPets(pets);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
       }
     };
 
@@ -53,7 +52,6 @@ function PostsPage() {
     };
   }, [filter, query, pathname]);
 
-  console.log(ads)
   return (
     <Row className="h-100 p-3 pl-xs-3">
       <Col className="py-2 p-0 p-lg-2" lg={8}>

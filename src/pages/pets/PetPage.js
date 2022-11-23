@@ -17,11 +17,9 @@ function PetPage() {
         const { data: pet } = await axiosReq.get(`/pets/${id}`);
         setPet({results: [pet] });
       } catch (err) {
-        console.log(err)
       }
     }
     handleMount();
-    console.log('Mounted')
   }, [id]);
 
   return (

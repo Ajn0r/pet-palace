@@ -96,7 +96,6 @@ function AdEditForm () {
     handleMount();
   }, [history, id]);
 
- console.log('data loaded?')
   const handleChange = (event) => {
     setAdData({
       ...adData,

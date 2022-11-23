@@ -36,10 +36,8 @@ function PostCreateForm() {
     try {
       axiosReq.options('/posts/').then((response) => {
         setCategories(response.data.actions.POST.category.choices)
-        console.log(response)
       });
     } catch (err) {
-
     }
   }, []);
 

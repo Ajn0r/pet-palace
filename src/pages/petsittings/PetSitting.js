@@ -43,7 +43,6 @@ const PetSitting = (props) => {
 			await axiosRes.delete(`/petsittings/${id}`);
 			history.push("/petsittings")
 		} catch (err) {
-			console.log(err);
 		}
 	}
 

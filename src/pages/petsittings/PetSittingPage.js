@@ -15,12 +15,10 @@ function PetSittingPage() {
         ]);
         setPetsitting({ results: [petsitting] });
       } catch (err) {
-        console.log(err);
       }
     };
     handleMount();
   }, [id]);
-  console.log(petsitting)
 	
 	return (
     <PetSitting {...petsitting.results[0]} petsittingPage/>

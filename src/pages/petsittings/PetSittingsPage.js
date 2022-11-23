@@ -41,7 +41,6 @@ function PetSittingsPage() {
         setPets(pets);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
       }
     };
 		setHasLoaded(false);

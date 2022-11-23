@@ -46,7 +46,6 @@ function PetSittingEditForm() {
         setPetSitter(petSitter);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err)
       }
     };
     setHasLoaded(false);
@@ -90,7 +89,7 @@ function PetSittingEditForm() {
 						(pet) => { return pet})}
         ) : history.push('/');
       } catch (err) {
-          console.log(err);
+
       }
     };
     handleMount();
@@ -120,7 +119,6 @@ function PetSittingEditForm() {
     formData.append('compensation', compensation);
     formData.append('location', location);
     formData.append('status', status);
-		console.log(formData)
 
     // Append all objects in the array of pets
     if (pets?.length) {
@@ -131,7 +129,6 @@ function PetSittingEditForm() {
       history.push(`/petsittings/${data.id}`);
     } 
     catch (err) {
-			console.log(err)
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

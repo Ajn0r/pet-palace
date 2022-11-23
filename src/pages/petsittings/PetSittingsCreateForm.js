@@ -45,17 +45,12 @@ function PetSittingsCreateForm() {
         setPet(pet);
         setPetSitter(petSitter);
         setHasLoaded(true);
-        console.log('mounted')
       } catch (err) {
-        console.log(err)
       }
     };
     setHasLoaded(false);
     fetchData();
   }, [currentUser])
-
-  console.log(pet)
-  console.log(petSitter)
 
   const {   
     petsitter,  

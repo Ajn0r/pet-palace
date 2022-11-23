@@ -158,9 +158,9 @@ function PostCreateForm() {
   return (
     <Form
       onSubmit={handleSubmit}
-      className="ml-5 ml-md-3 mt-3 card shadow">
+      className="mt-3 card shadow">
       <Row>
-        <Col className="py-2 pt-2 p-md-2" md={7} lg={8}>
+        <Col className="py-2 pt-2 p-md-2" md={6} lg={8}>
           <Container
             className={`${styles.Container} pt-2 d-flex flex-column justify-content-center`}
           >
@@ -206,7 +206,7 @@ function PostCreateForm() {
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
-        <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
+        <Col md={6} lg={4} className="d-none d-md-block p-0 p-md-2">
           <Container className={styles.Content}>{textFields}</Container>
         </Col>
       </Row>

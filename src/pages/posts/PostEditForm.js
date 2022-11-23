@@ -162,9 +162,9 @@ function PostEditForm() {
   return (
     <Form
       onSubmit={handleSubmit}
-      className="ml-5 ml-md-3 mt-3 card shadow">
+      className="mt-3 p-2 card shadow">
       <Row>
-        <Col className="py-2 pt-2 p-md-2 align-items-center d-flex" md={8}>
+        <Col className="py-2 pt-2 p-md-2 align-items-center d-flex" md={7}>
           <Container
             className={`${styles.Container} pt-2 d-flex flex-column justify-content-center`}
           >
@@ -196,7 +196,7 @@ function PostEditForm() {
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
-        <Col md={4} className="d-none d-md-block p-0 p-md-2">
+        <Col md={5} className="d-none d-md-block p-0 p-md-2">
           <Container className={styles.Content}>{textFields}</Container>
         </Col>
       </Row>

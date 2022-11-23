@@ -22,7 +22,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function PostsPage() {
   const [ ads, setAds  ] = useState({results: []});
-  const [ pets, setPets ] = useState({results: []})
+  const [ pets, setPets ] = useState({results: []});
   const [ hasLoaded, setHasLoaded ] = useState(false);
   const { pathname } = useLocation();
   const [ query, setQuery ] = useState("");
@@ -133,6 +133,6 @@ function PostsPage() {
       </Col>
     </Row>
   );
-}
+};
 
 export default PostsPage;

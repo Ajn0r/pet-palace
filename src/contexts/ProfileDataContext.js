@@ -57,7 +57,7 @@ export const ProfileDataProvider = ({ children }) => {
 
     } catch (err) {
     }
-  }
+  };
    
   useEffect(() => {
     const handleMount = async () => {

@@ -202,6 +202,6 @@ function PostEditForm() {
       </Row>
     </Form>
   );
-}
+};
 
 export default PostEditForm;

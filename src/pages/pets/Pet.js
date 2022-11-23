@@ -7,8 +7,8 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { DropDownManage } from "../../components/DropDownManage";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-import styles from "../../styles/Pet.module.css"
-import appStyles from "../../App.module.css"
+import styles from "../../styles/Pet.module.css";
+import appStyles from "../../App.module.css";
 
 
 const Pet = (props) => {
@@ -78,7 +78,7 @@ const Pet = (props) => {
         <small className="text-muted">{get_type_display}</small>
       </Card.Footer>
     </Card>
-  )
-}
+  );
+};
 
 export default Pet;

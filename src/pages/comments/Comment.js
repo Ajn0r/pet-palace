@@ -5,7 +5,7 @@ import { axiosRes } from '../../api/axiosDefaults';
 import Avatar from '../../components/Avatar';
 import { DropDownManage } from '../../components/DropDownManage';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import styles from '../../styles/Comment.module.css'
+import styles from '../../styles/Comment.module.css';
 import CommentEditForm from './CommentEditForm';
 
 const Comment = (props) => {
@@ -41,7 +41,7 @@ const Comment = (props) => {
 
     } catch (err) {
     }
-  }
+  };
 
   return (
     <>
@@ -79,7 +79,7 @@ const Comment = (props) => {
         )}
       </Media>
     </>
-  )
-}
+  );
+};
 
-export default Comment
+export default Comment;

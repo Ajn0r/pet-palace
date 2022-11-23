@@ -167,7 +167,7 @@ function PetSittingsPage() {
         <PopularProfiles/>
       </Col>
     </Row>
-  )
-}
+  );
+};
 
-export default PetSittingsPage
+export default PetSittingsPage;

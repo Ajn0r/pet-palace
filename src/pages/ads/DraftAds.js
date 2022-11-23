@@ -9,7 +9,7 @@ import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 
 import styles from "../../styles/Ad.module.css";
 import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css"
+import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Asset from "../../components/Asset";
 import { Link } from "react-router-dom";
@@ -71,7 +71,7 @@ const DraftAds = ({mobile}) => {
         </Modal>
       </>
     );
-  }
+  };
 
   return (
     currentUser && draftData.results.length ? (
@@ -108,8 +108,9 @@ const DraftAds = ({mobile}) => {
       ) : (
         <Asset spinner />
       )}
-    </Container>) : (null)
-  )
-}
+    </Container>
+    ) : (null)
+  );
+};
 
 export default DraftAds;

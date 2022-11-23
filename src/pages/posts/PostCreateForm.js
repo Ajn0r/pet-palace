@@ -212,6 +212,6 @@ function PostCreateForm() {
       </Row>
     </Form>
   );
-}
+};
 
 export default PostCreateForm;

@@ -7,14 +7,14 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
 
 import styles from "../../styles/Pet.module.css";
-import appStyles from "../../App.module.css"
+import appStyles from "../../App.module.css";
 
 import Avatar from "../../components/Avatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 
 const UsersPets = ({mobile}) => {
-  const [ petData, setPetData ] = useState({ results: [] })
+  const [ petData, setPetData ] = useState({ results: [] });
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || '';
   
@@ -27,7 +27,7 @@ const UsersPets = ({mobile}) => {
       }
     }
     handleMount();
-  }, [profile_id])
+  }, [profile_id]);
 
 
   return (

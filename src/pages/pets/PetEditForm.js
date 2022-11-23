@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
@@ -53,7 +53,7 @@ function PetEditForm () {
   const { id } = useParams();
 
   // getting todays date to set as min value for date of birth
-  const today = new Date().toISOString().split("T")[0]
+  const today = new Date().toISOString().split("T")[0];
 
   //Getting form data to prepopulate form
   useEffect(() => {
@@ -150,7 +150,7 @@ function PetEditForm () {
           ref={imageInput}
         />
       </div>
-  )
+  );
 
   return (
     <Form
@@ -256,7 +256,7 @@ function PetEditForm () {
 
       </Container>
     </Form>
-  )
-}
+  );
+};
 
 export default PetEditForm;

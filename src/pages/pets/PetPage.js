@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
 import { axiosReq } from '../../api/axiosDefaults';
 import PopularProfiles from '../profiles/PopularProfiles';
 import Pet from './Pet';
@@ -33,7 +33,7 @@ function PetPage() {
         <PopularProfiles />
       </Col>
     </Row>
-  )
-}
+  );
+};
 
-export default PetPage
+export default PetPage;

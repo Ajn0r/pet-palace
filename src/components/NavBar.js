@@ -1,5 +1,9 @@
-import React from 'react'
-import { Container, NavDropdown, Nav, Navbar } from 'react-bootstrap';
+import React from 'react';
+
+import Container from 'react-bootstrap/Container';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 import logo from '../assets/logo.png';
 import smlogo from '../assets/pawlogo.png'
 import styles from '../styles/NavBar.module.css';

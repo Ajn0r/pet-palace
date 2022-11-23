@@ -57,7 +57,8 @@ const Ad = (props) => {
 
   return (
     <>
-    {/* Only display the ads that are active or that belongs the the logged in user*/}
+    {/* Only display the ads that are active/ havn't passed to date
+       or that belongs the the logged in user*/}
       {(!passed_to_date|| is_owner) && (status === 1 || is_owner) ? (
         <Card className={`${styles.Ad} mt-4 mb-5 shadow`}>
           <Card.Header>
@@ -94,9 +95,6 @@ const Ad = (props) => {
             <ListGroup.Item>Location: {location}</ListGroup.Item>
             <ListGroup.Item>Compensation: {compensation}</ListGroup.Item>
           </ListGroup>
-          <Card.Body>
-            <Card.Link ><i className="fas fa-paper-plane"></i><span className={`${appStyles.SpanText}`}>Send message</span></Card.Link>
-          </Card.Body>
           <Card.Footer className="text-muted text-center">
             <span className="float-left">{get_type_display}</span>
             
@@ -114,7 +112,7 @@ const Ad = (props) => {
       )}
     </>
   );
-}
+};
 
 
 export default Ad;

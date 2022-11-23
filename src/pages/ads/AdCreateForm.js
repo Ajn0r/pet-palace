@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
@@ -344,7 +344,7 @@ function AdCreateForm () {
         </Form.Row>
       </Form>
     </div>
-  )
-}
+  );
+};
 
 export default AdCreateForm;

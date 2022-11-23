@@ -23,7 +23,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 
 function PetsPage() {
-  const [pets, setPets] = useState({ results: [] })
+  const [pets, setPets] = useState({ results: [] });
   const [ hasLoaded, setHasLoaded ] = useState(false);
   const { pathname } = useLocation();
   const [ query, setQuery ] = useState("");
@@ -135,7 +135,7 @@ function PetsPage() {
         <PopularProfiles/>
       </Col>
     </Row>
-  )
-}
+  );
+};
 
 export default PetsPage;

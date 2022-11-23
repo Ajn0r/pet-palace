@@ -129,7 +129,7 @@ function PetCreateForm () {
           ref={imageInput}
         />
       </div>
-  )
+  );
 
   return (
     <Form
@@ -235,7 +235,7 @@ function PetCreateForm () {
 
       </Container>
     </Form>
-  )
-}
+  );
+};
 
 export default PetCreateForm;

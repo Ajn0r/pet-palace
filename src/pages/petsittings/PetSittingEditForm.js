@@ -12,13 +12,13 @@ import btnStyles from '../../styles/Button.module.css';
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
-import Asset from "../../components/Asset"
+import Asset from "../../components/Asset";
 
 function PetSittingEditForm() {
 	useRedirect('loggedOut');
   const [ errors, setErrors ] = useState({});
-  const [ pet, setPet ] = useState({ results: []})
-  const [ petSitter, setPetSitter ] = useState([])
+  const [ pet, setPet ] = useState({ results: []});
+  const [ petSitter, setPetSitter ] = useState([]);
   const [ hasLoaded, setHasLoaded ] = useState(false);
   
   const currentUser = useCurrentUser();
@@ -50,7 +50,7 @@ function PetSittingEditForm() {
     };
     setHasLoaded(false);
     fetchData();
-  }, [currentUser])
+  }, [currentUser]);
 
   const {   
     petsitter,  
@@ -324,7 +324,7 @@ function PetSittingEditForm() {
         </Form.Row>
       </Form>
     </div>
-  )
+  );
 };
 
-export default PetSittingEditForm
+export default PetSittingEditForm;

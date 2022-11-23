@@ -73,6 +73,6 @@ function CommentCreateForm(props) {
       </button>
     </Form>
   );
-}
+};
 
 export default CommentCreateForm;

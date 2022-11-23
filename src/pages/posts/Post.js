@@ -136,6 +136,6 @@ const Post = (props) => {
       <Card.Footer className="text-muted">{get_category_display}</Card.Footer>
     </Card>
   );
-}
+};
 
-export default Post
+export default Post;

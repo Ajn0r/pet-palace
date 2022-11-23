@@ -36,7 +36,7 @@ const PetSitting = (props) => {
 
 	const handleEdit = () => {
 		history.push(`/petsittings/${id}/edit`);
-	}
+	};
 
 	const handleDelete = async () => {
 		try {
@@ -44,7 +44,7 @@ const PetSitting = (props) => {
 			history.push("/petsittings")
 		} catch (err) {
 		}
-	}
+	};
 
 	return (
 		<>
@@ -121,7 +121,7 @@ const PetSitting = (props) => {
 				</div>
 			</div>
 		</>
-	)
-}
+	);
+};
 
 export default PetSitting;

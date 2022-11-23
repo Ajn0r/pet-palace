@@ -12,7 +12,7 @@ import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Comment from "../comments/Comment";
 
-import styles from '../../App.module.css'
+import styles from '../../App.module.css';
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
@@ -93,6 +93,6 @@ function PostPage() {
       </Col>
     </Row>
   );
-}
+};
 
 export default PostPage;

@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
-import noResult from '../../assets/noresults.png'
+import noResult from '../../assets/noresults.png';
 import styles from "../../styles/Search.module.css";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -85,6 +85,6 @@ function PostsPage({ message, filter = '' }) {
       </Col>
     </Row>
   );
-}
+};
 
 export default PostsPage;

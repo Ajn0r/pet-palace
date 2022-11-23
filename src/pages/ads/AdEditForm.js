@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
 
 import Button from 'react-bootstrap/Button';
@@ -376,7 +376,7 @@ function AdEditForm () {
 
       </Form>
     </div>
-  )
-}
+  );
+};
 
 export default AdEditForm;

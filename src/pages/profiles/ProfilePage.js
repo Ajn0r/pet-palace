@@ -5,8 +5,6 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
 
 import Asset from '../../components/Asset';
 import noResult from '../../assets/noresults.png'
@@ -16,7 +14,7 @@ import appStyles from '../../App.module.css';
 import btnStyles from '../../styles/Button.module.css';
 
 import PopularProfiles from './PopularProfiles';
-import Post from '../posts/Post'
+import Post from '../posts/Post';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { Link, useParams } from 'react-router-dom';
 import { useProfileData, useSetProfileData } from '../../contexts/ProfileDataContext';
@@ -80,26 +78,13 @@ function ProfilePage() {
 
         <Col lg={6}>
           <h3 className={`m-2 ml-2 ${appStyles.Text}`}>{profile?.owner}
-          {/* if user is of type 
-            petowner display a paw*/}
+          {/*if the user is a petowner a paw will be displayed*/}
           {profile?.type === 1 ? (
             <i className='fas fa-paw ml-3'></i>
           ) : (
             null
           )}
           </h3>
-
-          {/* Is user has been rated display the rate, else nothing */}
-          {profile?.ratings?.length ? (
-            <Row>
-            <Col xs={12}>
-              <i className='far fa-star'> </i>
-              (nr of ratings)
-            </Col>
-          </Row>
-          ) : (
-            null
-          )}
 
           <Row className='justify-content-center no-gutters'>
             <Col xs={3} className='my-2'>
@@ -136,16 +121,6 @@ function ProfilePage() {
               </Button>
             )
           )}
-          {currentUser && !is_owner ? (
-            <OverlayTrigger placement='right' overlay={<Tooltip >Send Message</Tooltip>}>
-              <Link to={'/message/new'}>
-                <i className={`fas fa-paper-plane ml-2`}></i>
-              </Link>
-            </OverlayTrigger>
-          ): (
-            null
-          )}
-
         </Col>
 
         { profile?.description && (
@@ -234,12 +209,10 @@ function ProfilePage() {
         ) : (
           <div className='card mb-3 p-3'><Asset spinner /></div>
         )}
-        <p className='card p-3'>If Ratings - 3 latest then button to more</p>
-        <p className='card p-3'>If petsittings - max 3 then button to more</p>
         <PopularProfiles />
       </Col>
     </Row>
   );
-}
+};
 
 export default ProfilePage;

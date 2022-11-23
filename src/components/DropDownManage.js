@@ -74,4 +74,4 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
         </Dropdown.Menu>
       </Dropdown>
     );
-  }
+  };

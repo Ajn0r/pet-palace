@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Col, Row, Image, Container, Button, Form, Alert } from 'react-bootstrap';
 import image from '../../assets/illustrations/guydogwalking.png';
 import styles from '../../styles/SignUpForm.module.css';
-import appStyles from '../../App.module.css'
-import btnStyles from '../../styles/Button.module.css'
+import appStyles from '../../App.module.css';
+import btnStyles from '../../styles/Button.module.css';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { useRedirect } from '../../hooks/useRedirect';
@@ -124,7 +124,7 @@ const SignUpForm = () => {
           />
       </Col>
     </Row>
-  )
-}
+  );
+};
 
 export default SignUpForm;

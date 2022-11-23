@@ -22,7 +22,7 @@ function PetSittingPage() {
 	
 	return (
     <PetSitting {...petsitting.results[0]} petsittingPage/>
-  )
-}
+  );
+};
  
- export default PetSittingPage
+ export default PetSittingPage;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 import Button from 'react-bootstrap/Button';
@@ -12,13 +12,13 @@ import btnStyles from '../../styles/Button.module.css';
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
-import Asset from "../../components/Asset"
+import Asset from "../../components/Asset";
 
 function PetSittingsCreateForm() {
   useRedirect('loggedOut');
   const [ errors, setErrors ] = useState({});
-  const [ pet, setPet ] = useState({ results: []})
-  const [ petSitter, setPetSitter ] = useState([])
+  const [ pet, setPet ] = useState({ results: []});
+  const [ petSitter, setPetSitter ] = useState([]);
   const [ hasLoaded, setHasLoaded ] = useState(false);
   
   const currentUser = useCurrentUser();
@@ -66,7 +66,7 @@ function PetSittingsCreateForm() {
   const history = useHistory();
   
   // getting todays date to set as min value for start date - date_from
-  const today = new Date().toISOString().split("T")[0]
+  const today = new Date().toISOString().split("T")[0];
 
   const handleChange = (event) => {
     setPetSittingData({
@@ -297,7 +297,7 @@ function PetSittingsCreateForm() {
         </Form.Row>
       </Form>
     </div>
-  )
+  );
 };
 
 export default PetSittingsCreateForm;

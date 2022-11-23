@@ -39,11 +39,6 @@ const SideBar = () => {
       name: 'Likes',
       icon: <i className="far fa-heart"></i>
     },
-    {
-      path: '/ratings',
-      name: 'Ratings',
-      icon: <i className="far fa-star"></i>
-    },
     
   ];
 
@@ -79,7 +74,7 @@ const SideBar = () => {
 
   return (
     currentUser ? (    
-      <div className='SideBar' >
+      <div className='SideBar'>
         {loggedInUserSidebar}
       </div>
       ) : 

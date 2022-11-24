@@ -33,7 +33,6 @@ const FooterNav = () => {
             }
         id="footerbarScrollingDropdown"
         className={`${styles.Icon}`}
-        activeClassName={`${styles.Active}`}
       >
         <NavDropdown.Item
           className={`${styles.BlueIcon}`}

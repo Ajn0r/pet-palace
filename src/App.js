@@ -58,7 +58,7 @@ function App() {
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
-          <Route exact path="/posts" render={() => (
+          <Route exact path="/following" render={() => (
             <PostsPage
               message="Nothing to see here, try searching for something else or follow a cool cat!"
               filter={`owner__followed__owner__profile=${profile_id}&`}/>

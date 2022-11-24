@@ -20,9 +20,9 @@ const SideBar = () => {
       icon: <i className="fas fa-handshake"></i>
     },
     {
-      path: '/posts',
-      name: 'Posts',
-      icon: <i className="fab fa-microblog"></i>
+      path: '/following',
+      name: 'Followed',
+      icon: <i className="fas fa-user-friends"></i>
     },
     {
       path: '/ads',
@@ -73,12 +73,10 @@ const SideBar = () => {
   );
 
   return (
-    currentUser ? (    
+    currentUser &&   
       <div className='SideBar'>
         {loggedInUserSidebar}
       </div>
-      ) : 
-      (null)
   );
 };
 

@@ -27,6 +27,7 @@ const PetSitting = (props) => {
 		compensation,
 		petsitter_username,
 		petsittingPage,
+		contact,
 	} = props;
 
 	const currentUser = useCurrentUser();
@@ -103,6 +104,7 @@ const PetSitting = (props) => {
 						<h4>Details:</h4>
 						<p>Location: {location}</p>
 						{is_owner || is_petsitter ? (<p>Compensation: {compensation}</p>) : (null)}
+						{contact && (<p>How to contact owner: {contact}</p>)}
 						<p>Stauts: {get_status_display}</p>
 					</div>
 					<div className={`col-md-4 col-lg-2 text-center d-flex justify-content-center flex-column float-right`}>

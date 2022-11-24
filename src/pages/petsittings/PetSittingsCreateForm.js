@@ -292,6 +292,12 @@ function PetSittingsCreateForm() {
 
         </Form.Row>
       </Form>
+      <p className='text-muted pt-3 mb-0'>
+        <small>
+        Make sure you have added your contact information so that the petsitter 
+        can contact you, you can add it where you edit your profile.
+        </small>
+      </p>
     </div>
   );
 };

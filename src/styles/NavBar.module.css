@@ -50,13 +50,13 @@
     }
 }
 
-@media only screen and (max-width: 526px) and (min-width: 453px) {
+@media only screen and (max-width: 526px) and (min-width: 449px) {
     .Toggle {
         margin: 0 auto;
     }
 }
 
-@media only screen and (max-width: 470px) {
+@media only screen and (max-width: 449px) {
 
     .LogoLink {
         margin: 0 auto;

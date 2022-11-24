@@ -315,6 +315,8 @@ User stories were made and documented using issues in GitHub and added to the pr
 
 ### User story fulfilment
 
+This is how the user story is fulfilled, the blank ones are the ones still left to be implemented in feature Sprints.
+
 <details>
 <summary>User story fulfilment</summary>
 
@@ -344,17 +346,17 @@ User stories were made and documented using issues in GitHub and added to the pr
 | 22 | |
 | 23 | The user can see the number of likes and comment on each posts displayed under the content, number of likes is displayed next to the heart and number of comments next to comments icon |
 | 24 | The user can remove their like if they have liked a post by clicking on the heart icon again |
-| 25 | |
-| 26 | |
-| 27 | |
+| 25 | If the user is logged in they can write a comment by clicking on the post and scrolling down to under it, there the comments form is displayed and they can type their comment and click 'post' |
+| 26 | The user can edit and delete their comment if they click on the three dots and choose from one of the options |
+| 27 | Both logged-in and logged-out users can view the comments under the post they have selected to view. |
 | 28 | |
-| 29 | |
-| 30 | |
-| 31 | |
-| 32 | |
-| 33 | |
-| 34 | |
-| 35 | |
+| 29 | The user can see how long ago the comment was made right next to the name of the user who commented. |
+| 30 | There are two ways for the user to follow another user, the first one is by clicking on the "follow" button on the user's profile page. The second is by clicking on the "follow" button in the most followed profiles box that is displayed on most of the pages. To unfollow, the user does the same, the button is then a "unfollow" button instead and if clicked the user is no longer following that user. |
+| 31 | To create a pet the user clicks the plus symbol with the "new" text next to it in the navbar and chooses "new pet" from the drop-down, which will take the user to the create pet page where they can fill in all information. The user can also get to this page from the petsittings form if they have not created any pets yet. |
+| 32 | To edit or delete a pet the user needs to click on the pet to go to the pet page, and from there they can edit or delete the pet by clicking on the three dots symbol in the right upper corner. This will only be visible to the owner of the pet. |
+| 33 | The user can see all details about the pet both from the pets page and from the pet page |
+| 34 | The user can filter the pets by type of pet or just the user's pet. To filter by type the user chooses one of the options from the drop-down, for the user's pets they click the "my pets" button. |
+| 35 | The user can search for pets by typing in the search word in the search bar. |
 | 36 | |
 | 37 | |
 | 38 | |
@@ -446,6 +448,10 @@ If the user has any ads in the draft stage, the ad's title will be displayed, an
 ### Pets
 
 ### Petsittings
+
+Users can create petsittings, choosing from other users on the site, excluding admin and staff users (Deleted). They will need to enter information about the petsitting such as location, start and end date, compensation, description and if they want to connect any pets to the petsitting. The user can only choose from their pets, and if they haven't created any pets yet they are encouraged to do so in the pets field.Lastly, the user can choose if the petsitting has the status of planned, ongoing or finished.
+
+In this form I decided to let users choose from passed dates due to that they might want to register a petsitting that has already started, the petsitter might not have had an account when the petsitting took place or for some other reason. The end date needs to be after the start date though.
 
 ### Features to be implemented in the future
 

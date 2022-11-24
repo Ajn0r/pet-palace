@@ -8,6 +8,22 @@
     align-items: center;
 }
 
+.Icon i {
+    color: #F2F2F2;
+}
+
+.Icon a::after {
+    color: #F2F2F2;
+}
+
+.BlueIcon i {
+    color: #2C3D73;
+}
+
+.Active, .Active i  {
+    color: #F58A07;
+}
+
 @media only screen and (min-width: 508px){
     .FooterNav {
         display: none;

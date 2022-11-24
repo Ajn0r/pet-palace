@@ -340,9 +340,15 @@ function AdCreateForm () {
           <Button className={`mx-auto ml-4 ${btnStyles.Button}`} type='submit'>
             Submit            
           </Button>
-
         </Form.Row>
       </Form>
+      <p className='text-muted pt-3 mb-0'>
+        <small>
+        Make sure you have added contact information so users can contact you about
+        your ad, you can add it where you edit your profile.
+        </small>
+      </p>
+      
     </div>
   );
 };

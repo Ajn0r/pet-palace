@@ -1,10 +1,6 @@
 # Pet Palace
 
- For my fifth and final project with Code Institute, I have created a pet community website called Pet Palace for pet lovers and pet owners where they can connect, add information about their pets, share images and posts, arrange petsittings and interact with each other.
-
-The users can rate other users based on their petsittings and leave a review to make other pet owners feel safe when choosing someone to take care of their beloved pet.
-
-Users can also send messages to each other, (show interest in other users' ads) and follow the profiles of people they like.
+ For my fifth and final project with Code Institute, I have created a pet community website called Pet Palace for pet lovers and pet owners where they can connect, add information about their pets, share images and posts, arrange petsittings and interact with each other by commenting and liking each others posts.
 
 The application is developed using the Django Rest framework for the backend and React for the front end.  
 
@@ -29,6 +25,14 @@ The user would be someone who likes animals, it could be a pet owner that would 
 - From the pet sitter’s perspective:
 
     Not everyone has the means and opportunity to have pets of their own for different reasons but might have some extra time on their hands and would like to be around pets and maybe even make a bit of extra money.
+
+### What is already out there
+
+There are already a few petsitting sites out there such as Rover.com, Trustedhousesitters and probably a handful of different sites local to each area.
+For pet communities, there are yummypets.com, obviously Facebook groups and Instagram profiles that post about pets.
+There is also a site called thepet.community that combines it to some extent, however, it looks as if they target dog owners mostly and they have a blog and forum instead of letting users make posts.
+
+Without having done deeper research on the field, I did not find any sites that combine them both in the way I decided to therefore I thought would be a good idea.
 
 ## User goal
 
@@ -388,6 +392,29 @@ User stories were made and documented using issues in GitHub and added to the pr
 | 70 | |
 </details>
 
+## Agile Approach
+
+I followed the Scrum methodology when developing this project.
+Four sprints were made leading up to this release, each sprint was only 6 days which is quite short but since it was only me and I had a limited amount of time it helped make prioritizing easier.
+Each sprint started with a short sprint planning, choosing items from the product backlog that I thought I would manage to finish during the sprint and setting the sprint goal.  The sprint length was set with an optimistic mindset that I would not run into any issues, well I'm more of a realist now and have learned a lesson. With that said at the end of sprint 3, I realized there was no way I was going to be able to finish the product backlog items and decided to dedicate sprint 4 to documentation and thorough manual testing instead. This was carried out to some extent while developing in line with the Scrum definition of done but more documentation and testing was needed.
+
+### Sprint 1
+
+The Sprint goal for the first sprint was to have functional navigation, user authentication and the ability to make posts. When developing the navbar I felt that there were too many icons so decided to implement a sidebar, even if that was not planned I felt like it was achievable in the sprint and a part of the navigation user story.
+
+### Sprint 2
+
+The Sprint goal for the second sprint was to have an application where the user could like and comment on posts, and edit and manage their profile, username and password. All the functionality for ads should also be implemented such as create, edit and view.
+To show interest on ads was a part of sprint 2 to start with but was prioritized down and but back into the product backlog.
+
+### Sprint 3
+
+The Sprint goal for the third sprint was to have an application where the user could create and manage pets, create and manage petsitting and connect the petsittings to their pets and another user who would be the petsitter. The ability to rate and show ratings was also part of the sprint but this too was prioritized down and sent back to the product backlog.
+
+### Sprint 4
+
+This was the last sprint before submission and the Sprint goal was to have an deployed application with full crud functionality that would pass. The focus of the sprint was to test and correct all small issues, such as responsivness not being 100% in some areas, links working properly and writing up the finial bits in the readme.
+
 ## Features
 
 ### Navbar
@@ -420,9 +447,17 @@ If the user has any ads in the draft stage, the ad's title will be displayed, an
 
 ### Petsittings
 
-### Ratings
+### Features to be implemented in the future
 
-### Messages
+#### Ad interests
+
+#### Ratings
+
+#### Messages
+
+## Releases
+
+Since this is a project with Code Institute for educational purposes the current release contains all that is described above. If the project were to be 'released for real' I would probably only include posts, like, following, comments and pets in the first release, due to that I believe a message function of some sort is needed for the rest. Putting up ads without users having the ability to respond to them doesn't make much sense, also creating petsittings should include some sort of petsitter approval before it's created.
 
 ## Media and Design
 

@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     min-height: 120px;
+    max-height: 80vh;
   }
 .Asset > img {
   max-width: 100%;

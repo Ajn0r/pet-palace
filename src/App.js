@@ -29,6 +29,7 @@ import PetSittingsPage from './pages/petsittings/PetSittingsPage';
 import PetSittingEditForm from './pages/petsittings/PetSittingEditForm';
 import FooterNav from './components/FooterNav';
 import ContactPage from './pages/contact/ContactPage';
+import NotFound from './components/NotFound';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -75,7 +76,7 @@ function App() {
           <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />}/>
           <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />}/>
           <Route exact path="/contact" render={() => <ContactPage />} />
-          <Route render={() => <p>Page not found</p>} />
+          <Route render={() => <NotFound />} />
           </Switch>
         </Container>
       <FooterNav />

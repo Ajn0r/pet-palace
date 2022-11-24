@@ -4,13 +4,14 @@
 
 .ProfileImage {
   object-fit: cover;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   height: 10rem;
   width: 10rem;
 }
 
 .EditProfileImage {
   object-fit: cover;
+  margin-top: 1.5rem;
   height: 25rem;
   width: 25rem;
 }
@@ -23,5 +24,15 @@
   .EditProfileImage {
     height: 20rem;
     width: 20rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .ProfileImage {
+    width: 12rem;
+    height: 12rem;
+  }
+  .EditProfileImage {
+    height: 12rem;
+    width: 12rem;
   }
 }

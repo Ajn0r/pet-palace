@@ -37,6 +37,7 @@ function ProfilePage() {
   const is_owner = currentUser?.username === profile?.owner;
   const [profilePosts, setProfilePosts] = useState({ results: [] });
   const [profilePets, setProfilePets] = useState({ results: []});
+  const [profileAds, setProfileAds] = useState({results: []});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,11 +46,13 @@ function ProfilePage() {
           {data: pageProfile},
           {data: profilePosts},
           {data: profilePets},
+          {data: profileAds}
         
         ] = await Promise.all([
           axiosReq.get(`/profiles/${id}`),
           axiosReq.get(`/posts/?owner__profile=${id}`),
-          axiosReq.get(`pets/?owner=${id}`)
+          axiosReq.get(`pets/?owner=${id}`),
+          axiosReq.get(`ads/?owner=${id}&status=1`),
         ]);
         setProfileData(prevState => ({
           ...prevState,
@@ -57,12 +60,18 @@ function ProfilePage() {
         }));
         setProfilePosts(profilePosts);
         setProfilePets(profilePets);
+        setProfileAds(profileAds);
+
         setHasLoaded(true);
       } catch (err) {
       }
     }
     fetchData();
   }, [id, setProfileData])
+
+  // getting todays date 
+  const today = new Date().toISOString().split("T")[0]
+
 
   const mainProfile = (
     <>
@@ -76,7 +85,7 @@ function ProfilePage() {
           />
         </Col>
 
-        <Col lg={6}>
+        <Col lg={7}>
           <h3 className={`m-2 ml-2 ${appStyles.Text}`}>{profile?.owner}
           {/*if the user is a petowner a paw will be displayed*/}
           {profile?.type === 1 ? (
@@ -87,22 +96,22 @@ function ProfilePage() {
           </h3>
 
           <Row className='justify-content-center no-gutters'>
-            <Col xs={3} className='my-2'>
+            <Col xs={4} sm={3} className='my-2'>
               <div>{profile?.nr_of_post}</div>
               <div>posts</div>
             </Col>
-            <Col xs={3} className='my-2'>
+            <Col xs={4} sm={3} className='my-2'>
               <div>{profile?.followers_count}</div>
               <div>followers</div>
             </Col>
-            <Col xs={3} className='my-2'>
+            <Col xs={4} sm={3} className='my-2'>
               <div>{profile?.following_count}</div>
               <div>followings</div>
             </Col>
           </Row>
         </Col>
 
-        <Col lg={3} className="mt-3 text-lg-right">
+        <Col lg={2} className="mt-3 text-lg-right">
           {currentUser &&
             !is_owner &&
             (profile?.following_id ? (
@@ -180,14 +189,28 @@ function ProfilePage() {
         </Link>
       </Row>
     ))
+  );
 
+  const profileAd = (
+    profileAds?.results.map((ad) => (
+      //Only display ads that hasn't passed their end date
+      ad.date_to > today && (
+        <Row className="pl-3 pb-2 mb-3 align-items-center" key={ad.id}>
+          <Link
+            to={`/ads/${ad.id}`}
+          >
+            <span className='pl-2'>{ad.title}</span>
+          </Link>
+        </Row>
+      )
+    ))
   );
 
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
-        <Container className="card shadow">
+        <Container className="card shadow p-3">
           {hasLoaded ? (
             <>
               {mainProfile}
@@ -209,6 +232,17 @@ function ProfilePage() {
         ) : (
           <div className='card mb-3 p-3'><Asset spinner /></div>
         )}
+        {hasLoaded ? (
+          //Filter out to only count the ads with end date that hasn't passed
+          profileAds?.results.filter((ad) => ad.date_to > today).length ? (
+            <div className='card mb-3 p-3'>
+              <p className={`${appStyles.SpanText}`}>{profile?.owner}'s ads</p>
+                {profileAd}
+            </div>
+          ) : (null)
+        ) : (
+          <div className='card mb-3 p-3'><Asset spinner /></div>
+        ) }
         <PopularProfiles />
       </Col>
     </Row>

@@ -65,9 +65,6 @@ function PetSittingEditForm() {
 
   const history = useHistory();
 	const { id } = useParams();
-  
-  // getting todays date to set as min value for start date - date_from
-  const today = new Date().toISOString().split("T")[0]
 
 	useEffect(() => {
     const handleMount = async () => {
@@ -189,7 +186,6 @@ function PetSittingEditForm() {
               name='date_from'
               value={date_from}
               onChange={handleChange}
-              min={today}
             />
             {errors?.date_from?.map((message, idx) => (
               <Alert variant="warning" key={idx}>

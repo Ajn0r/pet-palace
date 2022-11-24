@@ -33,6 +33,7 @@ const Ad = (props) => {
     location,
     compensation,
     image,
+    contact,
     adPage,
   } = props;
 
@@ -94,6 +95,10 @@ const Ad = (props) => {
             <ListGroup.Item>Start date: {date_from} - End date: {date_to}</ListGroup.Item>
             <ListGroup.Item>Location: {location}</ListGroup.Item>
             <ListGroup.Item>Compensation: {compensation}</ListGroup.Item>
+            {contact && (
+              <ListGroup.Item>How to contact me: {contact}</ListGroup.Item>
+            )}
+            
           </ListGroup>
           <Card.Footer className="text-muted text-center">
             <span className="float-left">{get_type_display}</span>

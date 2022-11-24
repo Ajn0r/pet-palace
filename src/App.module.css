@@ -7,7 +7,7 @@
     max-width: 100%;
     background-color: #F2F2F2;
     font-family: 'Roboto', sans-serif;
-    padding-left: 0.5rem;
+    padding-left: 0rem;
     padding-right: 0.5rem;
 }
 
@@ -110,5 +110,10 @@ figure {
 @media only screen and (max-width: 526px) and (min-width: 370px) {
     .Main {
         padding-top: 150px;
+    }
+}
+@media only screen and (max-width: 508px){
+    .App {
+        padding-left: 0.5rem;
     }
 }

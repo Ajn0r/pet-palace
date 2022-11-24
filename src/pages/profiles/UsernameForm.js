@@ -29,7 +29,7 @@ const UsernameForm = () => {
 
   useEffect(() => {
     if (currentUser?.profile_id?.toString() === id) {
-      setUsername(currentUser.username);
+      setUsername(currentUser?.username);
     } else {
       history.push("/");
     }

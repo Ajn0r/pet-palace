@@ -48,8 +48,8 @@ function PostPage() {
         <Container className="card shadow p-3">
           {currentUser ? (
             <CommentCreateForm
-              profile_id={currentUser.profile_id}
-              username={currentUser.username}
+              profile_id={currentUser?.profile_id}
+              username={currentUser?.username}
               profileImage={profile_image}
               post={id}
               setPost={setPost}

@@ -123,6 +123,11 @@ function PetEditForm () {
           <figure>
             <Image className={appStyles.Image} src={image} rounded/>
           </figure>
+          {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
           <div>
             <Form.Label
               className={` ${btnStyles.Button}  btn`}

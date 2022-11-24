@@ -15,14 +15,14 @@ const SideBar = () => {
       icon: <i className="fas fa-home"></i>
     },
     {
-      path: '/petsittings',
-      name: 'Messages',
-      icon: <i className="fas fa-handshake"></i>
-    },
-    {
       path: '/following',
       name: 'Followed',
       icon: <i className="fas fa-user-friends"></i>
+    },
+    {
+      path: '/liked',
+      name: 'Likes',
+      icon: <i className="far fa-heart"></i>
     },
     {
       path: '/ads',
@@ -35,11 +35,10 @@ const SideBar = () => {
       icon: <i className="fas fa-paw"></i>
     },
     {
-      path: '/liked',
-      name: 'Likes',
-      icon: <i className="far fa-heart"></i>
+      path: '/petsittings',
+      name: 'Petsittings',
+      icon: <i className="fas fa-handshake"></i>
     },
-    
   ];
 
   const loggedInUserSidebar = (

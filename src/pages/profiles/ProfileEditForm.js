@@ -31,8 +31,9 @@ const ProfileEditForm = () => {
     description: '',
     image: '',
     type: '',
+    contact: '',
   });
-  const { name, description, image, type } = profileData;
+  const { name, description, image, type, contact } = profileData;
 
   const [errors, setErrors] = useState({});
 
@@ -41,8 +42,8 @@ const ProfileEditForm = () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}`);
-          const { name, description, image, type } = data;
-          setProfileData({ name, description, image, type });
+          const { name, description, image, type, contact } = data;
+          setProfileData({ name, description, image, type, contact });
         } catch (err) {
           history.push("/");
         }
@@ -67,6 +68,10 @@ const ProfileEditForm = () => {
     formData.append('name', name);
     formData.append('description', description);
     formData.append('type', type);
+
+    if (contact?.length) {
+      formData.append('contact', contact);
+    }
 
     if (imageFile?.current?.files[0]) {
       formData.append("image", imageFile?.current?.files[0]);
@@ -95,6 +100,20 @@ const ProfileEditForm = () => {
           name="description"
           rows={7}
         />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Contact</Form.Label>
+        <Form.Control
+          type="text"
+          value={contact}
+          onChange={handleChange}
+          name="contact"
+          aria-describedby="contactHelpBlock"
+        />
+        <Form.Text id="contactHelpBlock" muted>
+        Add some contact information so that others can get in touch with you,
+        it can be an email, phone number or another way you would like to be contacted
+      </Form.Text>
       </Form.Group>
       <Form.Group>
         <Form.Label>What type of user are you?</Form.Label>

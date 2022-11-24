@@ -133,11 +133,21 @@ function ProfilePage() {
         </Col>
 
         { profile?.description && (
-          <Col className="p-3">
-            <h4>About me:</h4>
-            {profile?.description}
-            <hr />
-          </Col>
+          <Row className="p-3 mx-auto">
+            <Col>
+              <h4>About me:</h4>
+              {profile?.description}
+              <hr />
+            </Col>
+          </Row>
+        )}
+        { profile?.contact && (
+          <Row className="p-1 w-100 mx-auto">
+            <Col>
+              <h4>Get in touch with me:</h4>
+              {profile?.contact}
+            </Col>
+          </Row>
         )}
       </Row>
     </>

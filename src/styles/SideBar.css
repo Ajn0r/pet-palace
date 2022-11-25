@@ -58,7 +58,7 @@
     color: #F58A07;
 }
 
-@media only screen and (max-width: 508px){
+@media only screen and (max-width: 507px){
     .SideBar {
         display: none;
     }

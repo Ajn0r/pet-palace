@@ -101,7 +101,7 @@ figure {
     display: inline-block;
 }
 
-.UploadImg >  {
+.UploadImg > * {
     object-fit: cover;
 }
 

@@ -467,6 +467,45 @@ Since this is a project with Code Institute for educational purposes the current
 
 ## Media and Design
 
+### Wireframes
+
+Wireframes were made and updated throughout the project, however, there might be some small differences from the finished product.
+The new ad form wireframe was made by hand using Onenote on an Ipad, the rest were made using Balsamiq.
+
+<details><summary>Wireframes can be found here</summary>
+
+- Wireframes for all 'side panel' components
+
+    ![components](/documentation/wireframes/componentswireframe.png)
+
+- Wireframe for Nav-, side- and footer-bars
+
+    ![nav](/documentation/wireframes/navwireframes.png)
+
+- Wireframes for the ads page and ad form
+
+    ![ads](/documentation/wireframes/adswireframe.png)
+
+    ![newad](/documentation/wireframes/newadwireframe.png)
+
+- Wireframe for pets page
+
+    ![pets](/documentation/wireframes/petswireframe.png)
+
+- Wireframe for posts page
+
+    ![posts](/documentation/wireframes/postswireframe.png)
+
+- Wireframe for profile page, this is not completely updated and contains both ratings and message components that are not a part of this release.
+
+    ![profile](/documentation/wireframes/profilewireframe.png)
+
+- Wireframe made for ratings that never got implemented
+
+    ![ratings](/documentation/wireframes/ratingswireframe.png)
+
+</details>
+
 ### Images
 
 All images are licenced from Adobe Stock. The 'helper cat' that is displayed when no results are found and for uploading an image is made using Adobe express. The default profile and post image is from the moments walkthrough with Code Institute and the default pet image is from pexels

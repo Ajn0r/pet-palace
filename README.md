@@ -398,7 +398,8 @@ This is how the user story is fulfilled, the blank ones are the ones still left 
 
 I followed the Scrum methodology when developing this project.
 Four sprints were made leading up to this release, each sprint was only 6 days which is quite short but since it was only me and I had a limited amount of time it helped make prioritizing easier.
-Each sprint started with a short sprint planning, choosing items from the product backlog that I thought I would manage to finish during the sprint and setting the sprint goal.  The sprint length was set with an optimistic mindset that I would not run into any issues, well I'm more of a realist now and have learned a lesson. With that said at the end of sprint 3, I realized there was no way I was going to be able to finish the product backlog items and decided to dedicate sprint 4 to documentation and thorough manual testing instead. This was carried out to some extent while developing in line with the Scrum definition of done but more documentation and testing was needed.
+
+Each sprint started with a short sprint planning, choosing items from the product backlog that I thought I would manage to finish during the sprint and setting the sprint goal.  The sprint length was set with an optimistic mindset that I would not run into any issues, well I'm more of a realist now and have learned a lesson. With that said at the end of sprint 3, I realized there was no way I was going to be able to finish the product backlog items and decided to dedicate sprint 4 to documentation and thorough manual testing instead. This was carried out to some extent while developing in line with the Scrum definition of done but more documentation and testing were needed.
 
 ### Sprint 1
 
@@ -407,37 +408,104 @@ The Sprint goal for the first sprint was to have functional navigation, user aut
 ### Sprint 2
 
 The Sprint goal for the second sprint was to have an application where the user could like and comment on posts, and edit and manage their profile, username and password. All the functionality for ads should also be implemented such as create, edit and view.
-To show interest on ads was a part of sprint 2 to start with but was prioritized down and but back into the product backlog.
+To show interest in ads was a part of sprint 2 to start with but was down-prioritized and put back into the product backlog.
 
 ### Sprint 3
 
-The Sprint goal for the third sprint was to have an application where the user could create and manage pets, create and manage petsitting and connect the petsittings to their pets and another user who would be the petsitter. The ability to rate and show ratings was also part of the sprint but this too was prioritized down and sent back to the product backlog.
+The Sprint goal for the third sprint was to have an application where the user could create and manage pets, create and manage petsitting and connect the petsittings to their pets and another user who would be the pet sitter. The ability to rate and show ratings was also part of the sprint but this too was down-prioritized and sent back to the product backlog.
 
 ### Sprint 4
 
-This was the last sprint before submission and the Sprint goal was to have an deployed application with full crud functionality that would pass. The focus of the sprint was to test and correct all small issues, such as responsivness not being 100% in some areas, links working properly and writing up the finial bits in the readme.
+This was the last sprint before submission and the Sprint goal was to have a deployed application with full crud functionality that would pass. The focus of the sprint was to test and correct all small issues, such as responsiveness not being 100% in some areas, links working properly and writing up the final bits in the readme.
 
 ## Features
 
+### Sign in & Sign up pages
+
+The sign-in page and the sign-up page are pretty similar, for signing up the user needs to enter a username and password twice to make sure they match. When signing in the user enters their username and password, if some of the input fields are missing the button will be disabled. If the user enters the wrong information they will get an error message.
+
 ### Navbar
+
+The navbar component consists of the pet palace logo, which only displays the paw on extra small screens up to 370px, and the paw logo with the Pet Palace text on all other screens wider than that.
+
+![navbarwide](/documentation/images/navcolmed.png)
+
+![navbarsm](/documentation/images/navcolsmall.png)
+
+![navbarxs](/documentation/images/smalliconnav.png)
+
+For logged-out users they can choose from the nav links home, contact, sign in and sign up.
+
+![navbarloggedout](/documentation/images/navbarout.png)
+
+For logged-in users, the navbar displays a plus symbol with the next New, which is a drop-down menu with the options: new post, new ad, new pet and new petsitting.
+
+![new](/documentation/images/newbtnexpand.png)
+
+The home and contact nav items are the same as for logged-out users, and the sign-in/up links are replaced with sign-out instead. The last item in the Navbar is the logged-in user's avatar and username that leads to the user's profile page if clicked.
+
+![navbarsigndin](/documentation/images/navbarin.png)
+
+The new nav option stays visible on the navbar at all times also when the rest of the links are hidden in the collapsed navbar.
 
 ### Side Bar  
 
 The sidebar component is a navigation component designed to let the user easily navigate the different functions and pages on the site. If the user clicks the two arrows on top the sidebar opens and reveals both the icon and where the name to it leads, and once open the close icon appears instead. The Side Bar is designed with the thought that when users are familiar with the different icons and where they lead, they can simply click the icon without having to open the panel for navigation.
 
+### Footerbar
+
+The Footerbar is a navigation bar for screens up to 507px, from 508px the Sidebar is displayed instead. The Footer bar has four icons at first glance, one drop-down home link, one for petsittings, one for pets and the last one for ads.
+
+![footernav](/documentation/images/footernav.png)
+
+The home drop-down menu has three options for displaying posts, the first displays all posts, the second for the post by the users that the current user is following and the last is for all liked posts by the user. The Footerbar is only displayed for logged-in users, and while it's not possible to sign in from mobile devices at the moment it's ready to go when it is.
+
 ### Posts
 
 The post feature allows users to create posts that then are displayed based on all, just from users that the logged-in user follows or just posts that the user has liked. The feature is greatly inspired by the code institute moment posts function with added category field that lets users pick a category for their posts. The different categories are collected from the API with axios.options method leading to the category choice variable.
 
+### Comments
+
+The comment component lets logged-in users leave comments on posts. This is done on the PostPage under the details of the post that the user wants to comment on.
+
+![comments](/documentation/images/commentbox.png)
+
+Once the user has left a comment it will be displayed under the comments form and the user can edit or delete their comment from there as well by clicking on the three dots.
+
+![commentmade](/documentation/images/commentmade.png)
+
+![commentedit](/documentation/images/editcomment.png)
+
 ### Profile
 
-The profile features include letting users update both username and password as well as editing their profile. They can change their profile image and description, and state if they are a pet owner or not. Pet owners will get a paw next to their name that leads to their pet page making it easy for other users to view their pets. Beneath the profile card, the users' posts will be displayed. The profile features are greatly inspired by the moments walkthrough from Code Institute.
+The profile features include letting users update both username and password as well as editing their profile.
 
-#### Popular profiles
+![profileedit](/documentation/images/editprofile.png)
 
-The four most popular profiles, which are the ones with the most followers, are displayed on different pages, posts, profiles, and ads ... .  
+They can change their profile image and description, and state if they are a pet owner or not. Pet owners will get a paw next to their name that leads to their pet page making it easy for other users to view their pets. Beneath the profile card, the users' posts will be displayed. The profile features are greatly inspired by the moments walkthrough from Code Institute.
 
-The component will be displayed to the side of the main content on a larger screen and above the content on smaller screens. This feature is greatly inspired by the moments walkthrough with Code Institute without any specific alterations from the original code.
+![profile](/documentation/images/profileloggedin.png)
+
+If the user has any pets or ads these will be displayed to the side on larger screens, making it easy for other users to find.
+
+The "Users ads" box displays all ads by the user that have the status of active and haven't passed the end date yet. All ads by the user with the status of 1 (active) are fetched from the api and are displayed if the date_to variable is after today's date. The box only displays if the user has any active ads.
+
+![usersads](/documentation/images/usersadsbox.png)
+
+The "users pets" box shows the avatar and name of the user's pets if they have any.
+
+![userspet](/documentation/images/userspetsbox.png)
+
+### Popular profiles
+
+The most popular profiles, which are the ones with the most followers, are displayed on almost all pages. The component will be displayed to the side of the main content on a larger screen and above the content on smaller screens.
+The user can follow or unfollow other users directly from this component by clicking on the buttons
+
+![popularprofiledesk](/documentation/images/mostfolloweddesktop.png)
+
+![popularmobile](/documentation/images/mostfollowedmobile.png)
+
+This feature is greatly inspired by the moments walkthrough with Code Institute without any specific alterations from the original code.
 
 ### Ads
 
@@ -445,7 +513,17 @@ The component will be displayed to the side of the main content on a larger scre
 
 If the user has any ads in the draft stage, the ad's title will be displayed, and if clicked, it leads the user to that post. The component will be displayed on the side of the ads on larger screens and at top of the content on smaller screens.
 
+![draftonlg](/documentation/images/yourdrafts.png)
+
+The user can delete their draft from the side panel if they click on the trash can, a modal will then appear to have the user confirm they would like to delete the draft to make sure no accidental deletion occurs.
+
+![deletemodal](/documentation/images/deletedraftmodal.png)
+
 ### Pets
+
+The "my pets" box shows the currently logged-in users' pets on both the pets page and the page
+
+![mypets](/documentation/images/topofpetspage.png)
 
 ### Petsittings
 
@@ -453,13 +531,33 @@ Users can create petsittings, choosing from other users on the site, excluding a
 
 In this form I decided to let users choose from passed dates due to that they might want to register a petsitting that has already started, the petsitter might not have had an account when the petsitting took place or for some other reason. The end date needs to be after the start date though.
 
+The petsittings page displays only a bit of the petsitting information
+
+![petsittinglist](/documentation/images/petsittinglist.png)
+
+If clicked on the petsitting the user will be sent to the detailed petsitting, as of now users can watch all petsittings, however, if they are not the owner of the petsitting they will not be able to see the compensation field.
+
+![petsitting](/documentation/images/petsittingdetails.png)
+
+If the user has added any of their pets to the petsitting, the 'pets to sit' field will be displayed as well as a paw for each pet. The paw can be clicked and will take the user to the pet's details, which could be handy for the petsitter to quickly find information about the pet/pets they are petsitting.
+
+Users can filter the petsittings and search for specific petsittings at the top of the petsittings page
+
+![petsittingstop](/documentation/images/topofpetsittingspage.png)
+
 ### Features to be implemented in the future
+
+The API has the functionality already now to handle messages, ratings and adding interest to ads but was not implemented in this release due to time constraints.
 
 #### Ad interests
 
 #### Ratings
 
+The rating feature lets users that are the owner of a pet sitting with the status of "finished" rate that pet sitting. The rate will be added to the user registered as a pet sitter and the average rate will be calculated and shown on their profile. There is also a plan to have users view profiles with the highest ratings much like the most followed profiles component
+
 #### Messages
+
+The messages feature will let users send messages to each other, which is a must if the users are going to arrange pet sitting with each other's and also for responding to ads. As a bandaid, I added a contact attribute to the profile model and then added it to the ads and petsitting serializers so that the user at least can add some sort of contact information. The user is also encouraged when creating an ad or petsitting to add their contact information to their profile so that users can contact them.
 
 ## Releases
 
@@ -527,6 +625,40 @@ The colours for the project are blue, orange and white
 ![colours](/documentation/images/petpalacecolors.png)
 
 ## Testing
+
+Testing:
+The sign-in and sign-up pages were tested for if all input fields were rendered, and whether the user could change the value in the input fields. When testing I also decided to set the button as disabled if the user hadn't filled in all input fields, and then tested for this as well. These tests were inspired by Lama Dev's [React testing tutorial youtube video](https://www.youtube.com/watch?v=Flo268xRpV0&t=2242s)
+
+The rest of the project is tested manually, test were carried out on responsiveness, routing and functionality.
+
+### Validation
+
+Eslint was used to validate Javascript and jigsaw was made to validate all CSS files.
+When validating the CSS there was one error, seems I accidentally had removed a piece of the identifier somehow, it was easily solved by adding the correct value.
+
+## Bugs
+
+### Fixed
+
+- Ad 'bug'
+
+    While there is validation on the backend to not allow for dates that have passed I still wanted to validate it on the front end. When updating an ad I first made the input disabled if the date was before today's date, this did, however, cause some unthought-of problems. If a user choose a date accidentally in the past, the input was disabled and the user had to refresh the page or start over.
+
+    I also realised that a user might want to reuse an ad if they need a new pet sitting with the same information just changing the dates. Therefore, I decided to remove the disable logic and instead set the min value to today's date for the Start date and date_from as the min value for the End date, making it impossible for the user to set a date backwards in time.
+
+- Age calculation bug
+
+    There was some faulty logic in the age calculations, that came from the API so it was handled there, it's described [here](https://github.com/Ajn0r/pet-palace-api#pets)
+
+### Not fixed
+
+- Pets page for logged out users
+
+    Logged-out users can reach the pets page if they manually add it to the url, but the filter functions won't work, I think this is due to the dependency for fetching the pets options for pet type.
+
+- Mobile sign in
+
+    It's not possible to log in from mobile and tablet devices, I believe this has to do with the token being saved to localStorage and that won't work on mobile. There is probably some way around this, however, for now, the users will need to use desktop versions to be able to log in and use all functions. The user can still view posts and if manually adding ads or pets to the url they can reach that too.
 
 ## Deployment
 

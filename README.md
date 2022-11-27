@@ -509,6 +509,9 @@ This feature is greatly inspired by the moments walkthrough with Code Institute 
 
 ### Ads
 
+The ad features include creating, editing and viewing ads. The user can create ads if they need a petsitter, wants to petsit or any other type of ad.  
+The user can search for and filter ads on the type of pet or the type of ad it is, so if the user only wants to see ads with dogs they can choose 'filter by pet' and then choose the dog options.
+
 #### DraftAd  
 
 If the user has any ads in the draft stage, the ad's title will be displayed, and if clicked, it leads the user to that post. The component will be displayed on the side of the ads on larger screens and at top of the content on smaller screens.
@@ -547,9 +550,13 @@ Users can filter the petsittings and search for specific petsittings at the top 
 
 ### Features to be implemented in the future
 
-The API has the functionality already now to handle messages, ratings and adding interest to ads but was not implemented in this release due to time constraints.
+The API has the functionality already now to handle messages, ratings and adding interest to ads but was not implemented in this release due to time constraints. 
+
+Other features could include some sort of geolocation, such as google maps api could be integrated to give the user a better experience. Displaying ads that have the location close to the user for example, since it's thought to be a global site it's no point in showing all ads that are not even in the same country. For now, the user can use the search bar to search for ads in a specific location.
 
 #### Ad interests
+
+The ad interest feature would be a lot like the likes feature, allowing users to show interest in ads by clicking an 'interested' button. This would allow the ad owner to see if there was anybody interested in their ad, and ads could be sorted to display the most popular ones first
 
 #### Ratings
 

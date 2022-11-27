@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import { axiosReq } from "../api/axiosDefaults";
 import { followHelper, unfollowHelper } from "../utils/utils";
 import { useCurrentUser } from "./CurrentUserContext";
@@ -35,8 +35,7 @@ export const ProfileDataProvider = ({ children }) => {
             followHelper(profile, clickedProfile, data.id)),
         },
       }));
-    } catch (err) {
-    }
+    } catch (err) {""}
   };
 
   const handleUnfollow = async (clickedProfile) => {
@@ -55,8 +54,7 @@ export const ProfileDataProvider = ({ children }) => {
         },
       }));
 
-    } catch (err) {
-    }
+    } catch (err) {""}
   };
    
   useEffect(() => {
@@ -69,8 +67,7 @@ export const ProfileDataProvider = ({ children }) => {
           ...prevState,
           popularProfiles: data,
         }));
-      } catch (err) {
-      }
+      } catch (err) {""}
     };
     handleMount();
   }, [currentUser]);

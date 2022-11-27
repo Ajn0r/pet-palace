@@ -37,8 +37,7 @@ function PostCreateForm() {
       axiosReq.options('/posts/').then((response) => {
         setCategories(response.data.actions.POST.category.choices)
       });
-    } catch (err) {
-    }
+    } catch (err) {""}
   }, []);
 
   const { title, content, category, image } = postData;
@@ -212,6 +211,6 @@ function PostCreateForm() {
       </Row>
     </Form>
   );
-};
+}
 
 export default PostCreateForm;

@@ -35,9 +35,7 @@ function PetEditForm () {
       axiosReq.options('/pets/').then((response) => {
         setOptions(response.data.actions.POST.type.choices)
       });
-    } catch (err) {
-
-    }
+    } catch (err) {""}
   }, []);
 
   const {
@@ -70,8 +68,7 @@ function PetEditForm () {
         is_owner ? setPetData(
           {name, type, description, image, date_of_birth})
         : history.push('/');
-      } catch (err) {
-      }
+      } catch (err) {""}
     };
     handleMount();
   }, [history, id]);
@@ -262,6 +259,6 @@ function PetEditForm () {
       </Container>
     </Form>
   );
-};
+}
 
 export default PetEditForm;

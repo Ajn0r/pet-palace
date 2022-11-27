@@ -23,8 +23,7 @@ const UsersPets = ({mobile}) => {
       try {
         const { data } = await axiosReq.get(`/pets/?owner=${profile_id}`)
         setPetData(data);
-      } catch (err) {
-      }
+      } catch (err) {""}
     }
     handleMount();
   }, [profile_id]);

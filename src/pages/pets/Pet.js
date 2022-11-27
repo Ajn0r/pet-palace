@@ -36,8 +36,7 @@ const Pet = (props) => {
     try {
       await axiosRes.delete(`/pets/${id}`);
       history.goBack();
-    } catch (err) {
-    }
+    } catch (err) {""}
   };
 
   return (

@@ -43,8 +43,7 @@ const PetSitting = (props) => {
 		try {
 			await axiosRes.delete(`/petsittings/${id}`);
 			history.push("/petsittings")
-		} catch (err) {
-		}
+		} catch (err) {""}
 	};
 
 	return (
@@ -77,7 +76,7 @@ const PetSitting = (props) => {
 						<h3>Petsitting: {id}</h3>
 						<p>{updated_at}</p>
 						<p>Start date: {date_from} - End date: {date_to}</p>
-						<h4>Pet's to sit: </h4>
+						<h4>Pets to sit: </h4>
 						{pets?.length ? (
 							pets?.map((pet) => {
 								return (

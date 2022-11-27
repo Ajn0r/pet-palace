@@ -37,8 +37,7 @@ function CommentCreateForm(props) {
         ],
       }));
       setContent("");
-    } catch (err) {
-    }
+    } catch (err) {""}
   };
 
   return (
@@ -73,6 +72,6 @@ function CommentCreateForm(props) {
       </button>
     </Form>
   );
-};
+}
 
 export default CommentCreateForm;

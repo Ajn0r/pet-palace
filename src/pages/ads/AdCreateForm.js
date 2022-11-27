@@ -41,8 +41,7 @@ function AdCreateForm () {
       try {
         const { data } = await axiosReq.get('/ads/petchoices');
         setOptions(data);
-      } catch (err) {
-      }
+      } catch (err) {""}
     }
     fetchOptions();
   }, []);
@@ -351,6 +350,6 @@ function AdCreateForm () {
       
     </div>
   );
-};
+}
 
 export default AdCreateForm;

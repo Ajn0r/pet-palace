@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useEffect, useState } from "react";
 
 import Form from "react-bootstrap/Form";
@@ -40,8 +42,7 @@ function PetSittingsPage() {
         setPetsittings(petsittings);
         setPets(pets);
         setHasLoaded(true);
-      } catch (err) {
-      }
+      } catch (err) {""}
     };
 		setHasLoaded(false);
     const timer = setTimeout(() => {
@@ -168,6 +169,6 @@ function PetSittingsPage() {
       </Col>
     </Row>
   );
-};
+}
 
 export default PetSittingsPage;

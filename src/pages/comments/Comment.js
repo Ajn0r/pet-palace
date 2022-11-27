@@ -39,8 +39,7 @@ const Comment = (props) => {
         results: prevComments.results.filter(comment => comment.id !== id)
       }));
 
-    } catch (err) {
-    }
+    } catch (err) {""}
   };
 
   return (

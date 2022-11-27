@@ -31,9 +31,7 @@ function PostEditForm() {
       axiosReq.options('/posts/').then((response) => {
         setCategories(response.data.actions.POST.category.choices)
       });
-    } catch (err) {
-
-    }
+    } catch (err) {""}
   }, []);
 
   const { title, content, category, image } = postData;
@@ -48,8 +46,7 @@ function PostEditForm() {
         const { data } = await axiosReq.get(`/posts/${id}`)
         const { title, content, image, category, is_owner } = data;
         is_owner ? setPostData({title, content, image, category}) : history.push('/');
-      } catch (err) {
-      }
+      } catch (err) {""}
     };
     handleMount();
   }, [history, id]);
@@ -202,6 +199,6 @@ function PostEditForm() {
       </Row>
     </Form>
   );
-};
+}
 
 export default PostEditForm;

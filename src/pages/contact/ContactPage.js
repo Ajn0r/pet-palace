@@ -36,7 +36,7 @@ function ContactPage() {
 			<div className="text-center">
 				<h2>Get in touch!</h2>
 				<hr />
-				<p>If you have any questions or need help with anything, don't hesitate to get in touch!</p>
+				<p>If you have any questions or need help with anything, do not hesitate to get in touch!</p>
 			</div>
       <Form>
 				<Form.Group className="mb-3" >
@@ -71,12 +71,13 @@ function ContactPage() {
 				</Form.Group>
 				<Button 
 					className={`${btnStyles.Button} `}
-					onClick={handleSubmit}>
-        	Send
-      	</Button>
-    	</Form>
+					onClick={handleSubmit}
+				>
+					Send
+        </Button>
+      </Form>
     </div>
   );
-};
+}
 
 export default ContactPage;

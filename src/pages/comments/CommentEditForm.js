@@ -32,8 +32,7 @@ function CommentEditForm(props) {
         }),
       }));
       setShowEditForm(false);
-    } catch (err) {
-    }
+    } catch (err) {""}
   };
 
   return (
@@ -64,6 +63,6 @@ function CommentEditForm(props) {
       </div>
     </Form>
   );
-};
+}
 
 export default CommentEditForm;

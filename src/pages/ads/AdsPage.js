@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useEffect, useState } from "react";
 
 import Form from "react-bootstrap/Form";
@@ -39,8 +41,7 @@ function PostsPage() {
         setAds(ads);
         setPets(pets);
         setHasLoaded(true);
-      } catch (err) {
-      }
+      } catch (err) {""}
     };
 
     setHasLoaded(false);
@@ -133,6 +134,6 @@ function PostsPage() {
       </Col>
     </Row>
   );
-};
+}
 
 export default PostsPage;

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useEffect, useState } from "react";
 
 import Col from "react-bootstrap/Col";
@@ -34,8 +36,7 @@ function PostPage() {
         ]);
         setPost({ results: [post] });
         setComments(comments);
-      } catch(err) {
-      }
+      } catch(err) {""}
     };
     handleMount();
   }, [id]);
@@ -93,6 +94,6 @@ function PostPage() {
       </Col>
     </Row>
   );
-};
+}
 
 export default PostPage;

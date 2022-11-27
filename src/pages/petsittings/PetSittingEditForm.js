@@ -45,8 +45,7 @@ function PetSittingEditForm() {
         setPet(pet);
         setPetSitter(petSitter);
         setHasLoaded(true);
-      } catch (err) {
-      }
+      } catch (err) {""}
     };
     setHasLoaded(false);
     fetchData();
@@ -85,9 +84,7 @@ function PetSittingEditForm() {
           date_to, compensation, location, status, pets: pets.map(
 						(pet) => { return pet})}
         ) : history.push('/');
-      } catch (err) {
-
-      }
+      } catch (err) {""}
     };
     handleMount();
   }, [history, id]);
@@ -321,6 +318,6 @@ function PetSittingEditForm() {
       </Form>
     </div>
   );
-};
+}
 
 export default PetSittingEditForm;

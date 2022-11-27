@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom";
 
@@ -39,8 +41,7 @@ function PetsPage() {
         const { data } = await axiosReq.get(`/pets/?${filter}&search=${query}`);
         setPets(data);
         setHasLoaded(true);
-      } catch (err) {
-      }
+      } catch (err) {""}
     };
     setHasLoaded(false);
     const timer = setTimeout(() => {
@@ -56,9 +57,7 @@ function PetsPage() {
       axiosReq.options('/pets/').then((response) => {
         setOptions(response.data.actions.POST.type.choices)
       });
-    } catch (err) {
-
-    }
+    } catch (err) {""}
   }, []);
 
   return (
@@ -136,6 +135,6 @@ function PetsPage() {
       </Col>
     </Row>
   );
-};
+}
 
 export default PetsPage;

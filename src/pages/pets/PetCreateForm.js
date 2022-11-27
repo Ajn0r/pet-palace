@@ -35,9 +35,7 @@ function PetCreateForm () {
       axiosReq.options('/pets/').then((response) => {
         setOptions(response.data.actions.POST.type.choices)
       });
-    } catch (err) {
-
-    }
+    } catch (err) {""}
   }, []);
 
   const {
@@ -241,6 +239,6 @@ function PetCreateForm () {
       </Container>
     </Form>
   );
-};
+}
 
 export default PetCreateForm;

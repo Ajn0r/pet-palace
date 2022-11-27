@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 
 import Col from 'react-bootstrap/Col';
@@ -63,8 +64,7 @@ function ProfilePage() {
         setProfileAds(profileAds);
 
         setHasLoaded(true);
-      } catch (err) {
-      }
+      } catch (err) {""}
     }
     fetchData();
   }, [id, setProfileData])
@@ -155,7 +155,7 @@ function ProfilePage() {
 
   const mainProfilePosts = (
     <>
-      <h4 className={`mx-auto mt-4 ${appStyles.SmallerText}`} >{profile?.owner}'s posts</h4>
+      <h4 className={`mx-auto mt-4 ${appStyles.SmallerText}`} >{profile?.owner}&apos;s posts</h4>
       <hr className='mx-auto'/>
       {profilePosts?.results.length ? (
         <InfiniteScroll 
@@ -171,7 +171,7 @@ function ProfilePage() {
       ) : (
         is_owner ? (
           <div className='mx-auto text-center pb-4'>
-            <p>You havn't made any posts yet {profile?.owner}, add one now!</p>
+            <p>You havn&apos;t made any posts yet {profile?.owner}, add one now!</p>
             <Link
               to='/posts/create'
               className={`btn ${btnStyles.Button}`}
@@ -235,7 +235,7 @@ function ProfilePage() {
         {hasLoaded  ? (
           profilePets?.results.length ?  (
             <div className='card mb-3 p-3'>
-              <p className={`${appStyles.SpanText}`}>{profile?.owner}'s pets</p>
+              <p className={`${appStyles.SpanText}`}>{profile?.owner}&apos;s pets</p>
               {profilePet}
             </div>
           ) : (null)
@@ -246,7 +246,7 @@ function ProfilePage() {
           //Filter out to only count the ads with end date that hasn't passed
           profileAds?.results.filter((ad) => ad.date_to > today).length ? (
             <div className='card mb-3 p-3'>
-              <p className={`${appStyles.SpanText}`}>{profile?.owner}'s ads</p>
+              <p className={`${appStyles.SpanText}`}>{profile?.owner}&apos;s ads</p>
                 {profileAd}
             </div>
           ) : (null)
@@ -257,6 +257,6 @@ function ProfilePage() {
       </Col>
     </Row>
   );
-};
+}
 
 export default ProfilePage;

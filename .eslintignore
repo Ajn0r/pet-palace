@@ -1,0 +1,8 @@
+# Pages ignored by ES Lint:
+
+# ProfilePage.js
+# PostsPage.js
+# PostPage.js
+# PetSittingsPage.js
+# PetsPage.js
+# AdsPage.js

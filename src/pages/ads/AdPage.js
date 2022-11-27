@@ -17,9 +17,7 @@ function AdPage() {
           (await axiosReq.get(`/ads/${id}`)),
         ]);
         setAd({ results: [ad] });
-      } catch (err) {
-
-      }
+      } catch (err) {""}
     };
     handleMount();
   }, [id]);
@@ -31,6 +29,6 @@ function AdPage() {
       </Col>
     </Row>
   );
-};
+}
 
 export default AdPage;

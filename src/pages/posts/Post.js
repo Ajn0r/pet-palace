@@ -45,8 +45,7 @@ const Post = (props) => {
     try {
       await axiosRes.delete(`/posts/${id}`);
       history.goBack();
-    } catch (err) {
-    }
+    } catch (err) {""}
   };
 
   const handleLike = async () => {
@@ -60,8 +59,7 @@ const Post = (props) => {
             : post;
         }),
       }));
-    } catch (err) {
-    }
+    } catch (err) {""}
   };
 
   const handleUnlike = async () => {
@@ -75,8 +73,7 @@ const Post = (props) => {
             : post;
         }),
       }));
-    } catch (err) {
-    }
+    } catch (err) {""}
   };
 
   return (
@@ -106,7 +103,7 @@ const Post = (props) => {
           {is_owner ? (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't like your own post</Tooltip>}
+              overlay={<Tooltip>You can&apos;t like your own post</Tooltip>}
             >
               <i className="far fa-heart" />
             </OverlayTrigger>

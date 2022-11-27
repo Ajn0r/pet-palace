@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
 
 import Form from "react-bootstrap/Form";
@@ -29,8 +30,7 @@ function PostsPage({ message, filter = '' }) {
         const { data } = await axiosReq.get(`/posts/?${filter}&search=${query}`);
         setPosts(data);
         setHasLoaded(true);
-      } catch (err) {
-      }
+      } catch (err) {""}
     };
 
     setHasLoaded(false);
@@ -86,6 +86,6 @@ function PostsPage({ message, filter = '' }) {
       </Col>
     </Row>
   );
-};
+}
 
 export default PostsPage;

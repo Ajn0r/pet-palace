@@ -14,8 +14,7 @@ function PetSittingPage() {
           (await axiosReq.get(`/petsittings/${id}`)),
         ]);
         setPetsitting({ results: [petsitting] });
-      } catch (err) {
-      }
+      } catch (err) {""}
     };
     handleMount();
   }, [id]);
@@ -23,6 +22,6 @@ function PetSittingPage() {
 	return (
     <PetSitting {...petsitting.results[0]} petsittingPage/>
   );
-};
+}
  
  export default PetSittingPage;

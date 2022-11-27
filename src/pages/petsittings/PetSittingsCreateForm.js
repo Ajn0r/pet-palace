@@ -45,8 +45,7 @@ function PetSittingsCreateForm() {
         setPet(pet);
         setPetSitter(petSitter);
         setHasLoaded(true);
-      } catch (err) {
-      }
+      } catch (err) {""}
     };
     setHasLoaded(false);
     fetchData();
@@ -300,6 +299,6 @@ function PetSittingsCreateForm() {
       </p>
     </div>
   );
-};
+}
 
 export default PetSittingsCreateForm;

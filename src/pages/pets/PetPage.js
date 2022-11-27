@@ -16,8 +16,7 @@ function PetPage() {
       try {
         const { data: pet } = await axiosReq.get(`/pets/${id}`);
         setPet({results: [pet] });
-      } catch (err) {
-      }
+      } catch (err) {""}
     }
     handleMount();
   }, [id]);
@@ -34,6 +33,6 @@ function PetPage() {
       </Col>
     </Row>
   );
-};
+}
 
 export default PetPage;

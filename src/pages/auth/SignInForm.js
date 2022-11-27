@@ -117,6 +117,6 @@ function SignInForm() {
       </Col>
     </Row>
   );
-};
+}
 
 export default SignInForm;

@@ -42,8 +42,7 @@ function AdEditForm () {
       try {
         const { data } = await axiosReq.get('/ads/petchoices');
         setOptions(data);
-      } catch (err) {
-      }
+      } catch (err) {""}
     };
     fetchOptions();
   }, []);
@@ -90,8 +89,7 @@ function AdEditForm () {
             return pet.id
           })},
         ) : history.push('/');
-      } catch (err) {
-      }
+      } catch (err) {""}
     };
     handleMount();
   }, [history, id]);
@@ -377,6 +375,6 @@ function AdEditForm () {
       </Form>
     </div>
   );
-};
+}
 
 export default AdEditForm;

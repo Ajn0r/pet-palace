@@ -24,8 +24,7 @@ const DraftAds = ({mobile}) => {
       try {
         const { data } = await axiosReq.get(`/ads/?status=0&owner=${currentUser.pk}`)
         setDraftData(data);
-      } catch (err) {
-      }
+      } catch (err) {""}
     };
     handleMount();
     setDeleted(false);
@@ -42,8 +41,7 @@ const DraftAds = ({mobile}) => {
       try {
         await axiosRes.delete(`/ads/${id}`);
         setDeleted(true);
-      } catch (err) {
-      }
+      } catch (err) {""}
     };
   
     return (
@@ -71,7 +69,7 @@ const DraftAds = ({mobile}) => {
         </Modal>
       </>
     );
-  };
+  }
 
   return (
     currentUser && draftData.results.length ? (

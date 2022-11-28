@@ -65,12 +65,13 @@ function ContactPage() {
 						as="textarea"
 						rows={5}
 						name="message"
-						value={message}							
-						placeholder="You message..."
+						value={message}						
+						placeholder="Your message..."
 						onChange={handleChange} />
 				</Form.Group>
 				<Button 
 					className={`${btnStyles.Button} `}
+					disabled={!email || !message}
 					onClick={handleSubmit}
 				>
 					Send

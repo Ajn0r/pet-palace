@@ -52,6 +52,8 @@ function SignInForm() {
         <Container
           className={`shadow ${styles.Container}`}>
           <h1 className='text-center'>Sign In</h1>
+          <p className='d-sm-none text-center'><small>
+            It is not possible to sign in from mobile devices at the moment, apologies for the inconvenience</small></p>
           <hr className={appStyles.hr}/>
           <Form onSubmit={handleSubmit}>
             <Form.Group

@@ -693,6 +693,20 @@ Testing, validations and bugs can be found [here](/TESTING.md)
 
 ## Deployment
 
+### Project setup and first deployment
+
+1. Create a new repository on GitHub by clicking "New repository" and choosing a name for the project.
+2. Create a new workspace by clicking on "Gitpod".
+3. When the workspace has finished loading, run the terminal command `npx create-react-app . --template git+https://github.com/Code-Institute-Org/cra-template-moments.git --use-npm` to install React and the correct dependencies and library versions needed.
+4. When everything is installed, run the command `npm start` to make sure that the app is working, if everything is correct the browser should display a spinning React logo on a dark background.
+5. Remove the logo import in App.js and replace the React header with a custom message, for example, an h1 with the text 'It works'.
+6. Make sure the changes are rendered in the browser, if everything works, add, commit and push the changes to GitHub.
+7. Sign in to Heroku and create a new app
+8. Go to the Deploy tab and choose GitHub for 'Deployment method'
+9. Find the name of the repository and click 'Connect'
+10. Scroll down and make sure to have the main branch selected, then click 'Deploy branch'. Click 'view build log' to get a better view of the deployment.  
+11. Once deployed, click 'Open app' to make sure you can see your custom message set in App.js
+
 ## Technologies and resources used
 
 ### Languages

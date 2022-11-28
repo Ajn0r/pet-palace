@@ -703,6 +703,10 @@ If clicked on the petsitting the user will be sent to the detailed petsitting, a
 
 If the user has added any of their pets to the petsitting, the 'pets to sit' field will be displayed as well as a paw for each pet. The paw can be clicked and will take the user to the pet's details, which could be handy for the petsitter to quickly find information about the pet/pets they are petsitting.
 
+If a user wants to delete their account and have petsittings where they are the petsitter, the created 'staff' account with username "Deleted" will be set as petsitter instead. [The reasoning for this solution is described in the API  Readme](https://github.com/Ajn0r/pet-palace-api#pet-sitting-app)
+
+![petsittingdeleteduser](/documentation/images/deleteduser.png)
+
 Users can filter the petsittings and search for specific petsittings at the top of the petsittings page
 
 ![petsittingstop](/documentation/images/topofpetsittingspage.png)

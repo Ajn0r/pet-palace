@@ -8,3 +8,9 @@
     gap: 0.6rem;
     align-items: center;
 }
+.PetImg {
+    max-height: 30rem;
+    max-width: 100%;
+    border-radius: 0;
+    object-fit: cover;
+}

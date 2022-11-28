@@ -8,6 +8,7 @@ import Image from 'react-bootstrap/Image';
 import Alert from 'react-bootstrap/Alert';
 
 import UploadImg from '../../assets/uploadimage.png';
+import styles from "../../styles/Pet.module.css";
 import appStyles from '../../App.module.css';
 import btnStyles from '../../styles/Button.module.css';
 
@@ -94,11 +95,11 @@ function PetCreateForm () {
   };
 
   const imageInputField = (
-    <div>
+    <div className={`h-100 text-center`}>
       {image ? (
         <>
           <figure>
-            <Image className={appStyles.Image} src={image} rounded/>
+            <Image className={styles.PetImg} src={image} rounded/>
           </figure>
           {errors?.image?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
@@ -137,7 +138,7 @@ function PetCreateForm () {
   return (
     <Form
       onSubmit={handleSubmit}
-      className='p-5 mt-3 card shadow'
+      className='p-sm-5 mt-3 card shadow'
     >
       <Row className='justify-content-center'>
         <h1 className={`${appStyles.Text}`}>New Pet<hr /></h1>
@@ -149,7 +150,7 @@ function PetCreateForm () {
             {imageInputField}
           </Col>
           <Col lg={6} >
-            <Container className='pt-5'>
+            <Container className='pt-4'>
 
               <Form.Group>
                 <Form.Label>Name</Form.Label>

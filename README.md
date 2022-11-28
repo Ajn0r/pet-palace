@@ -2,6 +2,8 @@
 
  For my fifth and final project with Code Institute, I have created a pet community website called Pet Palace for pet lovers and pet owners where they can connect, add information about their pets, share images and posts, arrange petsittings and interact with each other by commenting and liking each others posts.
 
+![responsive](/documentation/images/responsive.png)
+
 The application is developed using the Django Rest framework for the backend and React for the front end.  
 
 This is the front-end part of the project, the backend part can be found [here](https://github.com/Ajn0r/pet-palace-api)

@@ -603,6 +603,8 @@ The user can delete their draft from the side panel if they click on the trash c
 
 The pet's features include viewing, creating and editing pets. Users can create 'pets' where they can add information and an image about their pet. They can later choose to connect their pet to the petsitting, making it easy for the petsitter to find information regarding the pet.
 
+![pets](/documentation/images/pets.png)
+
 The pets page shows all user's pets, and the logged-in user can filter based on the type of pet or just the user's pets.
 
 If the user doesn't choose an image, a default image will be set, this image is from pexels.
@@ -743,6 +745,16 @@ Testing, validations and bugs can be found [here](/TESTING.md)
 9. Find the name of the repository and click 'Connect'
 10. Scroll down and make sure to have the main branch selected, then click 'Deploy branch'. Click 'view build log' to get a better view of the deployment.  
 11. Once deployed, click 'Open app' to make sure you can see your custom message set in App.js
+
+### Final deployment
+
+1. Create a Procfile and add `web: serve -s build`
+2. Ensure all finalised code is committed and pushed to Github.
+3. Log into Heroku and open the dashboard for your frontend react application.
+4. Select the “Deploy” tab in the dashboard and select "Deploy Branch".
+5. Wait for the build to complete, click “view build log” to watch the process in a larger window.
+6. When you see the message “deployed to Heroku” in the build log, click the “open app” button at the top of the page.
+7. Test the deployed application to ensure it matches the development version.
 
 ## Technologies and resources used
 

@@ -261,21 +261,22 @@ function PetSittingsCreateForm() {
           </Form.Group>
  
           <Form.Group as={Col} md='12'>
-          <Form.Control               
-              as="select"
-              name='status'
-              value={status}
-              onChange={handleChange}>
-                <option>Choose...</option>
-                <option value={0} key={0}>Planned</option>
-                <option value={1} key={1}>Ongoing</option>
-                <option value={2} key={2}>Finished</option>
-            </Form.Control>
-            {errors?.status?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
-                {message}
-              </Alert>
-            ))}
+            <Form.Label>Status</Form.Label>
+            <Form.Control               
+                as="select"
+                name='status'
+                value={status}
+                onChange={handleChange}>
+                  <option>Choose...</option>
+                  <option value={0} key={0}>Planned</option>
+                  <option value={1} key={1}>Ongoing</option>
+                  <option value={2} key={2}>Finished</option>
+              </Form.Control>
+              {errors?.status?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                  {message}
+                </Alert>
+              ))}
           </Form.Group>
         </Form.Row>
         <Form.Row className={`float-right ${btnStyles.FormBtn}`}>

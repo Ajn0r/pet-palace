@@ -10,6 +10,10 @@ The rest of the project is tested manually, test were carried out on responsiven
 
 ### Functionality
 
+The functionality test tested the CRUD functionality of each component, that the user can create, view, edit and delete objects they have created. It also tested some of the filters and search functionality and error message handeling.
+
+![functiontest](/documentation/images/functiontests.png)
+
 ### Responsivness
 
 When testing responsiveness on iPhone and Ipad deceives and in Safari, I discovered that it's not possible to sign in, the pages that were reached did, however, have good responsiveness.

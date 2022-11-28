@@ -12,6 +12,60 @@ The API is deployed to Heroku and can be found [here](https://pet-palace-api.her
 
 The deployed React project is found [here](https://pet-palace.herokuapp.com/)
 
+- [Pet Palace](#pet-palace)
+  * [User Experience](#user-experience)
+    + [Who would the user be?](#who-would-the-user-be)
+    + [Why would a user want this?](#why-would-a-user-want-this)
+    + [What is already out there](#what-is-already-out-there)
+  * [User goals](#user-goals)
+    + [User stories](#user-stories)
+    + [User story fulfilment](#user-story-fulfilment)
+  * [Agile Approach](#agile-approach)
+    + [Sprint 1](#sprint-1)
+    + [Sprint 2](#sprint-2)
+    + [Sprint 3](#sprint-3)
+    + [Sprint 4](#sprint-4)
+  * [Features](#features)
+    + [Components](#components)
+      - [Spinner Asset](#spinner-asset)
+      - [Avatar](#avatar)
+      - [Three dots dropdowns](#three-dots-dropdowns)
+      - [Navbar](#navbar)
+      - [Side Bar](#side-bar)
+      - [Footerbar](#footerbar)
+    + [Pages](#pages)
+      - [Sign in & Sign up pages](#sign-in--sign-up-pages)
+      - [Posts](#posts)
+      - [Comments](#comments)
+      - [Likes](#likes)
+      - [Profile](#profile)
+      - [Popular profiles](#popular-profiles)
+      - [Ads](#ads)
+        * [DraftAd](#draftad)
+      - [Pets](#pets)
+      - [Petsittings](#petsittings)
+    + [Features to be implemented in the future](#features-to-be-implemented-in-the-future)
+      - [Ad interests](#ad-interests)
+      - [Ratings](#ratings)
+      - [Messages](#messages)
+  * [Releases](#releases)
+  * [Media and Design](#media-and-design)
+    + [Wireframes](#wireframes)
+    + [Images](#images)
+    + [Logo](#logo)
+    + [Fonts](#fonts)
+    + [Colours](#colours)
+  * [Testing](#testing)
+  * [Deployment](#deployment)
+    + [Project setup and first deployment](#project-setup-and-first-deployment)
+    + [Final deployment](#final-deployment)
+  * [Technologies and resources used](#technologies-and-resources-used)
+    + [Languages](#languages)
+    + [Frameworks, programs and platforms](#frameworks--programs-and-platforms)
+    + [Sites](#sites)
+    + [Resources](#resources)
+  * [Credits](#credits)
+
 ## User Experience
 
 ### Who would the user be?
@@ -480,7 +534,7 @@ The avatar component is used on several pages to display the user or pets image 
 
 The three dots drop-down is used on all pages where the user can manage objects, such as posts, petsittings etc. It's a drop-down menu with the option to edit or delete objects.
 
-### Navbar
+#### Navbar
 
 The navbar component consists of the pet palace logo, which only displays the paw on extra small screens up to 370px, and the paw logo with the Pet Palace text on all other screens wider than that.
 
@@ -504,7 +558,7 @@ The home and contact nav items are the same as for logged-out users, and the sig
 
 The new nav option stays visible on the navbar at all times also when the rest of the links are hidden in the collapsed navbar.
 
-### Side Bar  
+#### Side Bar  
 
 The sidebar component is a navigation component designed to let the user easily navigate the different functions and pages on the site. If the user clicks the two arrows on top the sidebar opens and reveals both the icon and where the name to it leads, and once open the close icon appears instead. 
 
@@ -514,7 +568,7 @@ The sidebar component is a navigation component designed to let the user easily 
 
 The Side Bar is designed with the thought that when users are familiar with the different icons and where they lead, they can simply click the icon without having to open the panel for navigation.
 
-### Footerbar
+#### Footerbar
 
 The Footerbar is a navigation bar for screens up to 507px, from 508px the Sidebar is displayed instead. The Footer bar has four icons at first glance, one drop-down home link, one for petsittings, one for pets and the last one for ads.
 
@@ -545,6 +599,16 @@ Once the user has left a comment it will be displayed under the comments form an
 ![commentmade](/documentation/images/commentmade.png)
 
 ![commentedit](/documentation/images/editcomment.png)
+
+#### Likes
+
+The user can like other users' posts if they are logged in by clicking on the heart symbol on the post. If the user wants to unlike the post, they click the heart again. If the user tries to like a post they own, they will get a tooltip popup that they cannot like their own posts.
+
+![likeownmsg](/documentation/images/likeownmsg.png)
+
+If the user tries to like a post while not logged in, they will get a tooltip telling them to sign in to like a post.
+
+![loginlikemsg](/documentation/images/loginlike.png)
 
 #### Profile
 

@@ -12,6 +12,10 @@ The rest of the project is tested manually, test were carried out on responsiven
 
 ### Responsivness
 
+When testing responsiveness on iPhone and Ipad deceives and in Safari, I discovered that it's not possible to sign in, the pages that were reached did, however, have good responsiveness.
+
+Responsiveness was tested on a Macbook Air 13", iPhone 12, iPad 8th gen, HP Pc with windows 10 and in Safari, Chrome, Firefox and Edge browsers. The responsiveness was also tested in both the Chrome and Firefox dev tools. Overall the responsiveness was good, there were some minor issues with margins or paddings that needed to be corrected, but it was easily and quickly fixed.
+
 ### Routing
 
 The routing tests tested that all routes worked properly, there was one route that was set up wrong but it was a quick fix.

@@ -94,8 +94,9 @@ function PetCreateForm () {
     }
   };
 
+
   const imageInputField = (
-    <div className={`h-100 text-center`}>
+    <div className={`text-center`}>
       {image ? (
         <>
           <figure>
@@ -146,7 +147,7 @@ function PetCreateForm () {
       
       <Container>
         <Row>
-          <Col lg={6} className={`container ${appStyles.Image}`}>
+          <Col lg={6} className={`container ${styles.PetImg}`}>
             {imageInputField}
           </Col>
           <Col lg={6} >
@@ -225,7 +226,7 @@ function PetCreateForm () {
           </Col>
         </Row>
 
-        <Row className={`float-right w-100 justify-content-end`}>
+        <Row className={`float-right w-100 justify-content-end mb-2`}>
           <Button
             className={` ${btnStyles.CloseBtn}`}
             onClick={() => history.goBack()}
@@ -236,8 +237,11 @@ function PetCreateForm () {
             Submit            
           </Button>
         </Row>
-
       </Container>
+      {errors?.detail && (
+        <Alert variant='warning' className="text-center">You already have a pet called {name} born on that date,
+        if you have two pets with the same name born on the same date,
+        please name one {name}1 or something similar to tell them apart</Alert>)}
     </Form>
   );
 }

@@ -166,7 +166,7 @@ function PetEditForm () {
       
       <Container>
         <Row>
-          <Col lg={6} className={`container ${appStyles.Image}`}>
+          <Col lg={6} className={`container ${styles.PetImg}`}>
             {imageInputField}
           </Col>
           <Col lg={6} >
@@ -234,18 +234,12 @@ function PetEditForm () {
                   value={description}
                   onChange={handleChange}  
                 />
-                {errors?.description?.map((message, idx) => (
-                  <Alert variant="warning" key={idx}>
-                    {message}
-                  </Alert>
-                ))}
               </Form.Group>
-
             </Container>
           </Col>
         </Row>
 
-        <Row className={`float-right w-100 justify-content-end`}>
+        <Row className={`float-right w-100 mb-2 justify-content-end`}>
           <Button
             className={` ${btnStyles.CloseBtn}`}
             onClick={() => history.goBack()}
@@ -256,8 +250,11 @@ function PetEditForm () {
             Submit            
           </Button>
         </Row>
-
       </Container>
+      {errors?.length && (
+        <Alert variant='warning' className="text-center">You already have a pet called {name} born on that date,
+        if you have two pets with the same name born on the same date,
+        please name one {name}1 or something similar to tell them apart</Alert>)}
     </Form>
   );
 }

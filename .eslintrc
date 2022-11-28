@@ -8,10 +8,9 @@
         "eslint:recommended",
         "plugin:react/recommended"
     ],
-    "overrides": [
-    ],
+    "parser": "babel-eslint",
     "parserOptions": {
-        "ecmaVersion": "latest",
+        "ecmaVersion": 12,
         "sourceType": "module",
         "ecmaFeatures": {"jsx": true}
     },

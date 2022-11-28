@@ -14,7 +14,7 @@ The deployed React project is found [here](https://pet-palace.herokuapp.com/)
 
 ### Who would the user be?
 
-The user would be someone who likes animals, it could be a pet owner that would like to share fun posts about their pet or get help with pet sittings. It could be someone who likes pets that wants to join the community and interact with other users with the same interest, or they might want to pet sit. It could be someone who has retired or have some extra time in the day to take care of a dog during the days but doesn't want the commitment of having a dog of their own, win-win for both the pet owner and the pet sitter! 
+The user would be someone who likes animals, it could be a pet owner that would like to share fun posts about their pet or get help with pet sittings. It could be someone who likes pets that wants to join the community and interact with other users with the same interest, or they might want to pet sit. It could be someone who has retired or have some extra time in the day to take care of a dog during the days but doesn't want the commitment of having a dog of their own, win-win for both the pet owner and the pet sitter!
 
 ### Why would a user want this?
 
@@ -26,6 +26,12 @@ The user would be someone who likes animals, it could be a pet owner that would 
 
     Not everyone has the means and opportunity to have pets of their own for different reasons but might have some extra time on their hands and would like to be around pets and maybe even make a bit of extra money.
 
+- From the regular* users' perspective
+
+    For the regular user, the site will add value in the sense that they can view funny or cute posts on pets as a relaxing way to pass some time.
+
+    *A regular user is someone who is not a pet owner or a petsitter and doesn't use the pet sitting or ad functionality.
+
 ### What is already out there
 
 There are already a few petsitting sites out there such as Rover.com, Trustedhousesitters and probably a handful of different sites local to each area.
@@ -34,7 +40,41 @@ There is also a site called thepet.community that combines it to some extent, ho
 
 Without having done deeper research on the field, I did not find any sites that combine them both in the way I decided to therefore I thought would be a good idea.
 
-## User goal
+## User goals
+
+A logged-in user is all users that have signed up and have an account. Pet owners' and petsitters' user goals also contain the logged-in user's goals, but they also have some added goals specific to their user type. A logged-out user is someone who hasn't signed in or hasn't created an account.
+
+- As a logged-out user I want to be able to:
+  - View posts
+  - View comments on a post
+  - View the number of likes and comments on each post
+  - View the user's profile and learn more about them
+  - Be able to sign in or up
+
+- As a logged-in user I want to be able to:
+  - Share posts with other users on pet-related topics
+  - Manage my posts
+  - Interact with other users by liking and commenting on their posts
+  - Read and respond to comments made on posts
+  - View ads to see if I can find any of interest to me
+  - View other user's profiles to learn more about them
+  - Manage and update my profile and account
+
+- As a Pet owner I want to be able to:
+  - Share posts about my pets
+  - Create a page for my pet with their information
+  - Manage my pets
+  - Create ads for when I need a petsitting
+  - Manage my ads
+  - Create a petsitting with another user and connect my pets
+  - Manage my petsittings
+
+- As a Pet sitter I want to be able to:
+  - Share posts about  petsittings
+  - View ads from pet owners needing a petsitter
+  - Create ads to offer my petsitting services
+  - View the details of the pet I'm petsitting
+  - View the contact information of the pet owner so I can get in touch with them
 
 ### User stories
 
@@ -420,9 +460,19 @@ This was the last sprint before submission and the Sprint goal was to have a dep
 
 ## Features
 
-### Sign in & Sign up pages
+### Components
 
-The sign-in page and the sign-up page are pretty similar, for signing up the user needs to enter a username and password twice to make sure they match. When signing in the user enters their username and password, if some of the input fields are missing the button will be disabled. If the user enters the wrong information they will get an error message.
+#### Spinner Asset
+
+The spinner displays when data is loading from the API to give the user some feedback
+
+#### Avatar
+
+The avatar component is used on several pages to display the user or pets image as a small avatar
+
+#### Three dots dropdowns
+
+The three dots drop-down is used on all pages where the user can manage objects, such as posts, petsittings etc. It's a drop-down menu with the option to edit or delete objects.
 
 ### Navbar
 
@@ -460,11 +510,17 @@ The Footerbar is a navigation bar for screens up to 507px, from 508px the Sideba
 
 The home drop-down menu has three options for displaying posts, the first displays all posts, the second for the post by the users that the current user is following and the last is for all liked posts by the user. The Footerbar is only displayed for logged-in users, and while it's not possible to sign in from mobile devices at the moment it's ready to go when it is.
 
-### Posts
+### Pages
+
+#### Sign in & Sign up pages
+
+The sign-in page and the sign-up page are pretty similar, for signing up the user needs to enter a username and password twice to make sure they match. When signing in the user enters their username and password, if some of the input fields are missing the button will be disabled. If the user enters the wrong information they will get an error message.
+
+#### Posts
 
 The post feature allows users to create posts that then are displayed based on all, just from users that the logged-in user follows or just posts that the user has liked. The feature is greatly inspired by the code institute moment posts function with added category field that lets users pick a category for their posts. The different categories are collected from the API with axios.options method leading to the category choice variable.
 
-### Comments
+#### Comments
 
 The comment component lets logged-in users leave comments on posts. This is done on the PostPage under the details of the post that the user wants to comment on.
 
@@ -476,7 +532,7 @@ Once the user has left a comment it will be displayed under the comments form an
 
 ![commentedit](/documentation/images/editcomment.png)
 
-### Profile
+#### Profile
 
 The profile features include letting users update both username and password as well as editing their profile.
 
@@ -496,7 +552,7 @@ The "users pets" box shows the avatar and name of the user's pets if they have a
 
 ![userspet](/documentation/images/userspetsbox.png)
 
-### Popular profiles
+#### Popular profiles
 
 The most popular profiles, which are the ones with the most followers, are displayed on almost all pages. The component will be displayed to the side of the main content on a larger screen and above the content on smaller screens.
 The user can follow or unfollow other users directly from this component by clicking on the buttons
@@ -507,12 +563,12 @@ The user can follow or unfollow other users directly from this component by clic
 
 This feature is greatly inspired by the moments walkthrough with Code Institute without any specific alterations from the original code.
 
-### Ads
+#### Ads
 
 The ad features include creating, editing and viewing ads. The user can create ads if they need a petsitter, wants to petsit or any other type of ad.  
 The user can search for and filter ads on the type of pet or the type of ad it is, so if the user only wants to see ads with dogs they can choose 'filter by pet' and then choose the dog options.
 
-#### DraftAd  
+##### DraftAd  
 
 If the user has any ads in the draft stage, the ad's title will be displayed, and if clicked, it leads the user to that post. The component will be displayed on the side of the ads on larger screens and at top of the content on smaller screens.
 
@@ -522,13 +578,13 @@ The user can delete their draft from the side panel if they click on the trash c
 
 ![deletemodal](/documentation/images/deletedraftmodal.png)
 
-### Pets
+#### Pets
 
 The "my pets" box shows the currently logged-in users' pets on both the pets page and the page
 
 ![mypets](/documentation/images/topofpetspage.png)
 
-### Petsittings
+#### Petsittings
 
 Users can create petsittings, choosing from other users on the site, excluding admin and staff users (Deleted). They will need to enter information about the petsitting such as location, start and end date, compensation, description and if they want to connect any pets to the petsitting. The user can only choose from their pets, and if they haven't created any pets yet they are encouraged to do so in the pets field.Lastly, the user can choose if the petsitting has the status of planned, ongoing or finished.
 
@@ -550,7 +606,7 @@ Users can filter the petsittings and search for specific petsittings at the top 
 
 ### Features to be implemented in the future
 
-The API has the functionality already now to handle messages, ratings and adding interest to ads but was not implemented in this release due to time constraints. 
+The API has the functionality already now to handle messages, ratings and adding interest to ads but was not implemented in this release due to time constraints.
 
 Other features could include some sort of geolocation, such as google maps api could be integrated to give the user a better experience. Displaying ads that have the location close to the user for example, since it's thought to be a global site it's no point in showing all ads that are not even in the same country. For now, the user can use the search bar to search for ads in a specific location.
 
@@ -633,44 +689,50 @@ The colours for the project are blue, orange and white
 
 ## Testing
 
-Testing:
-The sign-in and sign-up pages were tested for if all input fields were rendered, and whether the user could change the value in the input fields. When testing I also decided to set the button as disabled if the user hadn't filled in all input fields, and then tested for this as well. These tests were inspired by Lama Dev's [React testing tutorial youtube video](https://www.youtube.com/watch?v=Flo268xRpV0&t=2242s)
-
-The rest of the project is tested manually, test were carried out on responsiveness, routing and functionality.
-
-### Validation
-
-Eslint was used to validate Javascript and jigsaw was made to validate all CSS files.
-When validating the CSS there was one error, seems I accidentally had removed a piece of the identifier somehow, it was easily solved by adding the correct value.
-
-## Bugs
-
-### Fixed
-
-- Ad 'bug'
-
-    While there is validation on the backend to not allow for dates that have passed I still wanted to validate it on the front end. When updating an ad I first made the input disabled if the date was before today's date, this did, however, cause some unthought-of problems. If a user choose a date accidentally in the past, the input was disabled and the user had to refresh the page or start over.
-
-    I also realised that a user might want to reuse an ad if they need a new pet sitting with the same information just changing the dates. Therefore, I decided to remove the disable logic and instead set the min value to today's date for the Start date and date_from as the min value for the End date, making it impossible for the user to set a date backwards in time.
-
-- Age calculation bug
-
-    There was some faulty logic in the age calculations, that came from the API so it was handled there, it's described [here](https://github.com/Ajn0r/pet-palace-api#pets)
-
-### Not fixed
-
-- Pets page for logged out users
-
-    Logged-out users can reach the pets page if they manually add it to the url, but the filter functions won't work, I think this is due to the dependency for fetching the pets options for pet type.
-
-- Mobile sign in
-
-    It's not possible to log in from mobile and tablet devices, I believe this has to do with the token being saved to localStorage and that won't work on mobile. There is probably some way around this, however, for now, the users will need to use desktop versions to be able to log in and use all functions. The user can still view posts and if manually adding ads or pets to the url they can reach that too.
+Testing, validations and bugs can be found [here](/TESTING.md)
 
 ## Deployment
 
 ## Technologies and resources used
 
+### Languages
+
+- HTML
+- JSX
+- CSS
+- JavaScript
+
+### Frameworks, programs and platforms
+
+- React.js
+- React Bootstrap.js
+- Balsamiq - For wireframes
+- GitPod - For the workspace
+- GitHub - For hosting the Repository
+- ESLint - To validate the JavaScript and jsx code
+- Heroku - Platform for deploying and hosting the deployed version of the website
+- Adobe Illustrator for vector handling
+- Adobe Express for creating the logo and the "cat helper"
+- Adobe Creative Cloud for removing backgrounds from images
+
+### Sites
+
+- [AmIResonsive](https://amiresponsive.blogspot.com/) - To check responsiveness on all screen sizes
+- [Coolors.co](https://coolors.co/) - For creating an image to present the colours in the README
+- [Google fonts](https://fonts.google.com/) - For fonts
+- [Adobe Stock](https://stock.adobe.com/) - For images for the site
+- [FontAwesome](https://fontawesome.com/) - Icons used on the site
+- [Jigsaw CSS validator](https://jigsaw.w3.org/css-validator/) for validating the CSS files
+
+### Resources
+
+- The Code Institute's Moments walkthrough project code for setting up the project and many of the components
+- React Bootstrap documentation
+- Stack overflow and W3C Schools for inspiration on solutions
+- Code Institute Slack community
+
 ## Credits
 
-Code Institutes moments project walkthrough was used and followed to create the first part of the project, such as posts, profiles, avatars, assets such as spinner, navbar, like and commenting on a post and follow/unfollow functions with minor alterations to suit my project.
+- Code Institutes moments project walkthrough was used and followed to create the first part of the project, such as posts, profiles, avatars, assets such as spinner, navbar, like and commenting on a post and follow/unfollow functions with minor alterations to suit my project.
+
+- My mentor, Spencer Barriball, for guidance and support.

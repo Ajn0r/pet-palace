@@ -397,18 +397,18 @@ This is how the user story is fulfilled, the blank ones are the ones still left 
 | 33 | The user can see all details about the pet both from the pets page and from the pet page |
 | 34 | The user can filter the pets by type of pet or just the user's pet. To filter by type the user chooses one of the options from the drop-down, for the user's pets they click the "my pets" button. |
 | 35 | The user can search for pets by typing in the search word in the search bar. |
-| 36 | |
-| 37 | |
-| 38 | |
+| 36 | The user can create a new ad by clicking on the plus circle and choose “new ad” from the drop-down menu |
+| 37 | The user can edit or delete their ad if they are on the AdPage and click on the three dots drop down menu and choose from either edit or delete menu options |
+| 38 | The users can view ads, if the current user is the ad owner they can view all ads, for other users only the active ads will be displayed |
 | 39 | |
-| 40 | |
-| 41 | |
+| 40 | The user can filter ads by type of ad, what pets the ad is for and  |
+| 41 | The user can search for ads by the ad owners username or the location of the ad |
 | 42 | |
 | 43 | |
 | 44 | |
 | 45 | |
 | 46 | |
-| 47 | |
+| 47 | The user can create a draft by choosing the status of draft when creating the ad, once created the user can view their ads in the ‘my drafts’ box to the right of the ads on larger screens, and on top of the ads on smaller screens on the ads pages |
 | 48 | |
 | 49 | |
 | 50 | |
@@ -416,10 +416,10 @@ This is how the user story is fulfilled, the blank ones are the ones still left 
 | 52 | |
 | 53 | |
 | 54 | |
-| 55 | |
-| 56 | |
-| 57 | |
-| 58 | |
+| 55 | The user can create a petsitting by clicking on the plus circle and choosing new petsitting from the drop down menu options |
+| 56 | If the user has any pets they can connect them to the petsitting by clicking on the pets to connect from the list. If the user hasn’t added any pets yet, they are encouraged to do so, or they can choose to create a petsitting without any pets |
+| 57 | The user can manage their petsitting by clicking on the three dots icon on the petsitting detailed view, from the drop down menu they can choose to either edit or delete the petsitting  |
+| 58 | The user can view the details of a petsitting by clicking in the petsitting they would like to know more about. If the current user is the owner or pet sitter, they can see the compensation field, if not they can view all information except for the compensation |
 | 59 | |
 | 60 | |
 | 61 | |
@@ -466,9 +466,13 @@ This was the last sprint before submission and the Sprint goal was to have a dep
 
 The spinner displays when data is loading from the API to give the user some feedback
 
+![spinner](/documentation/images/spinner.png)
+
 #### Avatar
 
 The avatar component is used on several pages to display the user or pets image as a small avatar
+
+![avatar](/documentation/images/avatar.png)
 
 #### Three dots dropdowns
 
@@ -500,7 +504,13 @@ The new nav option stays visible on the navbar at all times also when the rest o
 
 ### Side Bar  
 
-The sidebar component is a navigation component designed to let the user easily navigate the different functions and pages on the site. If the user clicks the two arrows on top the sidebar opens and reveals both the icon and where the name to it leads, and once open the close icon appears instead. The Side Bar is designed with the thought that when users are familiar with the different icons and where they lead, they can simply click the icon without having to open the panel for navigation.
+The sidebar component is a navigation component designed to let the user easily navigate the different functions and pages on the site. If the user clicks the two arrows on top the sidebar opens and reveals both the icon and where the name to it leads, and once open the close icon appears instead. 
+
+![opensidebar](/documentation/images/sidebarexpanded.png)
+
+![closedsidebar](/documentation/images/sidebar.png)
+
+The Side Bar is designed with the thought that when users are familiar with the different icons and where they lead, they can simply click the icon without having to open the panel for navigation.
 
 ### Footerbar
 
@@ -519,6 +529,8 @@ The sign-in page and the sign-up page are pretty similar, for signing up the use
 #### Posts
 
 The post feature allows users to create posts that then are displayed based on all, just from users that the logged-in user follows or just posts that the user has liked. The feature is greatly inspired by the code institute moment posts function with added category field that lets users pick a category for their posts. The different categories are collected from the API with axios.options method leading to the category choice variable.
+
+![posts](/documentation/images/posts.png)
 
 #### Comments
 
@@ -565,8 +577,17 @@ This feature is greatly inspired by the moments walkthrough with Code Institute 
 
 #### Ads
 
-The ad features include creating, editing and viewing ads. The user can create ads if they need a petsitter, wants to petsit or any other type of ad.  
+The ad features include creating, editing and viewing ads.
+
+![ads](/documentation/images/ads.png)
+
+The user can create ads if they need a petsitter, wants to petsit or any other type of ad.  
+
+![createAd](/documentation/images/newad.png)
+
 The user can search for and filter ads on the type of pet or the type of ad it is, so if the user only wants to see ads with dogs they can choose 'filter by pet' and then choose the dog options.
+
+![topofad](/documentation/images/topofadspage.png)
 
 ##### DraftAd  
 
@@ -580,13 +601,27 @@ The user can delete their draft from the side panel if they click on the trash c
 
 #### Pets
 
+The pet's features include viewing, creating and editing pets. Users can create 'pets' where they can add information and an image about their pet. They can later choose to connect their pet to the petsitting, making it easy for the petsitter to find information regarding the pet.
+
+The pets page shows all user's pets, and the logged-in user can filter based on the type of pet or just the user's pets.
+
+If the user doesn't choose an image, a default image will be set, this image is from pexels.
+
+![defaultpet](/documentation/images/petprofile.jpg)
+
 The "my pets" box shows the currently logged-in users' pets on both the pets page and the page
 
 ![mypets](/documentation/images/topofpetspage.png)
 
 #### Petsittings
 
-Users can create petsittings, choosing from other users on the site, excluding admin and staff users (Deleted). They will need to enter information about the petsitting such as location, start and end date, compensation, description and if they want to connect any pets to the petsitting. The user can only choose from their pets, and if they haven't created any pets yet they are encouraged to do so in the pets field.Lastly, the user can choose if the petsitting has the status of planned, ongoing or finished.
+Users can create petsittings, choosing from other users on the site, excluding admin and staff users (Deleted). They will need to enter information about the petsitting such as location, start and end date, compensation, description and if they want to connect any pets to the petsitting. The user can only choose from their pets, and if they haven't created any pets yet they are encouraged to do so in the pets field. Lastly, the user can choose if the petsitting has the status of planned, ongoing or finished.
+
+![newpetsitting](/documentation/images/newpetsitting.png)
+
+If the user has pets to connect
+
+![petsittingpets](/documentation/images/petsittingspets.png)
 
 In this form I decided to let users choose from passed dates due to that they might want to register a petsitting that has already started, the petsitter might not have had an account when the petsitting took place or for some other reason. The end date needs to be after the start date though.
 
@@ -609,6 +644,8 @@ Users can filter the petsittings and search for specific petsittings at the top 
 The API has the functionality already now to handle messages, ratings and adding interest to ads but was not implemented in this release due to time constraints.
 
 Other features could include some sort of geolocation, such as google maps api could be integrated to give the user a better experience. Displaying ads that have the location close to the user for example, since it's thought to be a global site it's no point in showing all ads that are not even in the same country. For now, the user can use the search bar to search for ads in a specific location.
+
+User verification system - A future feature could be to have some sort of verification that the user is the person they say they are, Airbnb is a good inspiration on how to validate users from different countries. This feature could make users feel safer when arranging petsittings.
 
 #### Ad interests
 

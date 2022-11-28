@@ -1,5 +1,18 @@
 # Testing
 
+- [Testing](#testing)
+  * [Automatic tests](#automatic-tests)
+  * [Manual tests](#manual-tests)
+    + [Functionality](#functionality)
+    + [Responsivness](#responsivness)
+    + [Routing](#routing)
+  * [Validation](#validation)
+    + [ESLint](#eslint)
+    + [CSS](#css)
+  * [Bugs](#bugs)
+    + [Fixed](#fixed)
+    + [Not fixed](#not-fixed)
+
 ## Automatic tests
 
 The sign-in and sign-up pages were tested for if all input fields were rendered, and whether the user could change the value in the input fields. When testing I also decided to set the button as disabled if the user hadn't filled in all input fields, and then tested for this as well. These tests were inspired by Lama Dev's [React testing tutorial youtube video](https://www.youtube.com/watch?v=Flo268xRpV0&t=2242s)
